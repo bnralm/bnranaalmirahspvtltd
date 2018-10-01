@@ -1,2 +1,5 @@
-/node_module/
+#ignore file list
+
+/node_modules/
+/public/scripts/bundle.js
 /package-lock.json

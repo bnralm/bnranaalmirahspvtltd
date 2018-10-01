@@ -14,7 +14,9 @@ import './src/scss/pagenotfound.scss';
 import './src/scss/pdp.scss';
 import './src/scss/plp.scss';
 import './src/scss/stickyscale.scss';
-import './src/playground/hoc.js'
+import './src/store/configureStore';
+
+// import './src/playground/hoc.js';
 
 import './node_modules/slick-carousel/slick/slick.css'
 // import "./node_modules/slick-carousel/slick/slick-theme.css";
