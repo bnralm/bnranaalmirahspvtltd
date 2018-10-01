@@ -1,0 +1,8 @@
+@import './_settings.scss';
+.pagenot-found {
+    margin-bottom: $md-space; 
+    &__list-item {
+        padding-bottom: $md-space;
+        font-size:  $sm-space;
+    }
+}

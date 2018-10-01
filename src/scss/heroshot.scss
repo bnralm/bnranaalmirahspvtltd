@@ -1,0 +1,45 @@
+@import './_settings.scss';
+.heroshot-container {
+    position: relative;
+    .heroshot-image {
+        overflow: hidden;
+        text-align: center;
+        img {
+           width: 100%;
+           @media only screen and (max-width: $bp-desktop) {
+               height: 400px;
+               width: auto;
+           }
+        }
+        
+    }
+    .heroshot-textwrap {
+        position: absolute;
+        top: 50px;
+        color: #fff;
+        left: 0;
+        right: 0;
+        padding: 0 10px;
+        text-align: center;
+        margin: 0 auto;
+        .header {
+            font-size:2em;
+            @media only screen and (min-width: $bp-desktop) { 
+                font-size:4em;
+            }
+        }
+        .picture {
+            width:100px;
+            height: 100px;
+            margin: 0 auto;
+            @media only screen and (min-width: $bp-desktop) {
+                width:200px;
+                height: 200px;
+            }
+        }
+        @media only screen and (min-width: $bp-desktop) {
+            top:20px;
+            width: 80vw;
+        }
+    }
+}

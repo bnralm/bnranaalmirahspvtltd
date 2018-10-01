@@ -1,0 +1,67 @@
+@import './_settings.scss';
+
+.product-list {
+    border-bottom: 2px solid $border-color;
+    @media only screen and (min-width:$bp-desktop) {
+        background: $white;
+        border-bottom-width: 0;
+        padding: 10px 20px;
+        box-shadow: 0 1px 6px 0 rgba(0,0,0,0.05);
+        &:hover{
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+    }
+    .container{
+        margin-bottom: $md-space;
+    }
+    .button{
+        padding: $sm-space;
+        &.button-primary {
+            background-color: $blue;
+            color:$white;
+            font-weight: 500;
+            transition: all 0.3s ease-in;
+            &:hover {
+                background-color: $black-btn-color;
+            }
+            cursor: pointer;
+        }
+    }
+    .flex{
+        
+        display: flex;
+        padding-top: $sm-space;
+        @media only screen and (max-width: $bp-desktop) {
+            padding-top: $xs-space;
+            justify-content: space-between;
+        }
+    }
+    
+    .notes {
+        padding: $sm-space 0;
+    }
+    
+    .plp-table-container{
+        overflow: auto;
+        margin-bottom:$sm-space;
+    
+        th, td {
+            white-space: nowrap;
+            padding:10px 10px;
+        }
+    }
+    .plp-description {
+        padding-bottom: $sm-space; 
+    }
+    picture {
+        display: block;
+        position: relative;
+        @media only screen and (min-width:$bp-desktop) {
+            height: 200px;
+        }
+    }
+    &+ & {
+        margin-top: $md-space; 
+    }
+    
+}

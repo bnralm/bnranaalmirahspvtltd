@@ -1,0 +1,36 @@
+@import './_settings.scss';
+.header {
+    font-family: $font-varela;
+    margin: 0 auto $md-space;
+}   
+.card{
+    &.card-rounded {
+        min-height: 350px;
+        box-sizing: border-box;
+        box-shadow: none;
+        border:3px solid #64b5f6;
+        padding: $lg-space $md-space 3rem;
+        border-radius: 15px;
+        
+        @media only screen and (min-width: $bp-desktop) {
+            border-radius: 30px;
+        }
+
+        .level-4 {
+            font-size: $lg-space;
+        }
+        .picture {
+            width: 80px;
+            margin: $md-space auto 0;
+            img {
+                width: 100%;
+            }
+        }
+        .line-seperator{
+            height:6px;
+            width: 50px;
+            margin: $md-space auto;
+            background:$green;
+        } 
+    }
+}

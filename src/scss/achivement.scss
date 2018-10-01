@@ -1,0 +1,27 @@
+@import './_settings.scss';
+.achievement{
+    &-wrap {
+        padding-top: $lg-space !important;
+        @media only screen and (min-width:$bp-desktop) {
+            padding-top:none;
+        }
+    }
+    
+    &-title {
+        font-size: $lg-space;
+        @media only screen and (min-width:$bp-desktop) {
+            font-size:90px;
+        }
+        font-family: $font-varela;
+    }
+    &-label{
+        @media only screen and (min-width:$bp-desktop) {
+            margin-top:-20px;
+            font-size: $md-space;
+            font-family: $font-varela;
+            border-bottom: none;
+        }
+        padding-bottom: $lg-space;
+        border-bottom: 2px solid $black-btn-color;
+    }
+}

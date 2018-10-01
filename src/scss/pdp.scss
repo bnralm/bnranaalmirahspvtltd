@@ -1,0 +1,93 @@
+@import './_settings.scss';
+
+.pdp-desc-table {
+    > tr {
+        &:nth-child(2n + 1) {
+            background: #e3f2fd; 
+        }
+        td, th {
+            @media only screen and (min-width: $bp-desktop) {
+                padding: $sm-space $md-space;
+            }
+        }
+    }
+}
+.gallary-item {
+    height: 422px;
+    img {
+        height: 100%;
+    }
+    @media only screen and (min-width: $bp-desktop) {
+        max-height: 500px;
+        height: auto;
+    }
+}
+
+.pdp-gallary {
+    .header {
+        text-align: center;
+        padding-top: $lg-space; 
+        @media only screen and (min-width: $bp-desktop) {
+            text-align: left;
+        }
+    }
+    .slick-arrow {
+        &.slick-next, &.slick-prev {
+            bottom: auto;
+            top: calc(50% - 3px);
+            z-index: 99;
+            background-image:none !important;
+            width: 50px !important;
+            height: 50px !important;
+            background-color: $indigo !important;
+            border-radius: 10px;
+            
+            &:before {
+                font-family: 'Material Icons';
+                font-size: 40px;
+                color: white;
+                position: absolute;
+                left: 6px;
+                 top: -5px;
+            }
+            transition: all 0.45s ease-in;
+
+            &:hover {
+                background-color: $black-btn-color !important; 
+            }
+        }
+        &.slick-prev {
+            &:before{
+                content: 'keyboard_arrow_left';
+            }
+        }
+        &.slick-next {
+            &:before {
+                content: 'keyboard_arrow_right';
+            }
+        }
+    }
+   > .slider {
+        max-height: 350px;
+    }
+}
+.pdp-location {
+    padding-right: $sm-space;
+    display: inline-block;
+}
+
+.pdp-description {
+    margin-top: $lg-space; 
+}
+.pdp-action-btns {
+    padding-top: $lg-space; 
+    margin-top: $lg-space; 
+    .button {
+        margin-bottom: $sm-space;
+    }
+}
+.pdp-bio{
+    @media only screen and (min-width: $bp-desktop) {
+        margin-top: 45px;
+    }
+}

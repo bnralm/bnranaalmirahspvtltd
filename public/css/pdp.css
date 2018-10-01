@@ -1,0 +1,93 @@
+.carousel.carousel-slider .carousel-fixed-item.with-indicators{
+	left: 10px;
+	right: 10px;
+	bottom: 10px;
+}
+
+.carousel-slider.pdp{
+	border:1px dotted #1a237e;
+}
+
+.carousel.pdp .indicators .indicator-item {
+	    background-color: #3f51b5;
+}
+.carousel.pdp .indicators .indicator-item.active {
+	background-color: #1a237e;
+}
+
+.custom-bread {
+	font-size: 13px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+}
+.custom-bread .bread-item{
+	color:#000;
+	padding-right: 20px;
+	position: relative;
+}
+
+
+.custom-bread .bread-item:after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-width: 0px 1px 1px 0;
+    border-color: #000;
+    display: inline-block;
+    border-style: solid;
+    transform: rotate(-45deg);
+    line-height: 13px;
+    vertical-align: middle;
+    position: absolute;
+    right: 8px;
+    top: 7px;
+}
+.custom-bread .bread-item:last-child {
+	font-weight: bold;
+}
+.custom-bread .bread-item:last-child:after {
+	content: none;
+}
+
+.user-action-pdp {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	border-top: 1px solid #d7d7d7;
+	padding-top: 15px;
+	border-bottom: 1px solid #d7d7d7;
+	padding-bottom: 15px;
+}
+
+.user-action-pdp a {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    padding-left: 30px;
+}
+.user-action-pdp a .material-icons{
+	position: absolute;
+	left: 0;
+}
+.modal .modal-footer {
+	text-align: center !important;  
+}
+.pdp-desc-table tr td:first-child{
+	width: 40vh;
+}
+
+.cart-item {
+    position: absolute;
+    top: 5px;
+    z-index: 10;
+    background-color: red;
+    height: 20px;
+    width: 20px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 50%;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 20px;
+    left: 15px;
+}

@@ -1,0 +1,70 @@
+@import './_settings.scss';
+.contact-row {
+    position: relative;
+    padding-left: 50px;
+    padding-bottom: $lg-space;
+    word-break: break-word;
+}
+
+.icon {
+    position: absolute;
+    left: 0;
+}
+.contactus-form--text{
+    border:2px solid #9c27b0;
+    position: relative;
+    border-radius:30px;
+    padding: 0 $md-space;
+    .required-field {
+        position: absolute;
+        right: 25px;
+        top:5px;
+        font-size: 0.8rem;
+    }
+    & + & {
+        margin-top:$md-space;
+      ;
+    }
+    input {
+        border:none !important;
+        -webkit-box-shadow:none !important;
+        box-shadow: none !important;
+        &:focus {
+            border:none !important;
+            -webkit-box-shadow:none !important;
+            box-shadow: none !important;
+            &:not {
+                border: none !important;
+                box-shadow: none !important;
+                -webkit-box-shadow:none !important;
+            }
+        }
+    }
+}
+// padding: 0 0 30px
+.contactus-form--text-area {
+    position: relative;
+    border:2px solid #9c27b0;
+    border-radius:30px;
+    margin-top:$md-space;
+    margin-bottom:$md-space;
+    padding: $md-space;
+    textarea {
+        border: none;
+        resize: none;
+        min-height: 100px;
+        outline: none;
+    }
+    .required-field {
+        position: absolute;
+        right: 25px;
+        top:5px;
+        font-size: 0.8rem;
+    }
+}
+
+.contact-info {
+    & + & {
+        padding-left: $md-space;
+    }
+}

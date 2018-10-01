@@ -1,0 +1,21 @@
+@import './_settings.scss';
+.button {
+    font-family: $font-btn;
+    display: inline-block;
+    box-shadow: none;
+    border:none;
+    padding: $sm-space $lg-space;
+    border-radius: 30px;
+    &--primary {
+        color:$white;
+        background-color: $green;
+        border-color:$green;
+        transition: all 0.45s ease-in;
+        cursor: pointer;
+        font-weight: 700;
+        &:hover {
+            background-color: $black-btn-color;
+            border-color: $black-btn-color;
+        }
+    }
+}

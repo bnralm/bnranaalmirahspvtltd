@@ -1,0 +1,64 @@
+
+@import './_settings.scss';
+.sticky {
+    &__request {
+        position: fixed;
+        z-index: 10;
+        right: -17px;
+        transform: rotate(-90deg);
+        top: calc(50% - 10px);
+        &--cta {
+            background-color:$white;
+            line-height: 25px;
+            padding: 0 4px;
+        }
+    }
+    &__scale {
+        position:fixed;
+        z-index: 10;
+        left:20px;
+        background: transparent;
+        top: calc(50vh - 20px);
+        &--item {
+            position: relative;
+            &:before {
+                content: '';
+                width: 15px;
+                position: absolute;
+                display: inline-block;
+                height: 2px;
+                background-color: $purple;
+                z-index: 2;
+                top: 5px;
+                transition: all 0.45s ease-in;
+                left: -3px;
+            }
+            &:last-child {
+                .num {
+                    top: 10px !important;
+                }
+            }
+            .num{
+                position: relative;
+                opacity: 0;
+                transition: all 0.45s ease-in-out 0;
+               
+            }
+            &.active {
+                &:before{
+                    width: 30px;
+                }    
+                .num {
+                    opacity: 0;
+                } 
+            }
+        }
+        .enum-pos {
+            position: relative;
+            left: 1px;
+            color:$purple;
+            font-weight: 500;
+            font-family: $font-varela;
+        }
+    }
+}
