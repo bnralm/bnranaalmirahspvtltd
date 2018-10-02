@@ -75,7 +75,7 @@ const sortByEndDate = () => ({
 
   // SORT_BY_ISRESOLVED
   const sortByIsResolved = () => ({
-    type: 'SORT_BY_ISRESOLVED'
+    type: 'SORT_BY_END_DATE'
   });
   
   
@@ -188,27 +188,6 @@ const filtersReducerDefaultState = {
       }
     } 
 
-
-// Get visible expenses
-const getVisibleFeedbacks = (feedbacks, { text, sortBy, startDate, endDate }) => {
-  return feedbacks.filter((feedback) => {
-    const startDateMatch = typeof startDate !== 'number' || feedback.createdAt >= startDate;
-    const endDateMatch = typeof endDate !== 'number' || feedback.createdAt <= endDate;
-    const textMatch = feedback.userMessage.toLowerCase().includes(text.toLowerCase());
-
-    return startDateMatch && endDateMatch && textMatch;
-  }).sort( (a, b) => {
-    if( sortBy == 'date'){
-      return a.createdAt < b.createdAt ? 1 : -1
-    }
-   if ( sortBy == 'isResolved' ){
-       return a.isResolved > b.isResolved ? 1 : -1
-    }
-  });
-};
-
-
-
 const store = createStore(
   combineReducers({
       feebacks: feedbacksReducer,
@@ -217,33 +196,24 @@ const store = createStore(
   );
 
   store.subscribe( () => {
-    const state = store.getState();
-    const visibleFeedbacks = getVisibleFeedbacks(state.feebacks, state.filters);
-    console.log(visibleFeedbacks);
     
-    // console.log(store.getState());
+    console.log(store.getState());
 
   })
 
-  const feebackData1 = store.dispatch(addFeeback({userName: 'Sudhir', userEmail: 'sudhirpie@timesgroup.com', userMessage: 'want to buy 10 pcs almirahs', isRosolved: true, createdAt: 2100}))
-  
-  const feebackData3 = store.dispatch(addFeeback({userName: 'Jyoti', userEmail: 'sudhirpie@timesgroup.com', userMessage: 'I want to buy 10 pcs almirahs', isRosolved: false, createdAt: 2100}))
-  const feebackData4 = store.dispatch(addFeeback({userName: 'Jyoti', userEmail: 'sudhirpie@timesgroup.com', userMessage: 'I want to buy 10 pcs almirahs', isRosolved: false, createdAt: 2100}))
-
-  
-  const feebackData2 = store.dispatch(addFeeback({userName: 'Pankaj', userEmail: 'abc@timesgroup.com', userMessage: 'want to buy 10 pcs almirahs, quotation plz send to me', createdAt:210}))
-
+  // const feebackData1 = store.dispatch(addFeeback({userName: 'Sudhir', userEmail: 'sudhirpie@timesgroup.com', userMessage: 'want to buy 10 pcs almirahs'}))
+  // const feebackData2 = store.dispatch(addFeeback({userName: 'Pankaj', userEmail: 'abc@timesgroup.com', userMessage: 'want to buy 10 pcs almirahs'}))
   // store.dispatch(removeFeedback({id: feebackData2.feeback.id}));
   // store.dispatch(editFeedback(feebackData2.feeback.id, {isRosolved: true}));
   // store.dispatch(setTextFilter('buy'));
   // store.dispatch(sortByDate());
   // store.dispatch(sortByEndDate());
-  store.dispatch(sortByIsResolved());
+  // store.dispatch(sortByIsResolved());
 
 
-  // store.dispatch(setStartDate(125)); // startDate 125
-  // store.dispatch(setEndDate(1250)); // endDate 1250
-  // store.dispatch(setResolvedDate(1233)) // isResolvedDate 1233
+  store.dispatch(setStartDate(125)); // startDate 125
+  store.dispatch(setEndDate(1250)); // endDate 1250
+  store.dispatch(setResolvedDate(1233)) // isResolvedDate 1233
   
   // console.log('====>',feebackData2.feeback.id);
 
