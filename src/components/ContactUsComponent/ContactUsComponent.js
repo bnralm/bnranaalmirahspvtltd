@@ -1,7 +1,10 @@
 import React from 'react';
 import CotactFormComponent from './../CotactFormComponent/CotactFormComponent';
-import ContactThanksComponent from './../ContactThanksComponent/ContactThanksComponent';
-import { link } from 'fs';
+// import ContactThanksComponent from './../ContactThanksComponent/ContactThanksComponent';
+import {connect} from 'react-redux';
+import {addFeedback} from './../../actions/feedbacks';
+
+// import { link } from 'fs';
 
 const { generateRandomToken, destroyRandomToken, getRandomToken } = require('./../../commonModule/commonModule');
 const contact = require('./ContactUsService/ContactUsService');
@@ -12,16 +15,9 @@ const {subtitle, title} = contact.contactData;
 const { email, mobile, address, skypechat} = contact.contactData.contacts;
 const socialMedia = contact.contactData.socialMedia;
 
-export default class ContactUsComponent extends React.Component {
 
-    constructor(props){
-        super(props);
-        this.state = {
-            contactFormData: []
-        }
-    }
-    
-    render(){
+
+const ContactUsComponent = (props) => {
         return(<section className="section blue lighten-5 js-scale-sticky">
                 <div className="row container">
                     <div className="header-level-2-title blue-text darken-1">{subtitle}</div>
@@ -54,11 +50,16 @@ export default class ContactUsComponent extends React.Component {
                     
                     </div>
                     <div className="col m6 s12">
-                        { getRandomToken() ? <ContactThanksComponent /> : <CotactFormComponent submitHandler={this.submitContactusForm} stateProp={this.state} /> }
+                        { getRandomToken() ? <ContactThanksComponent /> : <CotactFormComponent onSubmit= {
+                               (feedback) => {
+                                //    console.log(feedback);
+                                 props.dispatch(addFeedback(feedback))
+                               } 
+                        } /> } 
                     </div>    
                 </div>
             </section>
         )
     }
-}
 
+export default connect()(ContactUsComponent);

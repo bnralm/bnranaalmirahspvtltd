@@ -75,6 +75,6 @@ module.exports = {
         else{
             return checkedMoboDevice;
         }
-    }    
+    }
 
 }

@@ -1,12 +1,12 @@
 import {createStore, combineReducers} from 'redux';
 
-import feedbacksReducer from './../reducers/feebacks';
-import filtersReducer from './../reducers/filters';
+import feedbacksReducer from './../reducers/feedbacks';
+import filtersReducer from '../reducers/filters';
 
 export default () => {
     const store = createStore(
         combineReducers({
-            feebacks: feedbacksReducer,
+            feedbacks: feedbacksReducer,
             filters: filtersReducer
           })
         );

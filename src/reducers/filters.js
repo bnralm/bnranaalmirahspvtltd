@@ -2,10 +2,10 @@
 
 const filtersReducerDefaultState = {
     text: '',
-    sortBy: 'createdAt',
+    isResolved: false,
+    sortBy: 'date',
     date: undefined,
     startDate: undefined,
-    isResolved: false,
     endDate: undefined,
     createdAt: undefined,
     isResolvedDate: undefined
@@ -26,13 +26,13 @@ export default (state = filtersReducerDefaultState, action) => {
         case 'SORT_BY_END_DATE':
             return {
               ...state,
-              sortBy: 'endDate'
+              sortBy: action.endDate
             }
             
         case 'SORT_BY_ISRESOLVED':
             return {
               ...state,
-              sortBy: 'isResolved'
+              sortBy: action.isResolved
             }
         case 'SET_START_DATE':
           return {

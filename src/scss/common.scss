@@ -215,3 +215,21 @@ a#logo-container {
 .ml-15{
     margin-left:15px; 
 }
+
+.strike {
+    position: relative;
+    &:before {
+        content: '';
+        width: 100%;
+        height: 1px;
+        background-color: lighten($green, 10%);
+        display: inline-block;
+        position: absolute;
+        z-index: 2;
+        top: 50%;}
+}
+
+.min-md-width {
+    min-width: $lg-space;
+    padding:5px 10px;
+}

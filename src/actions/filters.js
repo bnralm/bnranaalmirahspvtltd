@@ -12,13 +12,15 @@ export const sortByDate = () => ({
   });
 
   // SORT_BY_END_DATE
-export const sortByEndDate = () => ({
-  type: 'SORT_BY_END_DATE'
+export const sortByEndDate = (endDate) => ({
+  type: 'SORT_BY_END_DATE',
+  endDate
 });
 
   // SORT_BY_ISRESOLVED
-  export const sortByIsResolved = () => ({
-    type: 'SORT_BY_ISRESOLVED'
+  export const sortByIsResolved = (isResolved) => ({
+    type: 'SORT_BY_ISRESOLVED',
+    isResolved
   });
   
   
