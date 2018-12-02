@@ -7,7 +7,7 @@ module.exports = {
             productName: 'Regular Product (Almirah)',
             productImage: 'images/prdImages/bnralm001.svg',
             productGallaryImages: ['/images/prdImages/bnralm001.svg', '/images/prdImages/bnralm001.svg', '/images/prdImages/bnralm001.svg'],
-            productPrice: '9889.00',
+            productPrice: null,
             productStockNum: '10',
             productDiscriptionMsg: [
                     'Stylish, Modern, Affordable! The new Slimline range of cupboards from BN & Rana Almirahs Interio Home is ideal for the new generation. Its contemporary styling, sleek lines, duo-toned colours and sturdy design is a marriage of style and utility.',
@@ -37,7 +37,7 @@ module.exports = {
             productName: 'Medium Product (Almirah)',
             productImage: 'images/prdImages/bnralm002.svg',
             productGallaryImages: ['/images/prdImages/bnralm002.svg', '/images/prdImages/bnralm002.svg', '/images/prdImages/bnralm002.svg'],
-            productPrice: '12,889.00',
+            productPrice: null,
             productStockNum: '10',
             productDiscriptionMsg: [
                     'Stylish, Modern, Affordable! The new Slimline range of cupboards from BN & Rana Almirahs Interio Home is ideal for the new generation. Its contemporary styling, sleek lines, duo-toned colours and sturdy design is a marriage of style and utility.',
@@ -67,7 +67,7 @@ module.exports = {
             productName: 'Medium Jumbo Almirah',
             productImage: 'images/prdImages/bnralm003.svg',
             productGallaryImages: ['/images/prdImages/bnralm003.svg', '/images/prdImages/bnralm003.svg', '/images/prdImages/bnralm003.svg'],
-            productPrice: '14,889.00',
+            productPrice: null,
             productStockNum: '10',
             productDiscriptionMsg: [
                     'Stylish, Modern, Affordable! The new Slimline range of cupboards from BN & Rana Almirahs Interio Home is ideal for the new generation. Its contemporary styling, sleek lines, duo-toned colours and sturdy design is a marriage of style and utility.',
@@ -98,7 +98,7 @@ module.exports = {
             productName: 'Mr & Mrs. Product (Almirah)',
             productImage: 'images/prdImages/bnralm004.svg',
             productGallaryImages: ['/images/prdImages/bnralm004.svg', '/images/prdImages/bnralm004.svg', '/images/prdImages/bnralm004.svg'],
-            productPrice: '15,889.00',
+            productPrice: null,
             productStockNum: '10',
             productDiscriptionMsg: [
                     'Stylish, Modern, Affordable! The new Slimline range of cupboards from BN & Rana Almirahs Interio Home is ideal for the new generation. Its contemporary styling, sleek lines, duo-toned colours and sturdy design is a marriage of style and utility.',
@@ -128,7 +128,7 @@ module.exports = {
             productName: 'Heavy Product (Almirah)',
             productImage: 'images/prdImages/bnralm005.svg',
             productGallaryImages: ['/images/prdImages/bnralm005.svg', '/images/prdImages/bnralm005.svg', '/images/prdImages/bnralm005.svg'],
-            productPrice: '14,889.00',
+            productPrice: null,
             productStockNum: '10',
             productDiscriptionMsg: [
                     'Stylish, Modern, Affordable! The new Slimline range of cupboards from BN & Rana Almirahs Interio Home is ideal for the new generation. Its contemporary styling, sleek lines, duo-toned colours and sturdy design is a marriage of style and utility.',
@@ -158,7 +158,7 @@ module.exports = {
             productName: 'Heavy Product (Almirah)',
             productImage: 'images/prdImages/bnralm006.svg',
             productGallaryImages: ['/images/prdImages/bnralm006.svg', '/images/prdImages/bnralm006.svg', '/images/prdImages/bnralm006.svg'],
-            productPrice: '18,889.00',
+            productPrice: null,
             productStockNum: '10',
             productDiscriptionMsg: [
                     'Stylish, Modern, Affordable! The new Slimline range of cupboards from BN & Rana Almirahs Interio Home is ideal for the new generation. Its contemporary styling, sleek lines, duo-toned colours and sturdy design is a marriage of style and utility.',

@@ -1,6 +1,6 @@
 module.exports = {
     "globalNav": {
-        "navAnchorLists": [{
+        "navAnchorLists": [/* {
                 "navAnchorText": "Login", 
                 "navAnchorLink": "./auth/google", 
                 "navAnchorTitle": "Login" 
@@ -9,7 +9,7 @@ module.exports = {
                 "navAnchorText": "Signup", 
                 "navAnchorLink": "./forms.html", 
                 "navAnchorTitle": "Signup" 
-            },
+            }, */
             {
                 "navAnchorText": "Product Catelouge", 
                 "navAnchorLink": "/docs/productCatelogue.pdf", 

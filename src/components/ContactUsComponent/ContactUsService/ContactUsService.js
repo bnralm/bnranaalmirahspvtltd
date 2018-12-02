@@ -4,7 +4,7 @@ module.exports = {
         title: 'Contact Us',
         contacts: {
             email: ['ranaji06532@gmail.com', 'ccbnralmirahs@gmail.com'],
-            mobile: ['+91 9210493230', '+91 8918226387'],
+            mobile: ['+91 6207176112', '+91 8210759649'],
             address: 'Holding No. 675A, Ward No. 16, Argaghat Road, Giridih',
             skypechat: 'ccbnralmirahs@gmail.com',
         },
@@ -22,7 +22,7 @@ module.exports = {
             {
                 label: 'Google +',
                 link: 'https://plus.google.com/u/1/118148783307948494565',
-                title: 'Google +'
+                title: 'Google'
             }
         ]
     }

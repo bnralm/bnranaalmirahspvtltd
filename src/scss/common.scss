@@ -73,7 +73,7 @@ h1, h2, h3, h4 {
         &--facebook {
             background: url('http://localhost:3000/images/icons/post_facebook_black_24dp.png') no-repeat center center;
         }
-        &--googleplus {
+        &--google {
             background: url('http://localhost:3000/images/icons/post_gplus_black_24dp.png') no-repeat center center;
         }
         &--linkedin {
@@ -233,3 +233,4 @@ a#logo-container {
     min-width: $lg-space;
     padding:5px 10px;
 }
+

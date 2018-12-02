@@ -44,7 +44,8 @@ const ContactUsComponent = (props) => {
                         { socialMedia ? ( <div className="social-media">
                             <h4>Social Media</h4>
                             <ul className="list-unstyle">
-                                {socialMedia.map( social => <li><a href={social.link} target="_blank" title={social.title}><i className="icon icon--linkedin"></i> {social.label}</a></li> ) }
+
+                                {socialMedia.map( social => <li><a href={social.link} target="_blank" title={social.title}><i className={'icon icon--'+(social.title).toLowerCase()}></i> {social.label}</a></li> ) }
                             </ul>
                         </div>) : ''}
                     

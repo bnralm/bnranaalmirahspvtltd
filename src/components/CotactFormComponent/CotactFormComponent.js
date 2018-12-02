@@ -30,8 +30,13 @@ export default class ContactFormComponent extends React.Component{
       const userMessage = e.target.value;
       this.setState(() => ({ userMessage }));
     };
-      onSubmit = (e) => {
+    onSubmit = (e) => {
+        
+       
+
     e.preventDefault();
+    console.log('Hello world', this.props);
+
     let now = moment();
     this.props.onSubmit({
       userName: this.state.userName,

@@ -5,8 +5,7 @@ const BreadcumComponent = (props) => {
     return (
         <div className="col m6 s12 pdp-bio">
             <h4 class="header indigo-text text-lighter-1">{productCode}</h4>
-            <h5 class="header indigo-text text-lighter-1">*Price: {'INR '+props.productPrice + '/-'}</h5>
-			<p>*Adding mirror will be chargable @ INR 900.00 /- </p>
+            
 			{ productDiscriptionMsg.map( para => (<p>{para}</p>) ) }
 
 			<div className="pdp-avail-location collection">
