@@ -1,10 +1,13 @@
 const path = require('path');
 
+const imageUrlPath = path.join(__dirname, 'public')
+console.log(imageUrlPath, '==>s');
+
 module.exports = {
     entry: './app.js',
     output: {
         path: path.join(__dirname, 'public/scripts'),
-        filename: 'bundle.js' 
+        filename: '[name].bundle.js' 
     },
     mode: 'production',
     module : {
@@ -25,7 +28,7 @@ module.exports = {
                             loader: "file-loader",
                             options: {
                                 name: '[path][name].[ext]',
-                                outputPath: "images",
+                                outputPath: imageUrlPath,
                                 publicPath: ""
                             }
                         },
@@ -34,6 +37,12 @@ module.exports = {
                 }
            ]
         },
+        optimization: {
+            splitChunks: {
+            chunks: 'all'
+            }
+        },
+
         //setting the source map file
         devtool: 'cheap-module-eval-source-map',
         //setting the development server

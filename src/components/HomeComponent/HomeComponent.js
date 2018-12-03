@@ -6,6 +6,7 @@ import AchievementsComponents from './../AchievementsComponents/AchievementsComp
 import ContactUsComponent from './../ContactUsComponent/ContactUsComponent';
 import StickyScaleComponent from './../StickyScaleComponent/StickyScaleComponent';
 // import FeebacksComponent from './..//FeebacksComponent';
+import MapComponent from './../MapComponent/MapComponent'
 const {getMoboDevice} = require('./../../commonModule/commonModule');
 
 
@@ -17,10 +18,8 @@ const HomeComponent = () => {
             <ProductsComponents />
             <WhyuChooseComponents />
             <AchievementsComponents />
-           
+            <MapComponent />
             <ContactUsComponent />
-            
-            
             {
                ! getMoboDevice() ? <StickyScaleComponent /> : ''
             }
