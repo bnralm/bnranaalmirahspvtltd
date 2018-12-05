@@ -28,7 +28,7 @@ const ProductItemComponent = (props) => {
                         </thead>    
                         <tbody>
                             <tr>
-                                <td>{productPrice ? `INR ${productPrice}`: '-'} /-</td>
+                                <td>{productPrice ? `INR ${productPrice} /-`: '-'} </td>
                                 <td>{productStockNum}</td>
                                 <td>{productCode}</td>
                                 <td>{productDiscription.numberDoor}</td>
