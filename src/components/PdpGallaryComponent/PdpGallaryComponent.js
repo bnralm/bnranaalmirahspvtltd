@@ -28,7 +28,7 @@ const PdpGallaryComponent = (props) => {
                 </Slider> 
 
                 <div className="row pdp-action-btns">
-                    <div className="col m12 s12 center"><a className="button button--primary">Choose Color</a>  {props.productPrice ? `<a className="button button--primary" data-price=${props.productPrice}>Add to Card</a>`: ''}</div>
+                    <div className="col m12 s12 center"><a className="button button--primary" href="/colors">Choose Color</a>  {props.productPrice ? `<a className="button button--primary" data-price=${props.productPrice}>Add to Card</a>`: ''}</div>
                 </div>
 
         </div>

@@ -240,3 +240,29 @@ a#logo-container {
     padding:5px 10px;
 }
 
+.color-wrap {
+    display: table;
+    
+    .color-box {
+        width: 28vw;
+        height: 10vh;
+        text-align: center;
+        float: left;
+        position: relative;
+        margin-left: 10px;
+        border-radius: 3px;
+        margin-top: 10px;
+        .color-lable {
+            position: relative;
+            top: 1.5rem;
+            color: $white;
+        }
+
+        @media only screen and (min-width: $bp-desktop) {
+            width: 130px;
+            height: 70px;  
+        }
+        
+    }
+
+}

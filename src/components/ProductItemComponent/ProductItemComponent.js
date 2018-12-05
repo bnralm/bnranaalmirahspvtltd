@@ -28,7 +28,7 @@ const ProductItemComponent = (props) => {
                         </thead>    
                         <tbody>
                             <tr>
-                                <td>{'INR ' + productPrice} /-</td>
+                                <td>{productPrice ? `INR ${productPrice}`: '-'} /-</td>
                                 <td>{productStockNum}</td>
                                 <td>{productCode}</td>
                                 <td>{productDiscription.numberDoor}</td>
@@ -40,8 +40,8 @@ const ProductItemComponent = (props) => {
                 
                 </div>
                 <div className="flex">
-                <a className="button button-primary">View More</a> 
-                <a className="button button-primary ml-15">Enquire Now</a>  
+                <a className="button button-primary" href={`/pdp/${productCode}`}>View More</a> 
+                <a className="button button-primary ml-15" href="/contactus/">Enquire Now</a>  
                 </div>
                 <div className="notes"><sup>*</sup>Adding mirror will be chargeable of Rs. 900/-</div>          
             </div>
