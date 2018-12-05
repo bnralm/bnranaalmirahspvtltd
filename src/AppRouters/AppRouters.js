@@ -13,18 +13,20 @@ import ProductListComponent from './../components/ProductListComponent/ProductLi
 import FeedbacksComponent from './../components/FeedbacksComponent/FeedbacksComponent';
 
 
+const headerTitle = "BN & Rana Almirahs (P) Ltd.";
+
 
 const AppRouters = () => (
     <Router>
         <div>
         <HeaderComponent />
             <Switch>
-                <Route exact={true} path="/" component={HomeComponent} />
-                <Route exact={true}  path="/plp" component={ProductListComponent} />
-                <Route exact={true}  path="/pdp/:productId" component={ProductDetailComponent} />
-                <Route exact={true}  path="/contact-us" component={ContactUsComponent} />
-                <Route exact={true}  path="/feedbacks" component={FeedbacksComponent} />
-                <Route  component={PageNotFoundComponent} />
+                <Route exact={true} path="/" component={HomeComponent} setRouteTitle={`${headerTitle} Home Page`} />
+                <Route exact={true}  path="/plp" component={ProductListComponent}  setRouteTitle={`${headerTitle} Product Listing Page`}/>
+                <Route exact={true}  path="/pdp/:productId" component={ProductDetailComponent} setRouteTitle={`${headerTitle} Product Detail Page`}/>
+                <Route exact={true}  path="/contact-us" component={ContactUsComponent}  setRouteTitle={`${headerTitle} Contact Us Page`}/>
+                <Route exact={true}  path="/feedbacks" component={FeedbacksComponent} setRouteTitle={`${headerTitle} Feedbacks Page`}/>
+                <Route  component={PageNotFoundComponent} setRouteTitle={`${headerTitle}: 404`} />
             </Switch>
         <BacktoTopComponent />
         <FooterComponent />

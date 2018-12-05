@@ -13,7 +13,6 @@ const {getMoboDevice} = require('./../../commonModule/commonModule');
 const HomeComponent = () => {
     return (
         <div>
-            
             <HeroShotComponent />
             <ProductsComponents />
             <WhyuChooseComponents />

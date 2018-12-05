@@ -35,6 +35,12 @@ h1, h2, h3, h4 {
     }
 }
 
+@media only screen and (max-width: $bp-tablet){
+    .container {
+        width: 97% !important;
+    }
+}
+
 .social-media{
     position: relative;
     ul {

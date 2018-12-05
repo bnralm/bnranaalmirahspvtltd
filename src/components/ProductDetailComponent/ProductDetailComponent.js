@@ -27,3 +27,4 @@ const ProductDetailComponent = (props) => {
 }
 
 export default ProductDetailComponent;
+

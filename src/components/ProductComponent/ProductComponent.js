@@ -14,9 +14,9 @@ const ProductComponent = (props) => {
                     </strong>
                     <i className="grey-text material-icons right">more_vert</i>
                 </span>
-                <span className="blue-text darken-1">
+                {productPrice ? (<span className="blue-text darken-1">
                     <strong>PRICE: {productPrice} /- </strong>
-                </span>
+                </span>): ''}
             </div>
             <div className="card-reveal">
                 <span className="card-title white-text text-darken-4">
@@ -50,9 +50,9 @@ const ProductComponent = (props) => {
                 <a className="" href={'./pdp/'+productCode}>See more...</a>
             </div>
             <div className="card-action green darken-1">
-                <a href="javascript:void(0)" className="white-text" data-product={productCode}>
+                <a href={'/contact-us?productCode='+productCode} className="white-text" data-product={productCode}>
                 {
-                    (productStockNum > 0) ? <strong>Add to Cart</strong> : ''
+                    (productStockNum > 0) ? <strong>Contact Us</strong> : ''
                 }
                 </a>
                 <a href={'/pdp/'+productCode} className="right white-text">

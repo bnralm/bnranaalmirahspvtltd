@@ -31,7 +31,7 @@ export default class ProductsComponents extends React.Component {
 
 
         return (
-            <section className="section no-padd">
+            <section className="section no-padd mobile-bg-grey">
                 <div className="row container product-thumb-page">
                     <div class="header-level-2-title blue-text darken-1 center">{ProductsService.productSubTitle}</div>
                     <h2 className="header center">{ProductsService.productTitle}</h2>

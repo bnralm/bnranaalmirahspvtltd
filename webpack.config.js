@@ -49,9 +49,16 @@ module.exports = {
         devServer: {
             contentBase: path.join(__dirname, 'public'),
             port: 3000,
-            historyApiFallback: true
+            historyApiFallback: true,
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+                "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+              }
           },
           node: {
             fs: "empty"
-         }
+         },
+
+         
     }
