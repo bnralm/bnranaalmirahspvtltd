@@ -15,10 +15,9 @@
         font-family: $font-varela;
     }
     &-label{
-        
+        font-size: $md-space;
         @media only screen and (min-width:$bp-desktop) {
             margin-top:-20px;
-            font-size: $md-space;
             font-family: $font-varela;
             border-bottom: none;
         }
