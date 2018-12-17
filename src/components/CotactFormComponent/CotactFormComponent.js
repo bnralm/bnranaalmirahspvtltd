@@ -1,12 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import { connect } from 'react-redux';
 import moment from 'moment';
-import { addFeedback } from './../../actions/feedbacks'; 
 import ContactThanksComponent from './../ContactThanksComponent/ContactThanksComponent';
-
-
-const { generateRandomToken } = require('./../../commonModule/commonModule');
 
 
 export default class ContactFormComponent extends React.Component{ 
@@ -33,14 +28,6 @@ export default class ContactFormComponent extends React.Component{
 onSubmit = (e) => {
   let now = moment();
       e.preventDefault(); 
-       console.log( {
-        contactUserName: this.state.userName,
-        contactUserEmail: this.state.userEmail,
-        contactUserMessage: this.state.userMessage,
-        contactCreatedAt: now.format("DD-MM-YYYY, h:mm:ss a ZZ"),
-        contactStartDate: now.format("DD-MM-YYYY, h:mm:ss a ZZ")
-        })
-
         let that = this;
 
         axios({
@@ -50,8 +37,6 @@ onSubmit = (e) => {
             contactUserName: this.state.userName,
             contactUserEmail: this.state.userEmail,
             contactUserMessage: this.state.userMessage,
-            contactCreatedAt: now.format("DD-MM-YYYY, h:mm:ss a ZZ"),
-            contactStartDate: now.format("DD-MM-YYYY, h:mm:ss a ZZ")
           }
         })
         .then(function (response) {

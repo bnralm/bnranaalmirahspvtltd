@@ -3,7 +3,7 @@ import {createStore} from 'redux';
 const store = createStore( ( state = {count: 0}, action ) => {
     switch (action.type){
         case 'INCREAMENT':
-            const incrementBy = typeof(action.incrementBy) === 'number' ? action.incrementBy : 1;
+            const incrementBy = typeof action.incrementBy === 'number' ? action.incrementBy : 1;
             return {
                 count : state.count + incrementBy
             }
@@ -16,17 +16,15 @@ const store = createStore( ( state = {count: 0}, action ) => {
                 count: action.count
             }
         }    
-
         case 'DECREAMENT':
-        const decrementBy = typeof(action.decrementBy) === 'number' ? action.decrementBy : 1;
+            const decrementBy = typeof(action.decrementBy) === 'number' ? action.decrementBy : 1;
             return {
                 count : state.count - decrementBy,
             }
         default: 
             return state;
-    }      
-    }  
-})
+        }      
+    })
 
 const unsubscribe = store.subscribe( () => {
     // console.log(store.getState());

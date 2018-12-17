@@ -1,12 +1,12 @@
 import React from 'react';
 import CotactFormComponent from './../CotactFormComponent/CotactFormComponent';
 // import ContactThanksComponent from './../ContactThanksComponent/ContactThanksComponent';
-import {connect} from 'react-redux';
+// import {connect} from 'react-redux';
 // import {addFeedback} from './../../actions/feedbacks';
 
 // import { link } from 'fs';
 
-const { generateRandomToken, destroyRandomToken, getRandomToken } = require('./../../commonModule/commonModule');
+const { getRandomToken } = require('./../../commonModule/commonModule');
 const contact = require('./ContactUsService/ContactUsService');
 const {subtitle, title} = contact.contactData;
 
@@ -62,4 +62,4 @@ const ContactUsComponent = (props) => {
         )
     }
 
-export default connect()(ContactUsComponent);
+export default ContactUsComponent;

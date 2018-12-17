@@ -1,6 +1,6 @@
 module.exports = {
     hero: {
-        parallaxTopImg: 'images/heroshotimage_desktop.jpg',
+        parallaxTopImg: 'images/heroshotimage_desktop-min.jpg',
         parallaxTopImgAltText: 'BN & Rana Almirahs P Ltd., Rana Steel Co',
         parallaxImgLogoSvg: 'images/svg/bnr_bluewhitebg.svg',
         parallaxImgLogoSvgAltText: 'BN and Rana Almirahs Pvt. Ltd. Rana Steel Logo',

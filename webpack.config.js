@@ -4,7 +4,10 @@ const imageUrlPath = path.join(__dirname, 'public')
 console.log(imageUrlPath, '==>s');
 
 module.exports = {
-    entry: './app.js',
+    entry: {
+        app: './app.js',
+        appCss: './appCss.js'
+    },
     output: {
         path: path.join(__dirname, 'public/scripts'),
         filename: '[name].bundle.js' 
@@ -36,11 +39,6 @@ module.exports = {
                     ]
                 }
            ]
-        },
-        optimization: {
-            splitChunks: {
-            chunks: 'all'
-            }
         },
 
         //setting the source map file

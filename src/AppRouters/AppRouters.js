@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
+const {product} = require('./../../src/config/keys');
 
 import HomeComponent from './../components/HomeComponent/HomeComponent';
 import BacktoTopComponent from './../components/BacktoTopComponent/BacktoTopComponent';
@@ -13,6 +13,7 @@ import ProductListComponent from './../components/ProductListComponent/ProductLi
 import FeedbacksComponent from './../components/FeedbacksComponent/FeedbacksComponent';
 import AvailableColors from './../components/AvailableColors/AvailableColors';
 
+product();
 
 const headerTitle = "BN & Rana Almirahs (P) Ltd.";
 
