@@ -1,7 +1,7 @@
 module.exports = {
     productTitle: 'Collection of Products',
     productSubTitle: 'Amazing collections',
-    products: [
+    products:  [
         {
             productCode: 'BNRALM0001',
             productName: 'Regular Product (Almirah)',

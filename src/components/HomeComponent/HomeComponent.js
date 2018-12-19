@@ -9,7 +9,6 @@ import StickyScaleComponent from './../StickyScaleComponent/StickyScaleComponent
 import MapComponent from './../MapComponent/MapComponent'
 const {getMoboDevice} = require('./../../commonModule/commonModule');
 
-
 const HomeComponent = () => {
     return (
         <div>

@@ -66,7 +66,7 @@ module.exports = {
     getMoboDevice: function(){
         let patterrn = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i,
             userAgent = navigator.userAgent,
-            checkedMoboDevice: false;
+            checkedMoboDevice = false;
 
         if(patterrn.test(userAgent) ){
             checkedMoboDevice = true;
@@ -76,5 +76,6 @@ module.exports = {
             return checkedMoboDevice;
         }
     }
-
 }
+
+
