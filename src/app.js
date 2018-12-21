@@ -26,21 +26,25 @@ const store = configProductStore();
         return ({...proddata, ...prodDtlData, ...prodDtlDesc});
     })
 
-    let time = new Date(), data = JSON.stringify(allproduct), ctime = time.getTime() + (24 * 60 * 60 *60);
+    let time = new Date(), data = JSON.stringify(allproduct), ctime = time.getTime() + (6 * 60 * 60 * 1000);
+ 
     localStorage.setItem('allproduct', data );
     localStorage.setItem('addTime', ctime); 
-  }))
+ 
+}))
   .catch(err => console.log(err))
 }
 
 let time = new Date();
     
-if(! (localStorage.addTime &&  (localStorage.addTime <= time.getTime()))){
+if( (! localStorage.addTime &&  (localStorage.addTime <= time.getTime()))){
     getProductData();
 }
 else {
     let data = JSON.parse(localStorage.allproduct);
-    store.dispatch(addProduct(data))
+    data.map( product => {
+        store.dispatch(addProduct(product))
+    })
 }
 
 
