@@ -20,7 +20,7 @@ const PdpGallaryComponent = (props) => {
 
     return (
         <div className="col m6 s12 pdp-gallary"> 
-            <h4 className="header indigo-text text-lighter-1">{productName} <span className="blue-text darker-1">{productCode}</span></h4>
+            <h4 className="header indigo-text text-lighter-1">{productName}</h4>
                 <Slider {...settings}>
                     { 
                         productDtlGallaryImages.map( (image, key) =>  <SingleSlideComponent image={image} key={'pdp'+key} /> )
