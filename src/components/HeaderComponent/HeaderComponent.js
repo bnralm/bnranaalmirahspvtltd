@@ -1,9 +1,8 @@
 import React from 'react';
 import {globalNav} from  './HeaderService/HeaderService';
 import {Link} from 'react-router-dom';
-
-// import AuthLoginComponent from './../AuthLoginComponent/AuthLoginComponent';
-
+import {connect} from 'react-redux';
+ 
 const handleClick = () => {
     let elems = document.querySelector('#slide-out');
     let instances = M.Sidenav.init(elems);
@@ -46,5 +45,4 @@ const HeaderComponent = () => {
             </nav>
         )
     }   
-      
-export default HeaderComponent;    
+export default connect()(HeaderComponent);    

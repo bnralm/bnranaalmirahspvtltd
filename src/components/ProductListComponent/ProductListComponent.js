@@ -1,51 +1,23 @@
 import React from 'react';
 import ProductItemComponent from './../ProductItemComponent/ProductItemComponent';
-import axios from 'axios';
+import { connect } from 'react-redux';
 
-export default class ProductListComponent extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            products: [],
-            productTitle: 'Product List of BN & Rana Almirahs',
-            productSubTitle: 'We are providing amazing collections of products'
-        }
-    }
-    componentDidMount() {
-        const that = this;
-        axios.all([
-            axios.get('https://ranasteelco.herokuapp.com/api/products'),
-            axios.get('https://ranasteelco.herokuapp.com/api/productdetails'),
-            axios.get('https://ranasteelco.herokuapp.com/api/productdetaildescs')
-          ])
-          .then(axios.spread(function (product, productDetailData, productDescriptionData) {
-            let allProduct = [];
-                product.data.map( val => {
-                    let {productCode} = val;
-                    let proddata =  _.find(product.data, function(o) { return o.productCode == productCode; });
-                    let prodDtlData =  _.find(productDetailData.data, function(o) { return o.productDtlCode == productCode; });
-                    let prodDtlDesc =  _.find(productDescriptionData.data, function(o) { return o.productDesCode == productCode; });
-                    allProduct.push({...proddata, ...prodDtlData, ...prodDtlDesc});
-                 })
-               console.log(allProduct);
-               that.setState({ products: allProduct });
-          }))
-          .catch(error => console.log(error));
-
-     }
-
-    render(){
-
-        return (
-            <section className="product-list section grey lighten-4">
-                <div className="container">
-                    <h5 className="margin-top-40">{this.state.productTitle}</h5>
-                    <p>{this.state.productSubTitle}</p>
-                    {this.state.products.map( product => product.productVisiblity ? <ProductItemComponent product={product} /> : '' )}
-                </div>
-            </section>
-        )
-    }
+const ProductListComponent = ({products}) => (
+    <section className="product-list section grey lighten-4">
+        <div className="container">
+            <h5>List of awesome products collection of almirahs</h5>
+            <p>Stylish, Modern, Affordable! The new Slimline range of cupboards from BN & Rana Almirahs Interio Home is ideal for the new generation. Its contemporary styling, sleek lines, duo-toned colours and sturdy design is a marriage of style and utility.And the most delightful part is that it is affordable.Almirahs (cupboard) are the wider and deeper options in our cupboard range. Stylish shelves, ample hanging space, half locker and a secret compartment are some of the thoughtful features provided in this modern age interiors. Lockable security and an additional hanging rod.</p>
+             { products.map( product => {
+                return product.productVisiblity ? (<ProductItemComponent product={product} />) : '';
+             } ) }
+        </div>
+    </section>
+    )
+ 
+const mapStateToProps = (state) => {
+  return  {
+      products: state.products
+  } 
 }
-// console.log(products);
-// export default ProductListComponent;
+    
+export default connect(mapStateToProps)(ProductListComponent);

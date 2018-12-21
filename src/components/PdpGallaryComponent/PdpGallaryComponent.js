@@ -16,24 +16,25 @@ const PdpGallaryComponent = (props) => {
         nextArrow: <SampleNextArrow  />,
         prevArrow: <SamplePrevArrow />
       };
-    let productImages =  props.pdpGallaries;
+      const {productCode, productName, productDtlGallaryImages, productPrice} = props.props;
 
     return (
         <div className="col m6 s12 pdp-gallary"> 
-            <h4 className="header indigo-text text-lighter-1">{props.productTitle} <span className="blue-text darker-1">{props.productCode}</span></h4>
+            <h4 className="header indigo-text text-lighter-1">{productName} <span className="blue-text darker-1">{productCode}</span></h4>
                 <Slider {...settings}>
-                { 
-                    productImages.map( (image, key) =>  <SingleSlideComponent image={image} key={'pdp'+key} /> )
-                }
+                    { 
+                        productDtlGallaryImages.map( (image, key) =>  <SingleSlideComponent image={image} key={'pdp'+key} /> )
+                    }
                 </Slider> 
 
                 <div className="row pdp-action-btns">
-                    <div className="col m12 s12 center"><a className="button button--primary" href="/colors">Choose Color</a>  {props.productPrice ? `<a className="button button--primary" data-price=${props.productPrice}>Add to Card</a>`: ''}</div>
+                    <div className="col m12 s12 center">
+                        <a className="button button--primary" href="/colors">Choose Color</a> 
+                        { (productPrice && productPrice > 0) &&  (<a className="button button--primary" data-price={productPrice}>Add to Card</a>) }
                 </div>
-
+            </div>
         </div>
-        
-    )
+        )
 }
 
 export default PdpGallaryComponent;
