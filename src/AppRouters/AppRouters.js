@@ -10,6 +10,9 @@ import FooterComponent from './../components/FooterComponent/FooterComponent';
 import ProductListComponent from './../components/ProductListComponent/ProductListComponent';
 import FeedbacksComponent from './../components/FeedbacksComponent/FeedbacksComponent';
 import AvailableColors from './../components/AvailableColors/AvailableColors';
+import LoginSignupCompnent from './../components/LoginSignupCompnent/LoginSignupCompnent';
+
+
 
 
 const headerTitle = "BN & Rana Almirahs (P) Ltd.";
@@ -28,6 +31,8 @@ const AppRouters = () => (
                     <Route exact={true}  path="/contact-us" component={ContactUsComponent}  setRouteTitle={`${headerTitle} Contact Us Page`}/>
                     <Route exact={true}  path="/feedbacks" component={FeedbacksComponent} setRouteTitle={`${headerTitle} Feedbacks Page`}/>
                     <Route exact={true}  path="/colors" component={AvailableColors} setRouteTitle={`${headerTitle} Color Page`}/>
+                    <Route exact={true}  path="/login" component={LoginSignupCompnent} setRouteTitle={`${headerTitle} Login Page`}/>
+                    <Route exact={true}  path="/signup" component={LoginSignupCompnent} setRouteTitle={`${headerTitle} Login Page`}/>
                     <Route  component={PageNotFoundComponent} setRouteTitle={`${headerTitle}: 404`} />
                 </Switch>
             <BacktoTopComponent />

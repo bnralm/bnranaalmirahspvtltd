@@ -2,13 +2,17 @@ import React from 'react';
 import {globalNav} from  './HeaderService/HeaderService';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
- 
+import NavLoginSingUpComponent from './../NavLoginSingUpComponent/NavLoginSingUpComponent';
+import NavUserComponent from './../NavUserComponent/NavUserComponent';
+
 const handleClick = () => {
     let elems = document.querySelector('#slide-out');
     let instances = M.Sidenav.init(elems);
 }
 
-const HeaderComponent = () => {
+const HeaderComponent = ({login}) => {
+    console.log('header', login.token);
+
      const navData = globalNav.navAnchorLists;
      setTimeout(function(){
          handleClick();
@@ -19,9 +23,9 @@ const HeaderComponent = () => {
                 <Link id="logo-container" to="/" className="brand-logo">Logo</Link>
                 <ul className="right hide-on-med-and-down">
                     {navData.map((item) =>  <li><Link to={item.navAnchorLink} title={item.navAnchorTitle}>{item.navAnchorText}</Link></li> ) }
+                    <li><a href="/docs/productCatelogue.pdf" target="_blank" title="product catelouge">Product Catelouge</a></li>
+                    {login.token != "" ? (<NavUserComponent props={login} />) : (<NavLoginSingUpComponent />)}
                 </ul>
-
-
                 <ul id="slide-out" className="sidenav">
                     <li><div class="user-view">
                     <div class="background">
@@ -34,8 +38,7 @@ const HeaderComponent = () => {
                     
                     <li><Link to={'/'} title="homepage">Home Page</Link></li>
                     {navData.map((item) =>  <li><Link to={item.navAnchorLink} title={item.navAnchorTitle}>{item.navAnchorText}</Link></li> ) }
-
-
+                    <li><a href="/docs/productCatelogue.pdf" target="_blank" title="product catelouge">Product Catelouge</a></li>
                     <li>
                     <div className="divider"></div>
                     </li>
@@ -44,5 +47,11 @@ const HeaderComponent = () => {
                 </div>
             </nav>
         )
-    }   
-export default connect()(HeaderComponent);    
+    }
+ const mapStateToProps = (state) => {
+     return {
+         login: state.login
+     }
+ }    
+    
+export default connect(mapStateToProps)(HeaderComponent);    

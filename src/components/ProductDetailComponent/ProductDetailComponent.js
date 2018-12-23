@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import PdpGallaryComponent from './../PdpGallaryComponent/PdpGallaryComponent';
 import PdpProductBioComponent from './../PdpProductBioComponent/PdpProductBioComponent';
 import PdpDescriptionComponent from './../PdpDescriptionComponent/PdpDescriptionComponent';
+import PageNotFoundComponent from './../PageNotFoundComponent/PageNotFoundComponent';
 const _ = require('lodash');
 
 const ProductDetailComponent = ({products, match}) => {
@@ -15,7 +16,7 @@ const ProductDetailComponent = ({products, match}) => {
                                 <PdpProductBioComponent props={currentProduct[0]} />
                                 <PdpDescriptionComponent props={currentProduct[0]} /> 
                             </div>
-                        </section> ) : '';
+                        </section> ) : (<PageNotFoundComponent />);
 
     return jsx;      
         

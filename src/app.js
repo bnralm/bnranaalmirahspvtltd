@@ -37,14 +37,14 @@ const store = configProductStore();
 
 let time = new Date();
     
-if( (! localStorage.addTime &&  (localStorage.addTime <= time.getTime()))){
-    getProductData();
-}
-else {
+if( localStorage.addTime &&  (localStorage.addTime >= time.getTime())){
     let data = JSON.parse(localStorage.allproduct);
     data.map( product => {
         store.dispatch(addProduct(product))
     })
+}
+else {
+    getProductData();
 }
 
 
