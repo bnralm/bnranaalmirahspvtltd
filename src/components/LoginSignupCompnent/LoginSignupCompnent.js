@@ -1,91 +1,100 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {userSignup} from './../../actions/registration';
-import {loginUser} from './../../actions/login';
+import {loginUser, loginFormOpen, loginFormClose} from './../../actions/login';
 import {getFormLogin} from './../../actions/formLogin';
 import axios from 'axios';
-import {Link } from 'react-router-dom';
+import ReactModal from 'react-modal';
+
+
 
 
 const Login = ({props}) => {
-    const getLogin = (e) => {
-        e.preventDefault();
-        axios.get(`https://ranasteelco.herokuapp.com/api/user?userEmail=${props.formLogin.userEmail}&userPassword=${props.formLogin.userPassword}`)
-        .then(function (response) {
-            props.dispatch(loginUser(response.data));
-            props.history.push('/');
-            })
-            .catch(function (error) {
-              console.log(error);
-            })
-        }
-
-
-
-        return (
-            <div className="row">
-                <form className="col s12" onSubmit={getLogin}>
-                    <div className="row">
-                        <div className="input-field col s12">
-                            <input 
-                                placeholder="Email"
-                                id="email_address"
-                                type="email"
-                                className="validate"
-                                value={props.formLogin.userEmail}
-                                onChange={(e) => {
-                                    props.dispatch(getFormLogin({userEmail: e.target.value}) )
-                                }}
-                                required="required"
-                                />
-                            <label for="email_address">Email</label>
-                        </div>
-                    </div>
+    const openSignupModal = () => {
+        props.dispatch(loginFormOpen({modalSignIn: false, modalSignUp: true, isOpen: true}))
+    }
+    
+const getLogin = (e) => {
+    e.preventDefault();
+    axios.get(`https://ranasteelco.herokuapp.com/api/user?userEmail=${props.formLogin.userEmail}&userPassword=${props.formLogin.userPassword}`)
+    .then(function (response) {
+        props.dispatch(loginUser(response.data));
+        props.dispatch(loginFormClose({isOpen: false}));
+        })
+        .catch(function (error) {
+            if(error){
+                alert("User Id and Password is not matched.");
+            }
+        })
+    }
+    return (
+        <div className="row">
+            <form className="col s12" onSubmit={getLogin}>
                 <div className="row">
                     <div className="input-field col s12">
                         <input 
-                            id="password"
-                            type="password"
+                            id="email_address"
+                            type="email"
                             className="validate"
-                            value={props.formLogin.userPassword}
+                            value={props.formLogin.userEmail}
                             onChange={(e) => {
-                                props.dispatch(getFormLogin({userPassword: e.target.value}) )
+                                props.dispatch(getFormLogin({userEmail: e.target.value}) )
                             }}
                             required="required"
                             />
-                        <label for="password">Password</label>
+                        <label for="email_address" className="purple-text darken-1">Email</label>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="input-field col s12">
-                        <button type="submit" className="waves-effect waves-light btn btn-large">Login</button> <Link to="/signup" title="signup" className="waves-effect waves-light btn btn-large">Get Register Here</Link>
-                    </div>
+            <div className="row">
+                <div className="input-field col s12">
+                    <input 
+                        id="password"
+                        type="password"
+                        className="validate"
+                        value={props.formLogin.userPassword}
+                        onChange={(e) => {
+                            props.dispatch(getFormLogin({userPassword: e.target.value}) )
+                        }}
+                        required="required"
+                        />
+                    <label for="password" className="purple-text darken-1">Password</label>
                 </div>
-            </form>
-        </div>
-        )
+            </div>
+            <div className="row">
+                <div className="input-field col s12">
+                    <button type="submit" className="waves-effect waves-light btn">Login</button>&nbsp;  
+                    <a title="signup" onClick={openSignupModal} className="waves-effect waves-light btn">Get Register Here</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    )
+}
+
+const SingUP = ({props, closeform}) => {
+
+    const openSignInModal = () => {
+        props.dispatch(loginFormOpen({modalSignIn: true, modalSignUp: false, isOpen: true}))
     }
 
-const SingUP = ({props}) => {
+
     const getSignup = (e) => {
         e.preventDefault();
         axios.post('https://ranasteelco.herokuapp.com/api/user', props.registration)
         .then(function (response) {
            props.dispatch(loginUser(response.data));
-           props.history.push('/');
+           props.dispatch(loginFormClose({isOpen: false}));
         })
         .catch(function (error) {
           console.log(error);
         })
     }
-    
 
     return (<div className="row">
                 <form className="col s12" onSubmit={getSignup}>
                     <div className="row">
                         <div className="input-field col s6">
                         <input 
-                            placeholder="First Name"
                             id="first_name"
                             type="text"
                             className="validate"
@@ -95,12 +104,11 @@ const SingUP = ({props}) => {
                             }}
                             required="required"
                         />
-                        <label for="first_name">First Name</label>
+                        <label for="first_name" className="purple-text darken-1">First Name</label>
                         </div>
                         <div className="input-field col s6">
                         <input 
                             id="last_name"
-                            placeholder="Last Name"
                             type="text"
                             className="validate"
                             value={props.registration.userLastName}
@@ -109,15 +117,14 @@ const SingUP = ({props}) => {
                             }}
                             required="required"
                         />
-                        <label for="last_name">Last Name</label>
+                        <label for="last_name" className="purple-text darken-1">Last Name</label>
                         </div>
                     </div>
                 <div className="row">
                     <div className="input-field col s12">
                     <input 
-                        id="email"
+                        id="registerEmail"
                         type="email"
-                        placeholder="yourname@gmail.com"
                         className="validate"
                         value={props.registration.userEmail}
                         onChange={(e) => {
@@ -125,13 +132,13 @@ const SingUP = ({props}) => {
                         }}
                         required="required" 
                      />
-                    <label for="email">Email</label>
+                    <label for="registerEmail" className="purple-text darken-1">Email</label>
                     </div>
                 </div>
                 <div className="row">
                     <div className="input-field col s12">
                     <input 
-                        id="password"
+                        id="registerPassword"
                         type="password"
                         className="validate"
                         value={props.registration.userPassword}
@@ -140,13 +147,13 @@ const SingUP = ({props}) => {
                         }}
                         required="required"
                      />
-                    <label for="password">Password</label>
+                    <label for="registerPassword" className="purple-text darken-1">Password</label>
                     </div>
                 </div>
                 <div className="row">
                     <div className="input-field col s12 ">
-                        <button type="submit" className="waves-effect waves-light btn btn-large">Get Register</button><br/>
-                        <Link to="/login" title="Login Here" className="waves-effect waves-light btn btn-large">Login Here</Link>
+                        <button type="submit" className="waves-effect waves-light btn">Get Register</button>&nbsp; 
+                        <a title="Login Here" className="waves-effect waves-light btn" onClick={openSignInModal}>Login Here</a>
                     </div>
                 </div>
                 </form>
@@ -155,20 +162,30 @@ const SingUP = ({props}) => {
         };
 
 const LoginSignupCompnent = (props) => {
-   
+
+    const closeModalForm = () => {
+        props.dispatch(loginFormClose({isOpen: false}))
+            .then( ()=> {
+                document.body.style.overflow = "auto"
+            })
+            .catch( (err) => {
+                console.log(err);
+            })
+    }
 
     return (
-        <section className="section">
-                <div className="container ">
-                <div className="row">
-                    <div className="col m6 offset-m3 z-depth-5 padding-40">
-                      {props.match.url === "/login" ? (<Login props={props} />) : (<SingUP props={props}/>) }  
-                    </div>
-                </div>
-            </div>
-    </section>
-    )
-}
+            <ReactModal 
+            closeTimeoutMS={400}
+            style={{ overlay: {}, content: {} }}
+            className="modal_form"
+            bodyOpenClassName="modalIsactive"
+            overlayClassName="olay"
+            isOpen={props.login.isOpen}>
+                    <a onClick={closeModalForm} className="closeModal"><i class="small material-icons">close</i></a>
+                { props.login.modalSignIn ? (<Login props={props}/>) : (<SingUP props={props} />) } 
+            </ReactModal>
+        )
+    }
 const mapStateToProps = (state) => {
     return {
         registration: state.register,

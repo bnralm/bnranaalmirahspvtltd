@@ -275,3 +275,53 @@ a#logo-container {
     padding-left: 40px !important;
     padding-right: 40px !important;
 }
+
+
+.olay {
+    position: fixed;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 101;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+.modal_form {
+    padding: 40px 10px 0px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #fff;
+    position: relative;
+   
+}
+
+.modalIsactive {
+    overflow-y: hidden;
+}
+
+a.closeModal {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    background-color: white;
+    cursor: pointer;
+}
+
+
+@media only screen and (min-width: $bp-desktop){
+    .modal_form {
+        width: 30vw !important;
+        top: 10vh;
+        border-radius: 10px;
+        padding: 40px;
+    }
+    .closeModal {
+        right: -29px !important;
+        top: -7px !important;
+        width: 29px;
+        height: 29px;
+        border-radius: 50%;
+    } 
+}

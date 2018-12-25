@@ -1,17 +1,28 @@
 import React from 'react';
-import {logoutUser} from './../../actions/login'
+import {logoutUser} from './../../actions/login';
+import {connect} from 'react-redux';
+const {getMoboDevice} = require('./../../commonModule/commonModule');
 
-const NavUserComponent = ({props}) => {
+const NavUserComponent = (props) => {
+    
     const signOut = () => {
-        props.dispatch(logoutUser({token:""}))
+        props.dispatch(logoutUser({token:'', userFirstName:'', userLastName:'', userEmail:''}))
     }
 
     return (
         <span>
-            <li>{props.userLastName}</li>
-            <li><a href={signOut}>Sign Out</a></li>
+           {
+               ! getMoboDevice() ? (<li>{props.props.userLastName}</li>) : ''
+            }
+            <li><a onClick={signOut}>Sign Out</a></li>
         </span>
         )
 }
 
-export default NavUserComponent;
+const mapStateToProps = (state) => {
+    return {
+        login: state.login
+    }
+}
+
+export default connect(mapStateToProps)(NavUserComponent);

@@ -32,8 +32,8 @@ const HeaderComponent = ({login}) => {
                         <img src="/images/bgimages.jpg" alt="images" />
                     </div>
                     <a href="#user"><img class="circle indigo darken-4" src="/images/avtar.png" alt="images" /></a>
-                    <a href="#name"><span class="white-text name">user name</span></a>
-                    <a href="#email"><span class="white-text email">username@hotmail.com</span></a>
+                    <a href="#name"><span class="white-text name">{login.userFirstName + ' ' +login.userLastName }</span></a>
+                    <a href="#email"><span class="white-text email">{login.userEmail}</span></a>
                     </div></li>
                     
                     <li><Link to={'/'} title="homepage">Home Page</Link></li>
@@ -42,6 +42,7 @@ const HeaderComponent = ({login}) => {
                     <li>
                     <div className="divider"></div>
                     </li>
+                    {login.token != "" ? (<NavUserComponent props={login} />) : (<NavLoginSingUpComponent />)}
                 </ul>
                 <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 </div>

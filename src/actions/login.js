@@ -8,5 +8,14 @@ export const logoutUser = (logout) => ({
     logout
   });  
   
+export const loginFormOpen = (modalSignIn) => ({
+    type: 'MODAL_SIGNIN',
+    modalSignIn
+  });
 
-   
+export const loginFormClose = (modalClose) => ({
+    type: 'MODAL_CLOSE',
+    modalClose
+  });
+
+  

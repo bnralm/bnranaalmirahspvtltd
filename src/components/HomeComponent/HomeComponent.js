@@ -4,7 +4,7 @@ import ProductsComponents from './../ProductsComponents/ProductsComponents';
 import WhyuChooseComponents from './../WhyuChooseComponents/WhyuChooseComponents';
 import AchievementsComponents from './../AchievementsComponents/AchievementsComponents';
 import ContactUsComponent from './../ContactUsComponent/ContactUsComponent';
-import StickyScaleComponent from './../StickyScaleComponent/StickyScaleComponent';
+// import StickyScaleComponent from './../StickyScaleComponent/StickyScaleComponent';
 
 // import FeebacksComponent from './..//FeebacksComponent';
 import MapComponent from './../MapComponent/MapComponent'
@@ -29,7 +29,6 @@ const HomeComponent = () => {
             <AchievementsComponents />
             <MapComponent />
             <ContactUsComponent />
-            <HighOrderComponent />
         </div>        
     )
 }

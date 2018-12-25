@@ -1,10 +1,22 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {loginFormOpen} from './../../actions/login';
 
-const NavLoginSingUpComponent = () => {
+
+
+const NavLoginSingUpComponent = (props) => {
+    const modalSignIn = () => {
+        props.dispatch(loginFormOpen({modalSignIn: true, modalSignUp: false, isOpen: true}))
+    }
     return (
-        <li><Link to="/login" title="login">Login</Link></li>
+        <li><a title="login" onClick={modalSignIn}>Login</a></li>
     )
 }
 
-export default NavLoginSingUpComponent;
+const mapStateToProps = (state) => {
+    return {
+        login: state.login
+    }
+}
+
+export default connect(mapStateToProps)(NavLoginSingUpComponent);

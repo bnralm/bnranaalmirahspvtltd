@@ -4,7 +4,10 @@ const loginReducerDefaultState = {
       userFirstName: "",
       userId: "",
       userLastName: "",
-      userRole: ""
+      userRole: "",
+      isOpen: false,
+      modalSignIn: false,
+      modalSignUp: false
   };
 
   
@@ -22,7 +25,17 @@ export default (state = loginReducerDefaultState, action) => {
          ...action.logout
         };
 
-        
+      case 'MODAL_SIGNIN':
+        return {
+         ...state,
+         ...action.modalSignIn
+        };
+      case 'MODAL_CLOSE':
+        return {
+         ...state,
+         ...action.modalClose
+        };
+
       default:
         return state;
      }
