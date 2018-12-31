@@ -1,4 +1,7 @@
 import React from "react";
+import {connect} from 'react-redux';
+import { getProductData } from './../commonModule/commonModule'
+import { addProduct } from  '../actions/product';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import HomeComponent from './../components/HomeComponent/HomeComponent';
 import BacktoTopComponent from './../components/BacktoTopComponent/BacktoTopComponent';
@@ -20,24 +23,46 @@ const headerTitle = "BN & Rana Almirahs (P) Ltd.";
 
 
 
-const AppRouters = () => (
-        <Router>
-            <div>
-            <HeaderComponent />
-                <Switch>
-                    <Route exact={true} path="/" component={HomeComponent} setRouteTitle={`${headerTitle} Home Page`} />
-                    <Route exact={true}  path="/plp" component={ProductListComponent}  setRouteTitle={`${headerTitle} Product Listing Page`}/>
-                    <Route exact={true}  path="/pdp/:productId" component={ProductDetailComponent} setRouteTitle={`${headerTitle} Product Detail Page`}/>
-                    <Route exact={true}  path="/contact-us" component={ContactUsComponent}  setRouteTitle={`${headerTitle} Contact Us Page`}/>
-                    <Route exact={true}  path="/feedbacks" component={FeedbacksComponent} setRouteTitle={`${headerTitle} Feedbacks Page`}/>
-                    <Route exact={true}  path="/colors" component={AvailableColors} setRouteTitle={`${headerTitle} Color Page`}/>
-                    <Route  component={PageNotFoundComponent} setRouteTitle={`${headerTitle}: 404`} />
-                </Switch>
-            <BacktoTopComponent />
-            <LoginSignupCompnent />
-            <FooterComponent />
-            </div>
-        </Router>
-)
+class AppRouters extends React.Component {
+    constructor(props){
+        super(props);
+       
+        let productPromise = new Promise( (response, reject) => {
+            const products = await getProductData();
+            const returnData = await products;
+                console.log(returnData);
+        } );
+        productPromise;
+    }
+  
+    render(){
 
-export default AppRouters;
+        return  (
+            <Router>
+                <div>
+                <HeaderComponent />
+                    <Switch>
+                        <Route exact={true} path="/" component={HomeComponent} setRouteTitle={`${headerTitle} Home Page`} />
+                        <Route exact={true}  path="/plp" component={ProductListComponent}  setRouteTitle={`${headerTitle} Product Listing Page`}/>
+                        <Route exact={true}  path="/pdp/:productId" component={ProductDetailComponent} setRouteTitle={`${headerTitle} Product Detail Page`}/>
+                        <Route exact={true}  path="/contact-us" component={ContactUsComponent}  setRouteTitle={`${headerTitle} Contact Us Page`}/>
+                        <Route exact={true}  path="/feedbacks" component={FeedbacksComponent} setRouteTitle={`${headerTitle} Feedbacks Page`}/>
+                        <Route exact={true}  path="/colors" component={AvailableColors} setRouteTitle={`${headerTitle} Color Page`}/>
+                        <Route  component={PageNotFoundComponent} setRouteTitle={`${headerTitle}: 404`} />
+                    </Switch>
+                <BacktoTopComponent />
+                <LoginSignupCompnent />
+                <FooterComponent />
+                </div>
+            </Router>
+        ) 
+    }
+} 
+
+const mapStateToProps = (state) => {
+    return {
+        products: state.products
+    }
+} 
+
+export default connect(mapStateToProps)(AppRouters);
