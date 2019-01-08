@@ -35,6 +35,12 @@ h1, h2, h3, h4 {
     }
 }
 
+@media only screen and (max-width: $bp-tablet){
+    .container {
+        width: 97% !important;
+    }
+}
+
 .social-media{
     position: relative;
     ul {
@@ -71,16 +77,16 @@ h1, h2, h3, h4 {
         object-fit: contain;
        
         &--facebook {
-            background: url('http://localhost:3000/images/icons/post_facebook_black_24dp.png') no-repeat center center;
+            background: url('https://bnranasteel.eu-4.evennode.com/images/icons/post_facebook_black_24dp.png') no-repeat center center;
         }
         &--google {
-            background: url('http://localhost:3000/images/icons/post_gplus_black_24dp.png') no-repeat center center;
+            background: url('https://bnranasteel.eu-4.evennode.com/images/icons/post_gplus_black_24dp.png') no-repeat center center;
         }
         &--linkedin {
             width: 35px;
             height: 35px;
             margin: 3px;
-            background: url('http://localhost:3000/images/icons/post_linkedin_black.png') no-repeat center center;
+            background: url('https://bnranasteel.eu-4.evennode.com/images/icons/post_linkedin_black.png') no-repeat center center;
         } 
     }
 }
@@ -177,11 +183,11 @@ a#logo-container {
     border-radius: 50%;
     top:5px;
     text-indent: -100px;
-    background:url('http://localhost:3000/images/svg/bnr_white_logo.svg') no-repeat center center;
+    background:url('https://bnranasteel.eu-4.evennode.com/images/svg/bnr_white_logo.svg') no-repeat center center;
     background-size: 145%;
     background-color: $green; 
     left: auto;
-    right: -60px;
+    right: -50px;
     z-index: 99;
 }
 
@@ -234,3 +240,88 @@ a#logo-container {
     padding:5px 10px;
 }
 
+.color-wrap {
+    display: table;
+    
+    .color-box {
+        width: 28vw;
+        height: 10vh;
+        text-align: center;
+        float: left;
+        position: relative;
+        margin-left: 10px;
+        border-radius: 3px;
+        margin-top: 10px;
+        .color-lable {
+            position: relative;
+            top: 1.5rem;
+            color: $white;
+        }
+
+        @media only screen and (min-width: $bp-desktop) {
+            width: 130px;
+            height: 70px;  
+        }
+        
+    }
+
+}
+
+.padding-top-40 {
+    padding-top: 40px;
+}
+.padding-40 {
+    padding-top: 40px !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+}
+
+
+.olay {
+    position: fixed;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 101;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+.modal_form {
+    padding: 40px 10px 0px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #fff;
+    position: relative;
+   
+}
+
+.modalIsactive {
+    overflow-y: hidden;
+}
+
+a.closeModal {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    background-color: white;
+    cursor: pointer;
+}
+
+
+@media only screen and (min-width: $bp-desktop){
+    .modal_form {
+        width: 30vw !important;
+        top: 10vh;
+        border-radius: 10px;
+        padding: 40px;
+    }
+    .closeModal {
+        right: -29px !important;
+        top: -7px !important;
+        width: 29px;
+        height: 29px;
+        border-radius: 50%;
+    } 
+}

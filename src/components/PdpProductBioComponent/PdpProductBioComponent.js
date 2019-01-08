@@ -1,17 +1,20 @@
 import React from 'react';
 
 const BreadcumComponent = (props) => {
-	const {productCode, productDiscriptionMsg, productDiscription} = props.pdpBio;
-    return (
+	const { productCode, productDtlDiscriptionMsg, productAvaiblityLoation } = props.props;
+	return (
         <div className="col m6 s12 pdp-bio">
             <h4 class="header indigo-text text-lighter-1">{productCode}</h4>
-            
-			{ productDiscriptionMsg.map( para => (<p>{para}</p>) ) }
+			{
+				productDtlDiscriptionMsg.map( para => (<p>{para}</p>))
+			}
 
 			<div className="pdp-avail-location collection">
 				<div class="collection-item">
 					<span className="header indigo-text text-lighter-1">Product Avaiblity Location</span>
-					{ productDiscription.productAvaiblityLoation.map( loc => (<span className='badge'>{loc}</span>) ) } 
+					{
+						productAvaiblityLoation.map( loc => (<span className='badge'>{loc}</span>) )
+					} 
 				</div>
 			</div>
 			<div class="user-action-pdp">

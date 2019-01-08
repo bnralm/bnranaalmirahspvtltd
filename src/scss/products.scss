@@ -4,4 +4,25 @@
     strong {
         font-family: $font-varela;
     }
+   
 }
+
+@media screen and (max-width: $bp-tablet) {
+.card {
+    .card-content {
+            padding: 15px 10px 15px !important; 
+            margin-top: 20px !important;
+        }
+    &.card-rounded{
+       padding: $sm-space !important;
+            p {
+                font-size: 1.2rem;
+            }
+        }
+    }
+.mobile-bg-grey {
+        background-color: #f4f4f4;
+        margin-top: -1rem;
+    }
+}
+

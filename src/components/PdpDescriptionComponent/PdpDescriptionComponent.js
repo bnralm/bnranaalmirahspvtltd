@@ -1,7 +1,22 @@
 import React from 'react';
+
 const PdpDescriptionComponent = (props) => {
-	let {numberDoor, prodcutMsg,  nubmderOfShelves, needForThis, dimensions, numberOfSecretLocker, itemCondition, material, mirror, brand, productWarrrenty, productDelivery, modeofPayment} = props.pdpDescription;
-	const productAvaiblityLoation = props.pdpDescription.productAvaiblityLoation;
+	const {
+		productAvaiblityLoation,
+		numberDoor,
+		prodcutMsg,
+		nubmderOfShelves,
+		needForThis,
+		dimensions,
+		numberOfSecretLocker,
+		itemCondition,
+		material,
+		mirror,
+		brand,
+		productWarrrenty,
+		productDelivery,
+		modeofPayment
+	} = props.props;
     return (
         <div class="col s12 m12 pdp-description">
     		<h4 class="indigo-text darken-4">Product Descriptions</h4>

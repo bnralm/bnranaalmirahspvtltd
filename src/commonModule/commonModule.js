@@ -1,18 +1,8 @@
-module.exports = {
-    objectFilter: function(obj, predicate){
-        Object.filter = (obj, predicate) => 
-        Object.keys(obj)
-            .filter( key => predicate(obj[key]) )
-            .reduce( (res, key) => (res[key] = obj[key], res), {} );
+import axios from 'axios';
+import { addProduct } from  '../actions/product';
 
-        // Example use:
-        // var scores = {
-        // John: 2, Sarah: 3, Janet: 1
-        // };
-        // var filtered = Object.filter(scores, score => score > 1); 
-        // console.log(filtered);
-        
-    },
+
+module.exports = {
     forms: {
         patterrns: {
             name: /^[a-z\d\.]{5,}$/ig
@@ -75,6 +65,29 @@ module.exports = {
         else{
             return checkedMoboDevice;
         }
+    },
+    getProductData: async() =>  {
+        axios.all([
+            axios.get('https://ranasteelco.herokuapp.com/api/products'),
+            axios.get('https://ranasteelco.herokuapp.com/api/productdetails'),
+            axios.get('https://ranasteelco.herokuapp.com/api/productdetaildescs')
+        ])
+      .then(axios.spread( function (product, productDetailData, productDescriptionData) {
+        let allproduct = product.data.map( val => {
+            let {productCode} = val;
+            let proddata =  _.find(product.data, function(o) { return o.productCode == productCode; });
+            let prodDtlData =  _.find(productDetailData.data, function(o) { return o.productDtlCode == productCode; });
+            let prodDtlDesc =  _.find(productDescriptionData.data, function(o) { return o.productDesCode == productCode; });
+            
+            // store.dispatch(addProduct({...proddata, ...prodDtlData, ...prodDtlDesc}))
+            return ({...proddata, ...prodDtlData, ...prodDtlDesc});
+        })
+    
+        let time = new Date(), data = JSON.stringify(allproduct), ctime = time.getTime() + (6 * 60 * 60 * 1000);
+     
+        localStorage.setItem('allproduct', data );
+        localStorage.setItem('addTime', ctime); 
+    }))
+      .catch(err => err ? "fail": "success" )
     }
-
 }

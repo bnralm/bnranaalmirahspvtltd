@@ -1,16 +1,12 @@
 {
   "name": "bnranaalmirahspvtltd",
   "version": "1.0.0",
-  "description": "BN & Rana Almirahs Pvt. Ltd.",
+  "description": "BN & Rana Almirahs Pvt. Ltd. and Rana Steel Co",
   "private": true,
-  "proxy": {
-    "/auth/google": {
-      "target": "http://localhost:5000"
-    }
-  },
   "main": "index.js",
   "scripts": {
     "build": "webpack --watch",
+    "build-prod": "webpack -p --config=webpack.prod.js",
     "dev-server": "webpack-dev-server",
     "client": "concurrently \"npm run build\" \"npm run dev-server\""
   },
@@ -26,14 +22,19 @@
     "babel-loader": "^7.1.5",
     "babel-plugin-transform-class-properties": "6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^1.0.0",
     "concurrently": "^4.0.1",
+    "cors": "^2.8.5",
     "css-loader": "^1.0.0",
     "express": "^4.16.3",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^2.0.0",
     "google-maps-react": "^2.0.2",
+    "html-webpack-plugin": "^3.2.0",
+    "lodash": "^4.17.11",
     "materialize-css": "^1.0.0",
     "moment": "^2.22.2",
     "node-sass": "^4.9.3",
@@ -45,7 +46,8 @@
     "react-dates": "^18.1.0",
     "react-dom": "^16.4.2",
     "react-materialize": "^2.4.5",
-    "react-redux": "^5.0.5",
+    "react-modal": "^3.8.1",
+    "react-redux": "^5.1.1",
     "react-router-dom": "^4.3.1",
     "react-slick": "^0.23.1",
     "redux": "^4.0.0",

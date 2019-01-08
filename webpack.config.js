@@ -1,10 +1,16 @@
 const path = require('path');
 
+const imageUrlPath = path.join(__dirname, 'public')
+console.log(imageUrlPath, '==>s');
+
 module.exports = {
-    entry: './app.js',
+    entry: {
+        app: './app.js',
+        appCss: './appCss.js'
+    },
     output: {
         path: path.join(__dirname, 'public/scripts'),
-        filename: 'bundle.js' 
+        filename: '[name].bundle.js' 
     },
     mode: 'production',
     module : {
@@ -25,7 +31,7 @@ module.exports = {
                             loader: "file-loader",
                             options: {
                                 name: '[path][name].[ext]',
-                                outputPath: "images",
+                                outputPath: imageUrlPath,
                                 publicPath: ""
                             }
                         },
@@ -34,15 +40,23 @@ module.exports = {
                 }
            ]
         },
+
         //setting the source map file
         devtool: 'cheap-module-eval-source-map',
         //setting the development server
         devServer: {
             contentBase: path.join(__dirname, 'public'),
             port: 3000,
-            historyApiFallback: true
+            historyApiFallback: true,
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+                "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+              }
           },
           node: {
             fs: "empty"
-         }
+         },
+
+         
     }

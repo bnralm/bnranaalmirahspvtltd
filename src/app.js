@@ -1,12 +1,12 @@
 import React from 'react';
-import { Provider  } from 'react-redux';
 import ReactDOM from 'react-dom';
 import AppRouters from './AppRouters/AppRouters';
-import feedbacksStore from './store/feedbacksStore';
-import  getVisibleFeedbacks from './selectors/feedbacks';
+import axios from 'axios';
+import { Provider } from 'react-redux';
+import configProductStore from './store/allstore';
+import { addProduct } from  './actions/product';
 
-import {addFeedback} from './actions/feedbacks';
-import {setTextFilter, sortByIsResolved} from './actions/filters';
+const _ = require('lodash');
 
  const store = feedbacksStore();
 
@@ -34,9 +34,8 @@ const state = store.getState();
 
 const jsx = (
     <Provider store={store}> 
-        <AppRouters />
+       <AppRouters />
     </Provider>
 )
 
-ReactDOM.render(jsx, document.getElementById('app'))
-
+ReactDOM.render(storeJxs, document.getElementById('app'))

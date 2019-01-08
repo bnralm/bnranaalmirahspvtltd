@@ -1,13 +1,12 @@
 import React from 'react';
-import { relative } from 'path';
 
 const {scrollingAspectRatioModule, $elAll, getElementOuterHeight} = require('./../../commonModule/commonModule');
-
 let allSectionElementHeight = 0, totalCountOfPagination, everySectionOffsetTop=[], allPaginationHeight, counterAdding, everyPaginationActiveClassState=[], paginationPixelPropotionate;
+
 
 export default class StickyScaleComponent extends React.Component {
     constructor(props){
-        super();
+        super(props);
         this.getAllElementHeightOffset = this.getAllElementHeightOffset.bind(this);
         this.componentDidMount = this.componentDidMount.bind(this);
         this.createPaginationList = this.createPaginationList.bind(this);
@@ -28,25 +27,25 @@ export default class StickyScaleComponent extends React.Component {
         const that = this;
        
         setTimeout(()=>{
+            let count = 0;
             that.getAllElementHeightOffset();
-            this.createPaginationList();
+            if(count < 1){
+                this.createPaginationList();
+                count = 1;
+            }
             this.onScrolling();
         }, 1500)
     }
 
     getAllElementHeightOffset(){
-        let arrayOfEverySectionElements = Array.from ($elAll('.js-scale-sticky'));
-        
+        let arrayOfEverySectionElements = Array.from($elAll('.js-scale-sticky'));
             totalCountOfPagination = arrayOfEverySectionElements.length;
-        
             arrayOfEverySectionElements.forEach((opt, ind)=> {
                if(opt){
                    allSectionElementHeight = allSectionElementHeight+opt.clientHeight;
                    everySectionOffsetTop.push(opt.offsetTop);
                }
             })
-
-             
 
             this.setState(() => {
                return {
@@ -83,7 +82,7 @@ export default class StickyScaleComponent extends React.Component {
                 
                 everyPaginationActiveClassState = new Array();
                
-                for(var i=0; i<totalCountOfPagination; i++){
+                for(var i=0; i < 6; i++){
                     if((counterAdding -1) === i){
                         everyPaginationActiveClassState.push(true)
                     }
@@ -136,7 +135,6 @@ export default class StickyScaleComponent extends React.Component {
 }
 
 const NumberComponent = (props) => {
-
         return (
             <li className={props.activeDeactiveClass}>
                 <span className="num">{props.counterAdding}</span>

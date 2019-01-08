@@ -1,12 +1,12 @@
 import React from 'react';
 import CotactFormComponent from './../CotactFormComponent/CotactFormComponent';
 // import ContactThanksComponent from './../ContactThanksComponent/ContactThanksComponent';
-import {connect} from 'react-redux';
-import {addFeedback} from './../../actions/feedbacks';
+// import {connect} from 'react-redux';
+// import {addFeedback} from './../../actions/feedbacks';
 
 // import { link } from 'fs';
 
-const { generateRandomToken, destroyRandomToken, getRandomToken } = require('./../../commonModule/commonModule');
+const { getRandomToken } = require('./../../commonModule/commonModule');
 const contact = require('./ContactUsService/ContactUsService');
 const {subtitle, title} = contact.contactData;
 
@@ -16,6 +16,10 @@ const { email, mobile, address, skypechat} = contact.contactData.contacts;
 const socialMedia = contact.contactData.socialMedia;
 
 
+const feedback = function() {
+    console.log(props);
+
+}
 
 const ContactUsComponent = (props) => {
         return(<section className="section blue lighten-5 js-scale-sticky">
@@ -51,16 +55,11 @@ const ContactUsComponent = (props) => {
                     
                     </div>
                     <div className="col m6 s12">
-                        { getRandomToken() ? <ContactThanksComponent /> : <CotactFormComponent onSubmit= {
-                               (feedback) => {
-                                //    console.log(feedback);
-                                 props.dispatch(addFeedback(feedback))
-                               } 
-                        } /> } 
+                        { getRandomToken() ? <ContactThanksComponent /> : <CotactFormComponent onSubmit={feedback} /> } 
                     </div>    
                 </div>
             </section>
         )
     }
 
-export default connect()(ContactUsComponent);
+export default ContactUsComponent;
