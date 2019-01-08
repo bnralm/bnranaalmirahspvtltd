@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, browserHistory } from "react-router-dom";
 
 
 import HomeComponent from './../components/HomeComponent/HomeComponent';
@@ -15,7 +15,7 @@ import FeedbacksComponent from './../components/FeedbacksComponent/FeedbacksComp
 
 
 const AppRouters = () => (
-    <Router>
+    <Router history={browserHistory}>
         <div>
         <HeaderComponent />
             <Switch>
