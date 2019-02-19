@@ -26,13 +26,10 @@ const headerTitle = "BN & Rana Almirahs (P) Ltd.";
 class AppRouters extends React.Component {
     constructor(props){
         super(props);
-       
-        let productPromise = new Promise( (response, reject) => {
-            const products = await getProductData();
-            const returnData = await products;
-                console.log(returnData);
-        } );
-        productPromise;
+        getProductData();
+
+       let json =  JSON.parse(localStorage.getItem('allproduct'));
+       json.map( product => props.dispatch(addProduct(product)) );
     }
   
     render(){

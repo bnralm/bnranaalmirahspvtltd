@@ -1,6 +1,4 @@
 import axios from 'axios';
-import { addProduct } from  '../actions/product';
-
 
 module.exports = {
     forms: {
@@ -66,7 +64,7 @@ module.exports = {
             return checkedMoboDevice;
         }
     },
-    getProductData: async() =>  {
+    getProductData: () =>  {
         axios.all([
             axios.get('https://ranasteelco.herokuapp.com/api/products'),
             axios.get('https://ranasteelco.herokuapp.com/api/productdetails'),
@@ -79,7 +77,6 @@ module.exports = {
             let prodDtlData =  _.find(productDetailData.data, function(o) { return o.productDtlCode == productCode; });
             let prodDtlDesc =  _.find(productDescriptionData.data, function(o) { return o.productDesCode == productCode; });
             
-            // store.dispatch(addProduct({...proddata, ...prodDtlData, ...prodDtlDesc}))
             return ({...proddata, ...prodDtlData, ...prodDtlDesc});
         })
     

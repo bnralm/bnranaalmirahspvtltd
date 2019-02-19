@@ -1,6 +1,6 @@
 import React from 'react';
 const ProductComponent = (props) => {
- const {productName, productCode,productDtlImage, productPrice, needForThis, numberOfShelves, productStockNum, numberDoor, dimensions} = props.product;
+const {productName, productCode,productDtlImage, productPrice, needForThis, numberOfShelves, productStockNum, numberDoor, dimensions} = props.product;
 
     return (
         <div className="card medium">
