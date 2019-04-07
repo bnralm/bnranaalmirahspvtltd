@@ -25,6 +25,7 @@ const HeaderComponent = ({login}) => {
                     {navData.map((item) =>  <li><Link to={item.navAnchorLink} title={item.navAnchorTitle}>{item.navAnchorText}</Link></li> ) }
                     <li><a href="/docs/productCatelogue.pdf" target="_blank" title="product catelouge">Product Catelouge</a></li>
                     {login.token != "" ? (<NavUserComponent props={login} />) : (<NavLoginSingUpComponent />)}
+                    <li>GSTIN: 20-AAHCB78300R-2ZC</li>
                 </ul>
                 <ul id="slide-out" className="sidenav">
                     <li><div class="user-view">
@@ -39,7 +40,9 @@ const HeaderComponent = ({login}) => {
                     <li><Link to={'/'} title="homepage">Home Page</Link></li>
                     {navData.map((item) =>  <li><Link to={item.navAnchorLink} title={item.navAnchorTitle}>{item.navAnchorText}</Link></li> ) }
                     <li><a href="/docs/productCatelogue.pdf" target="_blank" title="product catelouge">Product Catelouge</a></li>
+                    <li>GSTIN: 20AAHCB78300R2ZC</li>
                     <li>
+
                     <div className="divider"></div>
                     </li>
                     {login.token != "" ? (<NavUserComponent props={login} />) : (<NavLoginSingUpComponent />)}
