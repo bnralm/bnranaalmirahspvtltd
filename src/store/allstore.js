@@ -1,21 +1,14 @@
-import {createStore, combineReducers} from 'redux';
-import productsReducer from './../reducers/products';
-import registrationReducerDefaultState from './../reducers/registration';
-import loginReducerDefaultState from './../reducers/login';
-import formLoginReducerDefaultState from './../reducers/formLogin';
+import {createStore } from 'redux';
+import appReducer from './../reducers'
+
 
 
 
 
 export default () => {
     const store = createStore(
-        combineReducers({
-            products: productsReducer,
-            register: registrationReducerDefaultState,
-            login: loginReducerDefaultState,
-            formLogin: formLoginReducerDefaultState
-        }),
+          appReducer,
           window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
         );
-        return store;
-}
+      return store;
+  }

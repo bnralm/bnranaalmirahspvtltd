@@ -1,7 +1,5 @@
 const path = require('path');
-
 const imageUrlPath = path.join(__dirname, 'public')
-console.log(imageUrlPath, '==>s');
 
 module.exports = {
     entry: {
@@ -58,5 +56,4 @@ module.exports = {
             fs: "empty"
          },
 
-         
     }

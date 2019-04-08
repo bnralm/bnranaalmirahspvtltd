@@ -11,7 +11,7 @@ const loginReducerDefaultState = {
   };
 
   
-export default (state = loginReducerDefaultState, action) => {
+const loginReducer = (state = loginReducerDefaultState, action) => {
     switch(action.type){
       case 'LOGIN_USER':
         return {
@@ -42,4 +42,4 @@ export default (state = loginReducerDefaultState, action) => {
    }
    
 
-  
+  export default loginReducer;

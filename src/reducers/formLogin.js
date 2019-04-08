@@ -4,7 +4,7 @@ const formLoginReducerDefaultState = {
   };
 
   
-export default (state = formLoginReducerDefaultState, action) => {
+const formLoginReducer = (state = formLoginReducerDefaultState, action) => {
     switch(action.type){
       case 'SIGN_USER':
         return {
@@ -18,4 +18,4 @@ export default (state = formLoginReducerDefaultState, action) => {
    }
    
 
-  
+   export default formLoginReducer;

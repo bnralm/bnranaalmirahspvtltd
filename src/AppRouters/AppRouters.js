@@ -27,14 +27,14 @@ class AppRouters extends React.Component {
     constructor(props){
         super(props);
         getProductData();
-
-       let json =  JSON.parse(localStorage.getItem('allproduct'));
-       json.map( product => props.dispatch(addProduct(product)) );
     }
-  
-    render(){
 
-        return  (
+    componentDidMount(){
+        let json =  localStorage && localStorage.getItem && JSON.parse(localStorage.getItem('allproduct'));
+        json.map( product => props.dispatch(addProduct(product)) );
+    }
+      render(){
+      return  (
             <Router>
                 <div>
                 <HeaderComponent />

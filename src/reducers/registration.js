@@ -14,7 +14,7 @@ const registrationReducerDefaultState = {
   };
 
 
-export default (state = registrationReducerDefaultState, action) => {
+const registrationReducer = (state = registrationReducerDefaultState, action) => {
  switch(action.type){
    case 'ADD_USER':
      return {
@@ -30,3 +30,5 @@ export default (state = registrationReducerDefaultState, action) => {
      return state;
   }
 }
+
+export default registrationReducer;

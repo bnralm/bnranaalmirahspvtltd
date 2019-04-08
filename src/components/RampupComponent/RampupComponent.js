@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import Slider from 'react-slick';
 import SampleNextArrow from '../SampleNextArrow/SampleNextArrow';
 import SamplePrevArrow from '../SamplePrevArrow/SamplePrevArrow';
+import { connect } from 'react-redux';
 
 const settings = {
     className: "slider variable-width rampup-slider",
@@ -18,7 +19,7 @@ const settings = {
 
 
 
-export default class RampupComponent extends React.Component {
+class RampupComponent extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -70,8 +71,10 @@ const SlideImage = (props) => (
 )
 
     
-// const mapStateToProps = ((state) => {
-//     return {
-//         products: state.products
-//     }
-// })
+const mapStateToProps = ((state) => {
+    return {
+        reampup: state.rampupReducer
+    }
+})
+
+export default connect(mapStateToProps(RampupComponent));
