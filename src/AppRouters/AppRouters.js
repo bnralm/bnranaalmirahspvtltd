@@ -20,9 +20,6 @@ import LoginSignupCompnent from './../components/LoginSignupCompnent/LoginSignup
 
 const headerTitle = "BN & Rana Almirahs (P) Ltd.";
 
-
-
-
 class AppRouters extends React.Component {
     constructor(props){
         super(props);
@@ -30,8 +27,11 @@ class AppRouters extends React.Component {
     }
 
     componentDidMount(){
-        let json =  localStorage && localStorage.getItem && JSON.parse(localStorage.getItem('allproduct'));
-        json.map( product => props.dispatch(addProduct(product)) );
+        let that = this
+        setTimeout( () => {
+            let json =  localStorage && localStorage.getItem ? JSON.parse(localStorage.getItem('allproduct')) : false;
+            json ? json.map( product => that.props.dispatch(addProduct(product)) ) : '';
+        })
     }
       render(){
       return  (

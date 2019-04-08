@@ -77,4 +77,4 @@ const mapStateToProps = ((state) => {
     }
 })
 
-export default connect(mapStateToProps(RampupComponent));
+export default connect(mapStateToProps)(RampupComponent);

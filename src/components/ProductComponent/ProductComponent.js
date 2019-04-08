@@ -62,5 +62,4 @@ const {productName, productCode,productDtlImage, productPrice, needForThis, numb
     </div>
     )
 }
-
 export default ProductComponent;

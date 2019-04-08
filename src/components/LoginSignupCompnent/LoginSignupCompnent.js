@@ -72,7 +72,6 @@ const getLogin = (e) => {
 }
 
 const SingUP = ({props, closeform}) => {
-
     const openSignInModal = () => {
         props.dispatch(loginFormOpen({modalSignIn: true, modalSignUp: false, isOpen: true}))
     }
@@ -173,6 +172,7 @@ const LoginSignupCompnent = (props) => {
             })
     }
 
+
     return (
             <ReactModal 
             closeTimeoutMS={400}
@@ -180,9 +180,9 @@ const LoginSignupCompnent = (props) => {
             className="modal_form"
             bodyOpenClassName="modalIsactive"
             overlayClassName="olay"
-            isOpen={props.login.isOpen}>
+            isOpen={props && props.login && props.login.isOpen ? props.login.isOpen : false }>
                     <a onClick={closeModalForm} className="closeModal"><i class="small material-icons">close</i></a>
-                { props.login.modalSignIn ? (<Login props={props}/>) : (<SingUP props={props} />) } 
+                { props && props.login && props.login.modalSignIn ? (<Login props={props}/>) : (<SingUP props={props} />) } 
             </ReactModal>
         )
     }

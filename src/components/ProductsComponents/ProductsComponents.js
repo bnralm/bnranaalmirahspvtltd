@@ -22,19 +22,28 @@ const settings = {
   }
 
 
-const ProductsComponents = ({products}) => (
-    <section className="section no-padd mobile-bg-grey">
-        <div className="row container product-thumb-page">
-            <div class="header-level-2-title blue-text darken-1 center">Amazing collections</div>
-            <h2 className="header center">Collection of Products</h2>
-            <Slider {...settings}>
-                { products.map( product => {
-                   return product.productVisiblity ?  (<ProductComponent key={product.productId} product={ product } />) : '';
-                } )}
-            </Slider>
-        </div>
-    </section>
-)
+const ProductsComponents = ({products}) => {
+    if(products && products.length > 0){
+        return (
+            <section className="section no-padd mobile-bg-grey">
+                <div className="row container product-thumb-page">
+                    <div class="header-level-2-title blue-text darken-1 center">Amazing collections</div>
+                    <h2 className="header center">Collection of Products</h2>
+                    <Slider {...settings}>
+                        { products.map( product => {
+                           return product.productVisiblity ?  (<ProductComponent key={product.productId} product={ product } />) : '';
+                        } )}
+                    </Slider>
+                </div>
+            </section>
+        )
+        
+    }
+    else {
+        return (<div>loading...</div>)
+    }
+} 
+
 const mapStateToProps = ((state) => {
     return {
         products: state.products
