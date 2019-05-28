@@ -1,5 +1,7 @@
+import * as actionType from './../constants/constant.action';
+
 export const getFormLogin = (login) => ({
-    type: 'SIGN_USER',
+    type: actionType.SIGN_USER,
     login
   });
 

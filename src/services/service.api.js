@@ -2,7 +2,7 @@
  * Summary: Member Search actions
  * Description: Member Search function which will called to service layer
  * @author Pankaj Rana
- * @date  27.06.2019
+ * @date  27.05.2019
  */
 import { baseService, token } from '../services';
 import { uriConstants } from '../constants/constant.uri';
@@ -14,7 +14,9 @@ import { uriConstants } from '../constants/constant.uri';
  */
 export const serviceAPI = {
   getProducts,
- ;
+  getProductDetails,
+  getProductsDescription
+}
 
 /**
  * Description: Fetch list of members on the basis of filter
@@ -23,6 +25,20 @@ export const serviceAPI = {
  */
 function getProducts() {
   let url = uriConstants.PRODUCTS_URL;
+  return baseService.get(
+    url
+    );
+}
+
+function getProductDetails() {
+  let url = uriConstants.PRODUCT_DETAILS_URL;
+  return baseService.get(
+    url
+    );
+}
+
+function getProductsDescription() {
+  let url = uriConstants.PRODUCT_DETAIL_DESC_URL;
   return baseService.get(
     url
     );

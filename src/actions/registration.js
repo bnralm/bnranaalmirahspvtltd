@@ -1,11 +1,12 @@
+import * as actionType from './../constants/constant.action';
 
 export const userSignup = (signup) => ({
-    type: 'ADD_USER',
+    type: actionType.ADD_USER,
     signup
   });
 
 export const getRegister = (register) => ({
-    type: 'REGISTER_USER',
+    type: actionType.REGISTER_USER,
     register     
   });
     

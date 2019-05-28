@@ -1,8 +1,8 @@
 /**
  * Summary: export the component(s)
  * Description: List/group of components to be exported instead of one by one from other components
- * @author Deepak Goyal
- * @date  13.09.2018
+ * @author Pankaj Rana
+ * @date  28.05.2019
  */
 
 export * from './constant.uri';

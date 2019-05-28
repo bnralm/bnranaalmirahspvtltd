@@ -3,8 +3,6 @@ import appReducer from './../reducers'
 
 
 
-
-
 export default () => {
     const store = createStore(
           appReducer,

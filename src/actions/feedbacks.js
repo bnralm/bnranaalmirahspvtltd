@@ -1,3 +1,5 @@
+import * as actionType from './../constants/constant.action';
+
 import uuid from 'uuid';
 // ADD_FEEDBACK
 import moment from 'moment';
@@ -14,7 +16,7 @@ export const addFeedback = (
       isRosolvedDate = undefined
     } = {}
   ) => ({
-    type: 'ADD_FEEDBACK',
+    type: actionType.ADD_FEEDBACK,
     feedback: {
       id: uuid(),
       userName,
@@ -31,14 +33,14 @@ export const addFeedback = (
   // REMOVE_FEEDBACK
   
 export const removeFeedback = ({ id } = {}) => ({
-    type: 'REMOVE_FEEDBACK',
+    type: actionType.REMOVE_FEEDBACK,
     id
   });
 
     // EDIT_FEEDBACK
 
   export const editFeedback = ({id}, updates) => ({
-    type: 'EDIT_FEEDBACK',
+    type: actionType.EDIT_FEEDBACK,
     id,
     updates
   });
