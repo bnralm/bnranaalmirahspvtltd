@@ -28,13 +28,13 @@ const HomeComponent = () => {
     return (
         <div>
             hellow
-            {/* <HeroShotComponent />
+             <HeroShotComponent />
             <ProductsComponents />
             <WhyuChooseComponents />
             <AchievementsComponents />
             <MapComponent />
             <ContactUsComponent />
-            <RampupComponent/> */}
+            <RampupComponent/>
         </div>        
     )
 }

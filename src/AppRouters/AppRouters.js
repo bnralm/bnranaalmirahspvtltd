@@ -16,32 +16,27 @@ import AvailableColors from './../container/AvailableColors';
 import LoginSignupCompnent from './../container/LoginSignupCompnent';
 
 
-
-
 const headerTitle = "BN & Rana Almirahs (P) Ltd.";
 
 class AppRouters extends React.Component {
-    constructor(props){
-        super(props);
-    }
-
+    
     render(){
       return  (
             <Router>
                 <div>
-                {/* <HeaderComponent /> */}
+                 <HeaderComponent />
                     <Switch>
                         <Route exact={true} path="/" component={HomeComponent} setRouteTitle={`${headerTitle} Home Page`} />
-                        {/* <Route exact={true}  path="/plp" component={ProductListComponent}  setRouteTitle={`${headerTitle} Product Listing Page`}/>
+                        <Route exact={true}  path="/plp" component={ProductListComponent}  setRouteTitle={`${headerTitle} Product Listing Page`}/>
                         <Route exact={true}  path="/pdp/:productId" component={ProductDetailComponent} setRouteTitle={`${headerTitle} Product Detail Page`}/>
                         <Route exact={true}  path="/contact-us" component={ContactUsComponent}  setRouteTitle={`${headerTitle} Contact Us Page`}/>
                         <Route exact={true}  path="/feedbacks" component={FeedbacksComponent} setRouteTitle={`${headerTitle} Feedbacks Page`}/>
                         <Route exact={true}  path="/colors" component={AvailableColors} setRouteTitle={`${headerTitle} Color Page`}/>
-                        <Route  component={PageNotFoundComponent} setRouteTitle={`${headerTitle}: 404`} /> */}
+                        <Route  component={PageNotFoundComponent} setRouteTitle={`${headerTitle}: 404`} />
                     </Switch>
-                {/* <BacktoTopComponent /> */}
-                {/* <LoginSignupCompnent /> */}
-                {/* <FooterComponent /> */}
+                <BacktoTopComponent />
+                 <LoginSignupCompnent />
+                 <FooterComponent />
                 </div>
             </Router>
         ) 
