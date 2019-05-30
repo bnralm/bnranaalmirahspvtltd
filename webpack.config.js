@@ -10,11 +10,11 @@ module.exports = {
         path: path.join(__dirname, 'public/scripts'),
         filename: '[name].bundle.js' 
     },
-    mode: 'production',
+    mode: 'development',
     module : {
         rules: [
                 {
-                    test: /\.js$/,
+                    test: /\.js?x$/,
                     use: 'babel-loader',
                     exclude: /node_module/
                 },

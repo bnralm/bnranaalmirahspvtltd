@@ -3,17 +3,17 @@ import {connect} from 'react-redux';
 import { getProductData } from './../commonModule/commonModule'
 import { addProduct } from  '../actions/product';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import HomeComponent from './../components/HomeComponent/HomeComponent';
-import BacktoTopComponent from './../components/BacktoTopComponent/BacktoTopComponent';
-import ProductDetailComponent from './../components/ProductDetailComponent/ProductDetailComponent';
-import ContactUsComponent from './../components/ContactUsComponent/ContactUsComponent';
-import PageNotFoundComponent from './../components/PageNotFoundComponent/PageNotFoundComponent';
-import HeaderComponent from './../components/HeaderComponent/HeaderComponent';
-import FooterComponent from './../components/FooterComponent/FooterComponent';
-import ProductListComponent from './../components/ProductListComponent/ProductListComponent';
-import FeedbacksComponent from './../components/FeedbacksComponent/FeedbacksComponent';
-import AvailableColors from './../components/AvailableColors/AvailableColors';
-import LoginSignupCompnent from './../components/LoginSignupCompnent/LoginSignupCompnent';
+import HomeComponent from './../container/HomeComponent';
+import BacktoTopComponent from './../container/BacktoTopComponent';
+import ProductDetailComponent from './../container/ProductDetailComponent';
+import ContactUsComponent from './../container/ContactUsComponent';
+import PageNotFoundComponent from './../container/PageNotFoundComponent';
+import HeaderComponent from './../container/HeaderComponent';
+import FooterComponent from './../container/FooterComponent';
+import ProductListComponent from './../container/ProductListComponent';
+import FeedbacksComponent from './../container/FeedbacksComponent';
+import AvailableColors from './../container/AvailableColors';
+import LoginSignupCompnent from './../container/LoginSignupCompnent';
 
 
 
@@ -23,33 +23,25 @@ const headerTitle = "BN & Rana Almirahs (P) Ltd.";
 class AppRouters extends React.Component {
     constructor(props){
         super(props);
-        getProductData();
     }
 
-    componentDidMount(){
-        let that = this
-        setTimeout( () => {
-            let json =  localStorage && localStorage.getItem ? JSON.parse(localStorage.getItem('allproduct')) : false;
-            json ? json.map( product => that.props.dispatch(addProduct(product)) ) : '';
-        })
-    }
-      render(){
+    render(){
       return  (
             <Router>
                 <div>
-                <HeaderComponent />
+                {/* <HeaderComponent /> */}
                     <Switch>
                         <Route exact={true} path="/" component={HomeComponent} setRouteTitle={`${headerTitle} Home Page`} />
-                        <Route exact={true}  path="/plp" component={ProductListComponent}  setRouteTitle={`${headerTitle} Product Listing Page`}/>
+                        {/* <Route exact={true}  path="/plp" component={ProductListComponent}  setRouteTitle={`${headerTitle} Product Listing Page`}/>
                         <Route exact={true}  path="/pdp/:productId" component={ProductDetailComponent} setRouteTitle={`${headerTitle} Product Detail Page`}/>
                         <Route exact={true}  path="/contact-us" component={ContactUsComponent}  setRouteTitle={`${headerTitle} Contact Us Page`}/>
                         <Route exact={true}  path="/feedbacks" component={FeedbacksComponent} setRouteTitle={`${headerTitle} Feedbacks Page`}/>
                         <Route exact={true}  path="/colors" component={AvailableColors} setRouteTitle={`${headerTitle} Color Page`}/>
-                        <Route  component={PageNotFoundComponent} setRouteTitle={`${headerTitle}: 404`} />
+                        <Route  component={PageNotFoundComponent} setRouteTitle={`${headerTitle}: 404`} /> */}
                     </Switch>
-                <BacktoTopComponent />
-                <LoginSignupCompnent />
-                <FooterComponent />
+                {/* <BacktoTopComponent /> */}
+                {/* <LoginSignupCompnent /> */}
+                {/* <FooterComponent /> */}
                 </div>
             </Router>
         ) 

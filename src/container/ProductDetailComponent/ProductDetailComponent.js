@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import PdpGallaryComponent from './../PdpGallaryComponent/PdpGallaryComponent';
-import PdpProductBioComponent from './../PdpProductBioComponent/PdpProductBioComponent';
-import PdpDescriptionComponent from './../PdpDescriptionComponent/PdpDescriptionComponent';
-import PageNotFoundComponent from './../PageNotFoundComponent/PageNotFoundComponent';
+import PdpGallaryComponent from './../../components/PdpGallaryComponent';
+import PdpProductBioComponent from './../../components/PdpProductBioComponent';
+import PdpDescriptionComponent from './../../components/PdpDescriptionComponent';
+import PageNotFoundComponent from './../PageNotFoundComponent';
 const _ = require('lodash');
 
 const ProductDetailComponent = ({products, match}) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductItemComponent from './../ProductItemComponent/ProductItemComponent';
+import ProductItemComponent from './../../components/ProductItemComponent';
 import { connect } from 'react-redux';
 
 const ProductListComponent = ({products}) => {

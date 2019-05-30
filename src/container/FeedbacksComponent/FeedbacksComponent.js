@@ -2,8 +2,8 @@ import React from 'react';
 import FeedbackComponent from './../FeedbackComponent/FeedbackComponent';
 import selectFeedbacks from './../../selectors/feedbacks';
 import { connect } from 'react-redux';
-import FeedbackTextFilterComponent from './../FeedbackTextFilterComponent/FeedbackTextFilterComponent';
-import FeedbackSortByComponent from './../FeedbackSortByComponent/FeedbackSortByComponent';
+import FeedbackTextFilterComponent from './../../components/FeedbackTextFilterComponent';
+import FeedbackSortByComponent from './../../components/FeedbackSortByComponent';
 
  
 

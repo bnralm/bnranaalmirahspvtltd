@@ -28,16 +28,16 @@ export const getAllProducts = () => {
       
         if (resp.data) {
           dispatch(addProducts(resp.data));
-        } else if (
+        } else if ( false
         //   resp.response.data.resultCode &&
         //   resp.response.data.resultDescription
         ) {
-          dispatch(
+          // dispatch(
             // setReferralError(
             //   resp.response.data.resultCode,
             //   resp.response.data.resultDescription
             // )
-          );
+          // );
         } else {
           console.log(resp.data);
         }
@@ -57,7 +57,7 @@ export const getAllProductDetails = () => {
         
           if (resp.data) {
             dispatch(addProductDetails(resp.data));
-          } else if (
+          } else if ( false
           //   resp.response.data.resultCode &&
           //   resp.response.data.resultDescription
           ) {
@@ -86,7 +86,7 @@ export const getAllProductDetails = () => {
         
           if (resp.data) {
             dispatch(addProductsDescription(resp.data));
-          } else if (
+          } else if ( false
           //   resp.response.data.resultCode &&
           //   resp.response.data.resultDescription
           ) {
@@ -96,6 +96,7 @@ export const getAllProductDetails = () => {
               //   resp.response.data.resultDescription
               // )
             );
+            
           } else {
             console.log(resp.data);
           }

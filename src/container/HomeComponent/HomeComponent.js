@@ -1,16 +1,17 @@
 import React from 'react';
-import HeroShotComponent from './../HeroShotComponent/HeroShotComponent';
-import ProductsComponents from './../ProductsComponents/ProductsComponents';
-import WhyuChooseComponents from './../WhyuChooseComponents/WhyuChooseComponents';
-import AchievementsComponents from './../AchievementsComponents/AchievementsComponents';
-import ContactUsComponent from './../ContactUsComponent/ContactUsComponent';
-import RampupComponent from './../RampupComponent/RampupComponent';
 
+import HeroShotComponent from './../../components/HeroShotComponent';
+import ProductsComponents from './../../components/ProductsComponents';
+import WhyuChooseComponents from './../../components/WhyuChooseComponents';
+import AchievementsComponents from './../../components/AchievementsComponents';
+import ContactUsComponent from './../ContactUsComponent';
+import RampupComponent from './../../components/RampupComponent';
+import MapComponent from './../../components/MapComponent'
 
 // import StickyScaleComponent from './../StickyScaleComponent/StickyScaleComponent';
 
 // import FeebacksComponent from './..//FeebacksComponent';
-import MapComponent from './../MapComponent/MapComponent'
+
 const {getMoboDevice} = require('./../../commonModule/commonModule');
 
 const HighOrderComponent = () => {
@@ -26,13 +27,14 @@ const HighOrderComponent = () => {
 const HomeComponent = () => {
     return (
         <div>
-            <HeroShotComponent />
+            hellow
+            {/* <HeroShotComponent />
             <ProductsComponents />
             <WhyuChooseComponents />
             <AchievementsComponents />
             <MapComponent />
             <ContactUsComponent />
-            <RampupComponent/>
+            <RampupComponent/> */}
         </div>        
     )
 }

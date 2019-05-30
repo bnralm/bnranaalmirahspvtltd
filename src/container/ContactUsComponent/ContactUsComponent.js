@@ -1,6 +1,6 @@
 import React from 'react';
-import CotactFormComponent from './../CotactFormComponent/CotactFormComponent';
-// import ContactThanksComponent from './../ContactThanksComponent/ContactThanksComponent';
+import CotactFormComponent from './../../components/CotactFormComponent/CotactFormComponent';
+// import ContactThanksComponent from './../../components/ContactThanksComponent/ContactThanksComponent';
 // import {connect} from 'react-redux';
 // import {addFeedback} from './../../actions/feedbacks';
 

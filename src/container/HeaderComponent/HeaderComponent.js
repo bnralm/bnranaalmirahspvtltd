@@ -2,8 +2,9 @@ import React from 'react';
 import {globalNav} from  './HeaderService/HeaderService';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import NavLoginSingUpComponent from './../NavLoginSingUpComponent/NavLoginSingUpComponent';
-import NavUserComponent from './../NavUserComponent/NavUserComponent';
+
+import NavLoginSingUpComponent from './../../components/NavLoginSingUpComponent';
+import NavUserComponent from './../../components/NavUserComponent';
 
 const handleClick = () => {
     let elems = document.querySelector('#slide-out');
