@@ -3,3 +3,4 @@
 /node_modules/
 /public/scripts/bundle.js
 /package-lock.json
+/public/scripts/**.js

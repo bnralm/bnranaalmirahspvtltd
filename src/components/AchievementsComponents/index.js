@@ -1,1 +1,3 @@
-export * from './AchievementsComponents';
+import AchievementsComponents from './AchievementsComponents';
+
+export {AchievementsComponents as default};

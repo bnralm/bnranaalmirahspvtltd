@@ -1,1 +1,3 @@
-export * from './FeedbackTextFilterComponent';
+import FeedbackTextFilterComponent from './FeedbackTextFilterComponent';
+
+export {FeedbackTextFilterComponent as default};

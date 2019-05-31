@@ -1,1 +1,4 @@
-export * from './PdpProductBioComponent';
+import PdpProductBioComponent from './PdpProductBioComponent';
+
+export {PdpProductBioComponent as default};
+

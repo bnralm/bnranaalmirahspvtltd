@@ -1,1 +1,3 @@
-export * from './FeedbacksComponent';
+import FeedbacksComponent from './FeedbacksComponent';
+
+export  {FeedbacksComponent as default};

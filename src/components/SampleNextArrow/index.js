@@ -1,1 +1,4 @@
-export * from './SampleNextArrow';
+import SampleNextArrow from './SampleNextArrow';
+
+export {SampleNextArrow as default};
+

@@ -1,12 +1,12 @@
 import React from 'react';
 
-import HeroShotComponent from './../../components/HeroShotComponent';
-import ProductsComponents from './../../components/ProductsComponents';
-import WhyuChooseComponents from './../../components/WhyuChooseComponents';
-import AchievementsComponents from './../../components/AchievementsComponents';
-import ContactUsComponent from './../ContactUsComponent';
-import RampupComponent from './../../components/RampupComponent';
-import MapComponent from './../../components/MapComponent'
+import HeroShotComponent from './../../components/HeroShotComponent/HeroShotComponent';
+import ProductsComponents from './../../components/ProductsComponents/ProductsComponents';
+import WhyuChooseComponents from './../../components/WhyuChooseComponents/WhyuChooseComponents';
+import AchievementsComponents from './../../components/AchievementsComponents/AchievementsComponents';
+import ContactUsComponent from './../ContactUsComponent/ContactUsComponent';
+import RampupComponent from './../../components/RampupComponent/RampupComponent';
+import MapComponent from './../../components/MapComponent/MapComponent'
 
 // import StickyScaleComponent from './../StickyScaleComponent/StickyScaleComponent';
 
@@ -24,11 +24,8 @@ const HighOrderComponent = () => {
 
 }
 
-const HomeComponent = () => {
-    return (
-        <div>
-            hellow
-             <HeroShotComponent />
+const HomeComponent = () => (<div>
+            <HeroShotComponent />
             <ProductsComponents />
             <WhyuChooseComponents />
             <AchievementsComponents />
@@ -37,6 +34,5 @@ const HomeComponent = () => {
             <RampupComponent/>
         </div>        
     )
-}
 
 export default HomeComponent;

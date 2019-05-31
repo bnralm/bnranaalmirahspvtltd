@@ -1,1 +1,4 @@
-export * from './NavUserComponent';
+import NavUserComponent from './NavUserComponent';
+
+export {NavUserComponent as default} ;
+

@@ -1,1 +1,3 @@
-export * from './BacktoTopComponent';
+import BacktoTopComponent from './BacktoTopComponent';
+
+export {BacktoTopComponent as default};

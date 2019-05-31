@@ -1,1 +1,5 @@
-export * from './FeedbackComponent'
+import FeedbackComponent from './FeedbackComponent';
+
+export  {FeedbackComponent as default};
+
+

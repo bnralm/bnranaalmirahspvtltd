@@ -18,8 +18,6 @@ export const addProductsDescription = ( productDecriptions => ({
 }))
 
 
-
-
 export const getAllProducts = () => {
   return dispatch => {
     serviceAPI

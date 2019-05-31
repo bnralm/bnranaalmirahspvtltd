@@ -18,7 +18,7 @@ import LoginSignupCompnent from './../container/LoginSignupCompnent';
 
 const headerTitle = "BN & Rana Almirahs (P) Ltd.";
 
-class AppRouters extends React.Component {
+export default class AppRouters extends React.Component {
     
     render(){
       return  (
@@ -26,27 +26,27 @@ class AppRouters extends React.Component {
                 <div>
                  <HeaderComponent />
                     <Switch>
-                        <Route exact={true} path="/" component={HomeComponent} setRouteTitle={`${headerTitle} Home Page`} />
-                        <Route exact={true}  path="/plp" component={ProductListComponent}  setRouteTitle={`${headerTitle} Product Listing Page`}/>
-                        <Route exact={true}  path="/pdp/:productId" component={ProductDetailComponent} setRouteTitle={`${headerTitle} Product Detail Page`}/>
-                        <Route exact={true}  path="/contact-us" component={ContactUsComponent}  setRouteTitle={`${headerTitle} Contact Us Page`}/>
-                        <Route exact={true}  path="/feedbacks" component={FeedbacksComponent} setRouteTitle={`${headerTitle} Feedbacks Page`}/>
-                        <Route exact={true}  path="/colors" component={AvailableColors} setRouteTitle={`${headerTitle} Color Page`}/>
-                        <Route  component={PageNotFoundComponent} setRouteTitle={`${headerTitle}: 404`} />
+                        <Route exact path="/" component={HomeComponent} setRouteTitle={`${headerTitle} Home Page`} />
+                         <Route exact path="/plp" component={ProductListComponent}  setRouteTitle={`${headerTitle} Product Listing Page`}/>
+                        <Route exact path="/pdp/:productId" component={ProductDetailComponent} setRouteTitle={`${headerTitle} Product Detail Page`}/>
+                        <Route exact path="/contact-us" component={ContactUsComponent}  setRouteTitle={`${headerTitle} Contact Us Page`}/>
+                        <Route exact path="/feedbacks" component={FeedbacksComponent} setRouteTitle={`${headerTitle} Feedbacks Page`}/>
+                        <Route exact path="/colors" component={AvailableColors} setRouteTitle={`${headerTitle} Color Page`}/>
+                        <Route component={PageNotFoundComponent} setRouteTitle={`${headerTitle}: 404`} /> 
                     </Switch>
-                <BacktoTopComponent />
+                 <BacktoTopComponent />
                  <LoginSignupCompnent />
-                 <FooterComponent />
+                 <FooterComponent /> 
                 </div>
             </Router>
         ) 
     }
 } 
 
-const mapStateToProps = (state) => {
-    return {
-        products: state.products
-    }
-} 
+// const mapStateToProps = (state) => {
+//     return {
+//         products: state.products
+//     }
+// } 
 
-export default connect(mapStateToProps)(AppRouters);
+// export default connect(mapStateToProps)(AppRouters);
