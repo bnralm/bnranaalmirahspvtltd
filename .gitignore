@@ -1,6 +1,5 @@
 #ignore file list
 
 /node_modules/
-/public/scripts/bundle.js
 /package-lock.json
-/public/scripts/**.js
+/public/scripts/*.js
