@@ -1,5 +1,5 @@
-import * as actionType from './../constants/constant.action';
-import { serviceAPI } from './../services/service.api';
+import * as actionType from '../constants/constant.action';
+import { serviceAPI } from '../services/service.api';
 
 export const addProducts = ( products => ({
     type: actionType.ADD_PRODUCTS,

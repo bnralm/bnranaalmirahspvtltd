@@ -1,5 +1,5 @@
 import React from 'react';
-import {editFeedback}  from './../../actions/feedbacks';
+import {editFeedback}  from './../../actions';
 import {connect} from 'react-redux';
 
 const FeedbackComponent = ({dispatch, id, userName, userEmail, userMessage, createdAt, isRosolved, isRosolvedDate }) => (

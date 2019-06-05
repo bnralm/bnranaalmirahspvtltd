@@ -9,7 +9,7 @@ const HeroShotComponent = () => (
               <img src={parallaxTopImg} alt={parallaxTopImgAltText} />
             </div>
             <div className="heroshot-textwrap white-text">
-            <div class="picture center">
+            <div className="picture center">
                 <img src={parallaxImgLogoSvg} alt={parallaxImgLogoSvgAltText} />
             </div>
               <h2 className="header">{heroHeadingLevelTwo}</h2>

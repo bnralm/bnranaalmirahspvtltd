@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {addProducts} from './../actions/product';
+import {addProducts} from './../actions';
 import configureStore from './../store/allstore';
 
 const store = configureStore();

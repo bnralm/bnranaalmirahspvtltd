@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {loginFormOpen} from './../../actions/login';
+import {loginFormOpen} from '../../actions/action.login';
 
 
 

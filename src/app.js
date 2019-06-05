@@ -4,7 +4,7 @@ import AppRouters from './AppRouters/AppRouters';
 import axios from 'axios';
 import { Provider } from 'react-redux';
 import configProductStore from './store/allstore';
-import { addProduct } from  './actions/product';
+import { addProduct } from  './actions';
 
 const _ = require('lodash');
 

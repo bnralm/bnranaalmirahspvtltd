@@ -2,7 +2,7 @@ import React from 'react';
 import CotactFormComponent from './../../components/CotactFormComponent/CotactFormComponent';
 // import ContactThanksComponent from './../../components/ContactThanksComponent/ContactThanksComponent';
 // import {connect} from 'react-redux';
-// import {addFeedback} from './../../actions/feedbacks';
+// import {addFeedback} from './../../actions';
 
 // import { link } from 'fs';
 

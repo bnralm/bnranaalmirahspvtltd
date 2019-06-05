@@ -1,8 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {userSignup} from './../../actions/registration';
-import {loginUser, loginFormOpen, loginFormClose} from './../../actions/login';
-import {getFormLogin} from './../../actions/formLogin';
+import {userSignup, getFormLogin, loginUser, loginFormOpen, loginFormClose} from './../../actions';
 import axios from 'axios';
 import ReactModal from 'react-modal';
 

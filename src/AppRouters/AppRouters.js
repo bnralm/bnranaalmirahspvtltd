@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from 'react-redux';
 import { getProductData } from './../commonModule/commonModule'
-import { addProduct } from  '../actions/product';
+import { addProduct } from  '../actions';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import HomeComponent from './../container/HomeComponent';
 import BacktoTopComponent from './../container/BacktoTopComponent';
@@ -25,7 +25,7 @@ export default class AppRouters extends React.Component {
             <Router>
                 <div>
                  <HeaderComponent />
-                    <Switch>
+                     <Switch>
                         <Route exact path="/" component={HomeComponent} setRouteTitle={`${headerTitle} Home Page`} />
                          <Route exact path="/plp" component={ProductListComponent}  setRouteTitle={`${headerTitle} Product Listing Page`}/>
                         <Route exact path="/pdp/:productId" component={ProductDetailComponent} setRouteTitle={`${headerTitle} Product Detail Page`}/>
@@ -33,7 +33,7 @@ export default class AppRouters extends React.Component {
                         <Route exact path="/feedbacks" component={FeedbacksComponent} setRouteTitle={`${headerTitle} Feedbacks Page`}/>
                         <Route exact path="/colors" component={AvailableColors} setRouteTitle={`${headerTitle} Color Page`}/>
                         <Route component={PageNotFoundComponent} setRouteTitle={`${headerTitle}: 404`} /> 
-                    </Switch>
+                    </Switch> 
                  <BacktoTopComponent />
                  <LoginSignupCompnent />
                  <FooterComponent /> 

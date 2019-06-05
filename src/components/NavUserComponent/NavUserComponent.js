@@ -1,5 +1,5 @@
 import React from 'react';
-import {logoutUser} from './../../actions/login';
+import {logoutUser} from '../../actions/action.login';
 import {connect} from 'react-redux';
 const {getMoboDevice} = require('./../../commonModule/commonModule');
 

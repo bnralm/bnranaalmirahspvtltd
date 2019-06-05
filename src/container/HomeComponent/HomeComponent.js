@@ -26,12 +26,12 @@ const HighOrderComponent = () => {
 
 const HomeComponent = () => (<div>
             <HeroShotComponent />
-            <ProductsComponents />
+            {/* <ProductsComponents />
             <WhyuChooseComponents />
             <AchievementsComponents />
             <MapComponent />
             <ContactUsComponent />
-            <RampupComponent/>
+            <RampupComponent/> */}
         </div>        
     )
 

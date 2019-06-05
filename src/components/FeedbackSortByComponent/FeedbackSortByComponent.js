@@ -1,7 +1,7 @@
 import React from 'react';
 import {Row, Button, Input } from 'react-materialize';
 import { connect } from 'react-redux';
-import {sortByDate, sortByIsResolved } from './../../actions/filters';
+import {sortByDate, sortByIsResolved } from './../../actions';
 
 // const onSelectChangeHandler = (e) => {
 //     switch ( e.target.value){
