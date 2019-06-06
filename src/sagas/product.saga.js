@@ -28,3 +28,15 @@ export function* getProduct() {
         yield put({type: actionType.PRODUCTS_REQUEST_DESCRIPTION_FAILURE, error})
      }
   }
+
+
+export function* getIntialRequest() {
+
+   yield takeEvery({type: actionType.PRODUCTS_REQUEST, getProduct})
+
+   yield takeEvery({type: actionType.PRODUCTS_REQUEST_DESCRIPTION, getProductsDescription})
+
+   yield takeEvery({type: actionType.PRODUCTS_REQUEST_DETAILS, getProductDetails})
+   
+ }
+

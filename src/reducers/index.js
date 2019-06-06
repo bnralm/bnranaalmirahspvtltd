@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'; 
-import formLoginReducer from './formLogin';
-import loginReducer from './login';
-import productReducer from './products';
-import rampupReducer from './rampup';
+import formLoginReducer from './reducer.formLogin';
+import loginReducer from './reducer.login';
+import productReducer from './reducer.products';
+import rampupReducer from './reducer.rampup';
 
  
 const appReducer = combineReducers({ 
