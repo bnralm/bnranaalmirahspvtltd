@@ -1,4 +1,4 @@
-import { put, takeEvery, all } from 'redux-saga/effects'
+import { all } from 'redux-saga/effects'
 
 import {getIntialRequest} from './product.saga';
 

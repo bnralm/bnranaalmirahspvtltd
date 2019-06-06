@@ -4,7 +4,13 @@ const defaultState = {};
 
 const productReducer =  (state = defaultState, action) => {
  switch(action.type){
-   case actionType.PRODUCTS_REQUEST_SUCCESS:
+   
+  case actionType.PRODUCTS_REQUEST:
+    return {
+        ...state
+    }
+
+  case actionType.PRODUCTS_REQUEST_SUCCESS:
      return {
         ...state,
         products: action.products
@@ -15,6 +21,11 @@ const productReducer =  (state = defaultState, action) => {
           ...state,
           productsFailure: action.productsFail
         }  
+
+    case actionType.PRODUCTS_REQUEST_DETAILS:
+        return {
+            ...state
+        }
 
     case actionType.PRODUCTS_REQUEST_DETAILS_SUCCESS:
       return {
@@ -27,6 +38,11 @@ const productReducer =  (state = defaultState, action) => {
           ...state,
           productDetailFail: action.detailsFail
         }  
+
+    case actionType.PRODUCTS_REQUEST_DESCRIPTION:
+        return {
+          ...state
+        }
 
   case actionType.PRODUCTS_REQUEST_DESCRIPTION_SUCCESS:
      return {

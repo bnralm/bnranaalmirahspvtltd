@@ -34,15 +34,9 @@ export const productDescriptionRequestFailure = ( descriptionFail => ({
 }))
 
 
-export const getProduct = () => ({
-  type: actionType.PRODUCTS_REQUEST
-})
+export const getProduct = () => ({type: actionType.PRODUCTS_REQUEST})
 
-export const getProductsDetails = () => ({
-  type: actionType.PRODUCTS_REQUEST_DETAILS
-})
+export const getProductsDetails = () => ({type: actionType.PRODUCTS_REQUEST_DETAILS})
 
-export const getProductsDescription = () => ({
-  type: actionType.PRODUCTS_REQUEST_DESCRIPTION
-})
+export const getProductsDescription = () => ({type: actionType.PRODUCTS_REQUEST_DESCRIPTION})
 

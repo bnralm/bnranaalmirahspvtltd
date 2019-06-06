@@ -1,12 +1,10 @@
 import React from 'react';
 import {globalNav} from  './HeaderService/HeaderService';
 import {Link} from 'react-router-dom';
-import {connect} from 'react-redux';
-import { getAllProducts } from  './../../actions';
-
+import {connect, } from 'react-redux';
 import NavLoginSingUpComponent from './../../components/NavLoginSingUpComponent';
 import NavUserComponent from './../../components/NavUserComponent';
-
+import { getProduct, getProductsDetails, getProductsDescription } from  './../../actions';
 
 import './styles/styles.scss';
 
@@ -63,11 +61,11 @@ const HeaderComponent = props => {
         )
     }
 
-const mapDispatchToProps = dispatch => ({
-          getAllProducts: getAllProducts,
-      })
-
- 
- const mapStateToProps = (state) => ({login: state.login});
-    
+const mapDispatchToProps = ({
+    getProduct: getProduct,
+    getProductsDetails: getProductsDetails,
+    getProductsDescription: getProductsDescription
+});
+const mapStateToProps = (state) => ({login: state.login});
+   
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderComponent);    

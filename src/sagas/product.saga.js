@@ -1,4 +1,4 @@
-import { put, takeEvery, all, call } from 'redux-saga/effects';
+import { put, takeLatest,  call } from 'redux-saga/effects';
 import * as actionType from './../constants/constant.action';
 import * as Api from './../services/service.api';
 
@@ -31,12 +31,8 @@ export function* getProduct() {
 
 
 export function* getIntialRequest() {
-
-   yield takeEvery({type: actionType.PRODUCTS_REQUEST, getProduct})
-
-   yield takeEvery({type: actionType.PRODUCTS_REQUEST_DESCRIPTION, getProductsDescription})
-
-   yield takeEvery({type: actionType.PRODUCTS_REQUEST_DETAILS, getProductDetails})
-   
+   yield takeLatest(actionType.PRODUCTS_REQUEST, getProduct)
+   yield takeLatest(actionType.PRODUCTS_REQUEST_DESCRIPTION, getProductsDescription)
+   yield takeLatest(actionType.PRODUCTS_REQUEST_DETAILS, getProductDetails)
  }
 
