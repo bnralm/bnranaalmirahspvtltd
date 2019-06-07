@@ -4,7 +4,7 @@ const { parallaxTopImg, parallaxTopImgAltText, parallaxImgLogoSvg, parallaxImgLo
 
 const HeroShotComponent = () => (
       <section className="section no-pad js-scale-sticky " id="index-banner">
-          <div className="heroshot-container">
+          {/* <div className="heroshot-container">
             <div className="heroshot-image">
               <img src={parallaxTopImg} alt={parallaxTopImgAltText} />
             </div>
@@ -17,7 +17,7 @@ const HeroShotComponent = () => (
                 {heroBodyMessage}
               </p>
             </div>
-          </div>
+          </div> */}
         </section>
       )
    export default HeroShotComponent;

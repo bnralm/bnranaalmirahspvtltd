@@ -36,7 +36,7 @@ export default class AppRouters extends React.Component {
                     </Switch> 
                  <BacktoTopComponent />
                  <LoginSignupCompnent />
-                 <FooterComponent /> 
+                 {/* <FooterComponent />  */}
                 </div>
             </Router>
         ) 

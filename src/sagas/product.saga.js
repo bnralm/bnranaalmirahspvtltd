@@ -1,28 +1,31 @@
-import { put, takeLatest,  call } from 'redux-saga/effects';
+import { put, takeLatest, takeEvery, call } from 'redux-saga/effects';
 import * as actionType from './../constants/constant.action';
-import * as Api from './../services/service.api';
+import {serviceAPI} from './../services/service.api';
 
-export function* getProduct() {
+export function* getProductRequest() {
     try {
-        const data = yield call(Api.getProducts)
+        const data = yield call(serviceAPI.getProducts)
         yield put({type: actionType.PRODUCTS_REQUEST_SUCCESS, data})
+
      } catch (error) {
+
         yield put({type: actionType.PRODUCTS_REQUEST_FAILURE, error})
+
      }
   }
 
-  export function* getProductDetails() {
+  export function* getProductDetailsRequest() {
     try {
-        const data = yield call(Api.getProductDetails)
+        const data = yield call(serviceAPI.getProductDetails)
         yield put({type: actionType.PRODUCTS_REQUEST_DETAILS_SUCCESS, data})
      } catch (error) {
         yield put({type: actionType.PRODUCTS_REQUEST_DETAILS_FAILURE, error})
      }
   }
 
-  export function* getProductsDescription() {
+  export function* getProductsDescriptionRequest() {
     try {
-        const data = yield call(Api.getProductsDescription)
+        const data = yield call(serviceAPI.getProductsDescription)
         yield put({type: actionType.PRODUCTS_REQUEST_DESCRIPTION_SUCCESS, data})
      } catch (error) {
         yield put({type: actionType.PRODUCTS_REQUEST_DESCRIPTION_FAILURE, error})
@@ -30,9 +33,9 @@ export function* getProduct() {
   }
 
 
-export function* getIntialRequest() {
-   yield takeLatest(actionType.PRODUCTS_REQUEST, getProduct)
-   yield takeLatest(actionType.PRODUCTS_REQUEST_DESCRIPTION, getProductsDescription)
-   yield takeLatest(actionType.PRODUCTS_REQUEST_DETAILS, getProductDetails)
+ export function* getIntialRequest() {
+   yield takeLatest(actionType.PRODUCTS_REQUEST, getProductRequest)
+   yield takeLatest(actionType.PRODUCTS_REQUEST_DESCRIPTION, getProductsDescriptionRequest)
+   yield takeLatest(actionType.PRODUCTS_REQUEST_DETAILS, getProductDetailsRequest)
  }
 

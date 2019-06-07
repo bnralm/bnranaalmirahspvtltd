@@ -4,7 +4,7 @@
  * @author Pankaj Rana
  * @date  27.05.2019
  */
-import { baseService, token } from '../services';
+import { baseService } from './service';
 import { uriConstants } from '../constants/constant.uri';
 
 /**

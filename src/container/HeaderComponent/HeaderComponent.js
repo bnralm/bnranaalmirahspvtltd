@@ -16,11 +16,14 @@ const handleClick = () => {
 }
 
 const HeaderComponent = props => {
-    console.log(props);
-     const navData = globalNav.navAnchorLists;
+    props.getProduct();
+    props.getProductsDetails();
+    props.getProductsDescription();
+
+    const navData = globalNav.navAnchorLists;
     
      return(
-         <h1>Hwellow test </h1>
+         <h1>test app </h1>
             // <nav className="indigo darken-4" role="navigation">
             //     <div className="nav-wrapper container">
             //     <Link id="logo-container" to="/" className="brand-logo">Logo</Link>
@@ -61,11 +64,14 @@ const HeaderComponent = props => {
         )
     }
 
-const mapDispatchToProps = ({
-    getProduct: getProduct,
-    getProductsDetails: getProductsDetails,
-    getProductsDescription: getProductsDescription
-});
+const mapDispatchToProps = (disptach) => {
+    return {
+        getProduct: () => disptach(getProduct()),
+        getProductsDetails: () => disptach(getProductsDetails()),
+        getProductsDescription: () => disptach(getProductsDescription())
+    }
+};
+
 const mapStateToProps = (state) => ({login: state.login});
    
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderComponent);    
