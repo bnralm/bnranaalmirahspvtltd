@@ -28,7 +28,7 @@ const ContactUsComponent = (props) => {
                     <h2 className="header">{title}</h2>
                     <div className="col m6 s12">
                         {email ? (<div className="contact-row">
-                            <i class="material-icons icon purple-text darken-1">email</i> 
+                            <i className="material-icons icon purple-text darken-1">email</i> 
                             {email.map( email => <a href={'mailto:'+ email} className="black-text lighten-1 contact-info">{email}</a>) } 
                         </div>) : ''}
                         

@@ -45,13 +45,9 @@ function _delete(url, header, params) {
 
 //callback of response (returns promise)
 function handleResponse(response) {
-  if (!validCodes(response.status)) {
+  if (response.status !== 200) {
     return Promise.reject(response);
   }
-  response &&
-    response.data &&
-    response.data.sessionToken &&
-    token.setToken(response.data.sessionToken);
   return response;
 }
 

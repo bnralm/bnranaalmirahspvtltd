@@ -18,9 +18,9 @@ const PdpDescriptionComponent = (props) => {
 		modeofPayment
 	} = props.props;
     return (
-        <div class="col s12 m12 pdp-description">
-    		<h4 class="indigo-text darken-4">Product Descriptions</h4>
-		      <table class="pdp-desc-table">
+        <div className="col s12 m12 pdp-description">
+    		<h4 className="indigo-text darken-4">Product Descriptions</h4>
+		      <table className="pdp-desc-table">
 		      	<tr><th>Key</th><th>Description</th></tr>
 		      	{
 					numberDoor ? (<tr><td>Number of Door Cabinets</td><td>{numberDoor }</td></tr>) : ''

@@ -18,12 +18,11 @@ import LoginSignupCompnent from './../container/LoginSignupCompnent';
 
 const headerTitle = "BN & Rana Almirahs (P) Ltd.";
 
-export default class AppRouters extends React.Component {
-    
+export class AppRouters extends React.Component {
     render(){
       return  (
             <Router>
-                <div>
+                <React.Fragment>
                  <HeaderComponent />
                      <Switch>
                         <Route exact path="/" component={HomeComponent} setRouteTitle={`${headerTitle} Home Page`} />
@@ -36,17 +35,11 @@ export default class AppRouters extends React.Component {
                     </Switch> 
                  <BacktoTopComponent />
                  <LoginSignupCompnent />
-                 {/* <FooterComponent />  */}
-                </div>
+                 <FooterComponent /> 
+                </React.Fragment>
             </Router>
         ) 
     }
 } 
 
-// const mapStateToProps = (state) => {
-//     return {
-//         products: state.products
-//     }
-// } 
-
-// export default connect(mapStateToProps)(AppRouters);
+export default AppRouters;

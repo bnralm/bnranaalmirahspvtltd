@@ -50,7 +50,7 @@ class RampupComponent extends React.Component {
                     onRequestClose={this.closeModal}
                     contentLabel="Example Modal"
                     >
-            <div class="center">Products Images and Quick lookup</div>  
+            <div className="center">Products Images and Quick lookup</div>  
             
             <Slider {...settings}>
                 { this.state.rampupImageGallary.map( imagesrc => {
@@ -66,7 +66,7 @@ class RampupComponent extends React.Component {
 
 const SlideImage = (props) => (
     <div className="rampup-image">
-        <img class="materialboxed" src={`images/rampup/${[props.imagesrc]}`} alt={ props.imagesrc}  />
+        <img className="materialboxed" src={`images/rampup/${[props.imagesrc]}`} alt={ props.imagesrc}  />
     </div>
 )
 

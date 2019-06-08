@@ -5,11 +5,11 @@ import {serviceAPI} from './../services/service.api';
 export function* getProductRequest() {
     try {
         const data = yield call(serviceAPI.getProducts)
-        yield put({type: actionType.PRODUCTS_REQUEST_SUCCESS, data})
+        yield put({type: actionType.PRODUCTS_REQUEST_SUCCESS, products: data.data})
 
      } catch (error) {
 
-        yield put({type: actionType.PRODUCTS_REQUEST_FAILURE, error})
+        yield put({type: actionType.PRODUCTS_REQUEST_FAILURE, productsFail: error})
 
      }
   }
@@ -17,18 +17,18 @@ export function* getProductRequest() {
   export function* getProductDetailsRequest() {
     try {
         const data = yield call(serviceAPI.getProductDetails)
-        yield put({type: actionType.PRODUCTS_REQUEST_DETAILS_SUCCESS, data})
+        yield put({type: actionType.PRODUCTS_REQUEST_DETAILS_SUCCESS, details: data.data})
      } catch (error) {
-        yield put({type: actionType.PRODUCTS_REQUEST_DETAILS_FAILURE, error})
+        yield put({type: actionType.PRODUCTS_REQUEST_DETAILS_FAILURE, detailsFail: error})
      }
   }
 
   export function* getProductsDescriptionRequest() {
     try {
         const data = yield call(serviceAPI.getProductsDescription)
-        yield put({type: actionType.PRODUCTS_REQUEST_DESCRIPTION_SUCCESS, data})
+        yield put({type: actionType.PRODUCTS_REQUEST_DESCRIPTION_SUCCESS, description: data.data})
      } catch (error) {
-        yield put({type: actionType.PRODUCTS_REQUEST_DESCRIPTION_FAILURE, error})
+        yield put({type: actionType.PRODUCTS_REQUEST_DESCRIPTION_FAILURE, descriptionFail: error})
      }
   }
 

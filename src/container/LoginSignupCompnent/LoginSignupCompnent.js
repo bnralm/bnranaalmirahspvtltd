@@ -179,7 +179,7 @@ const LoginSignupCompnent = (props) => {
             bodyOpenClassName="modalIsactive"
             overlayClassName="olay"
             isOpen={props && props.login && props.login.isOpen ? props.login.isOpen : false }>
-                    <a onClick={closeModalForm} className="closeModal"><i class="small material-icons">close</i></a>
+                    <a onClick={closeModalForm} className="closeModal"><i className="small material-icons">close</i></a>
                 { props && props.login && props.login.modalSignIn ? (<Login props={props}/>) : (<SingUP props={props} />) } 
             </ReactModal>
         )

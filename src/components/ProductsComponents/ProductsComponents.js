@@ -4,6 +4,7 @@ import ProductComponent from '../ProductComponent/ProductComponent';
 import SampleNextArrow from '../SampleNextArrow/SampleNextArrow';
 import SamplePrevArrow from '../SamplePrevArrow/SamplePrevArrow';
 import { connect } from 'react-redux';
+import find from 'lodash/find'
 
 const settings = {
     className: "slider variable-width",
@@ -22,15 +23,27 @@ const settings = {
   }
 
 
-const ProductsComponents = ({products}) => {
-    if(products && products.length > 0){
+const ProductsComponents = ({products, details, description}) => {
+    let allproduct;
+    if(products){
+        allproduct = products.map( val => {
+            let {productCode} = val;
+            let proddata =  find(products, function(o) { return o.productCode == productCode; });
+            let prodDtlData =  find(details, function(o) { return o.productDtlCode == productCode; });
+            let prodDtlDesc =  find(description, function(o) { return o.productDesCode == productCode; });
+            
+            return ({...proddata, ...prodDtlData, ...prodDtlDesc});
+        })
+    }
+    
+    if(allproduct){
         return (
             <section className="section no-padd mobile-bg-grey">
                 <div className="row container product-thumb-page">
-                    <div class="header-level-2-title blue-text darken-1 center">Amazing collections</div>
+                    <div className="header-level-2-title blue-text darken-1 center">Amazing collections</div>
                     <h2 className="header center">Collection of Products</h2>
                     <Slider {...settings}>
-                        { products.map( product => {
+                        { allproduct.map( product => {
                            return product.productVisiblity ?  (<ProductComponent key={product.productId} product={ product } />) : '';
                         } )}
                     </Slider>
@@ -40,13 +53,15 @@ const ProductsComponents = ({products}) => {
         
     }
     else {
-        return (<div>loading...</div>)
+        return (<div className="text-center">loading...</div>)
     }
 } 
 
 const mapStateToProps = ((state) => {
     return {
-        products: state.products
+        products: state.productReducer.products,
+        details: state.productReducer.productDetail,
+        description: state.productReducer.productsDecription
     }
 })
 

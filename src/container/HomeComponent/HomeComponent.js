@@ -24,15 +24,15 @@ const HighOrderComponent = () => {
 
 }
 
-const HomeComponent = () => (<div>
+const HomeComponent = () => (<React.Fragment>
             <HeroShotComponent />
-            {/* <ProductsComponents />
+            <ProductsComponents />
             <WhyuChooseComponents />
             <AchievementsComponents />
             <MapComponent />
             <ContactUsComponent />
-            <RampupComponent/> */}
-        </div>        
+            <RampupComponent />
+        </React.Fragment>        
     )
 
 export default HomeComponent;
