@@ -1,4 +1,4 @@
-import * as actionType from '../constants/constant.action';
+import * as actionType from '../constants';
 // SET_TEXT_FILTER
 
 export const setTextFilter = (text = '') => ({

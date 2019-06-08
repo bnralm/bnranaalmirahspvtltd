@@ -1,7 +1,4 @@
 import React from "react";
-import {connect} from 'react-redux';
-import { getProductData } from './../commonModule/commonModule'
-import { addProduct } from  '../actions';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import HomeComponent from './../container/HomeComponent';
 import BacktoTopComponent from './../container/BacktoTopComponent';
