@@ -50,6 +50,12 @@ export const getProductsDescription = ( () => ({
 )
 
 
+export const productCollection = ( () => ({
+  type: actionType.MERGE_PRODUCTS_COLLECTION,
+})
+)
+
+
 export const mergeAllProducts = ( (allproduct) => ({
   type: actionType.MERGE_ALL_PRODUCTS,
   allproduct

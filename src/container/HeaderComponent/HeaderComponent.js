@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import NavLoginSingUpComponent from './../../components/NavLoginSingUpComponent';
 import NavUserComponent from './../../components/NavUserComponent';
-import { getProduct, getProductsDetails, getProductsDescription, mergeAllProducts } from  './../../actions';
+import { getProduct, getProductsDetails, getProductsDescription, productCollection } from  './../../actions';
 import './styles/styles.scss';
 
 const handleClick = () => {
@@ -24,7 +24,6 @@ class HeaderComponent  extends React.Component {
         this.state = {
             navData : globalNav.navAnchorLists,
             login : undefined,
-            productCollection: null
         }
     }
 
@@ -78,7 +77,8 @@ const mapDispatchToProps = (disptach) => {
     return {
         getProduct: () => disptach(getProduct()),
         getProductsDetails: () => disptach(getProductsDetails()),
-        getProductsDescription: () => disptach(getProductsDescription())
+        getProductsDescription: () => disptach(getProductsDescription()),
+        productCollection: () => disptach(productCollection())
     }
 };
 

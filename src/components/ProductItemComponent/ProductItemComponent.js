@@ -1,6 +1,7 @@
 import React from 'react';
 
 const ProductItemComponent = (props) => {
+    console.log('Hello');
     const {productName, productCode, productDtlImage, productPrice, prodcutMsg,  productStockNum, numberDoor, dimensions} = props.product;
     return (
     <div className="product-list">

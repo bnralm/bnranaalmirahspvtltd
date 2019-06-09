@@ -56,11 +56,23 @@ const productReducer =  (state = defaultState, action) => {
           productDescriptionFailure: action.descriptionFail
       }
     
+
    case actionType.MERGE_ALL_PRODUCTS: 
       return {
         ...state,
         productCollection: action.allproduct
       }   
+
+   case actionType.MERGE_ALL_PRODUCTS_FAIL: 
+      return {
+        ...state,
+        productCollectionErr: action.allproduct
+      }  
+      
+   case actionType.MERGE_PRODUCTS_COLLECTION: 
+      return {
+        ...state
+      }  
         
    default:
      return state;
