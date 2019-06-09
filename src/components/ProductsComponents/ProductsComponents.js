@@ -5,6 +5,7 @@ import SampleNextArrow from '../SampleNextArrow/SampleNextArrow';
 import SamplePrevArrow from '../SamplePrevArrow/SamplePrevArrow';
 import { connect } from 'react-redux';
 import find from 'lodash/find'
+import { stat } from 'fs';
 
 const settings = {
     className: "slider variable-width",
@@ -58,6 +59,7 @@ const ProductsComponents = ({products, details, description}) => {
 } 
 
 const mapStateToProps = ((state) => {
+    console.log(state);
     return {
         products: state.productReducer.products,
         details: state.productReducer.productDetail,
@@ -65,4 +67,4 @@ const mapStateToProps = ((state) => {
     }
 })
 
-  export default connect(mapStateToProps)(ProductsComponents);
+  export default connect(mapStateToProps, null)(ProductsComponents);

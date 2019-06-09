@@ -43,20 +43,20 @@ class RampupComponent extends React.Component {
         this.openModal()
     }
 
-    render(){
+    render() {
         return  (
                 <Modal
                     isOpen={this.state.modalIsOpen}
                     onRequestClose={this.closeModal}
                     contentLabel="Example Modal"
                     >
-            <div className="center">Products Images and Quick lookup</div>  
-            
-            <Slider {...settings}>
-                { this.state.rampupImageGallary.map( imagesrc => {
-                    return this.state.rampupImageGallary ?  (<SlideImage imagesrc={imagesrc} />) : '';
-                } )}
-            </Slider>   
+                        <div className="center">Products Images and Quick lookup</div>  
+                        
+                        <Slider {...settings}>
+                            { this.state.rampupImageGallary.map( imagesrc => {
+                                return this.state.rampupImageGallary ?  (<SlideImage imagesrc={imagesrc} />) : '';
+                            } )}
+                        </Slider>   
                 
                
                 </Modal>

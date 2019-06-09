@@ -25,6 +25,9 @@ const {productName, productCode,productDtlImage, productPrice, needForThis, numb
             </span>
 
             <table className="striped">
+                <tbody>
+
+                
                 { numberDoor ? (<tr>
                         <td>Number of Door Cabinets</td>
                         <td>{numberDoor}</td>
@@ -46,6 +49,7 @@ const {productName, productCode,productDtlImage, productPrice, needForThis, numb
                     </td>
                     <td>{dimensions} </td>
                 </tr>) : ''}
+                </tbody>
             </table>
             <a className="" href={'./pdp/'+productCode}>See more...</a>
         </div>

@@ -49,3 +49,10 @@ export const getProductsDescription = ( () => ({
   })
 )
 
+
+export const mergeAllProducts = ( (allproduct) => ({
+  type: actionType.MERGE_ALL_PRODUCTS,
+  allproduct
+})
+)
+

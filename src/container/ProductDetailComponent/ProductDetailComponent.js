@@ -7,6 +7,20 @@ import PageNotFoundComponent from './../PageNotFoundComponent';
 const _ = require('lodash');
 
 const ProductDetailComponent = ({products, match}) => {
+    if(products){
+        allProducts = products.map( val => {
+            let {productCode} = val;
+            let proddata =  find(products, function(o) { return o.productCode == productCode; });
+            let prodDtlData =  find(details, function(o) { return o.productDtlCode == productCode; });
+            let prodDtlDesc =  find(description, function(o) { return o.productDesCode == productCode; });
+            return ({...proddata, ...prodDtlDesc, ...prodDtlData})
+        })
+    }
+
+    // if(allProducts){
+    //     props.mergeAllProducts(allProducts);
+    // }
+
     let currentProduct =  _.filter( products,  function(o) { return  match.params.productId === o.productCode } );
 
 
@@ -23,8 +37,9 @@ const ProductDetailComponent = ({products, match}) => {
 }
 const mapStateToProps = ( (state) => {
     return {
-        products: state.products
-
+        products: state.productReducer.products,
+        details: state.productReducer.productDetail,
+        description: state.productReducer.productsDecription
     }
 })
 

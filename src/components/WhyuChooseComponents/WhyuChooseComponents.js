@@ -1,5 +1,4 @@
 import React from 'react';
-
 import WhyuChooseComponent from './../WhyuChooseComponent/WhyuChooseComponent';
 
 const {whyuChooseSubTitle, whyuChooseTitle, whyuChoose} = require('./WhyuChooseService/WhyuChooseService');

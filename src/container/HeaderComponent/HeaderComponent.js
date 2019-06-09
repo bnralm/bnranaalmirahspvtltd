@@ -1,13 +1,11 @@
 import React from 'react';
 import {globalNav} from  './HeaderService/HeaderService';
 import {Link} from 'react-router-dom';
-import {connect, } from 'react-redux';
+import {connect} from 'react-redux';
 import NavLoginSingUpComponent from './../../components/NavLoginSingUpComponent';
 import NavUserComponent from './../../components/NavUserComponent';
-import { getProduct, getProductsDetails, getProductsDescription } from  './../../actions';
-
+import { getProduct, getProductsDetails, getProductsDescription, mergeAllProducts } from  './../../actions';
 import './styles/styles.scss';
-
 
 const handleClick = () => {
 
@@ -15,23 +13,34 @@ const handleClick = () => {
     let instances = M.Sidenav.init(elems);
 }
 
-const HeaderComponent = props => {
-    props.getProduct();
-    props.getProductsDetails();
-    props.getProductsDescription();
+class HeaderComponent  extends React.Component {
+    constructor(props){
+        super(props);
 
-    const navData = globalNav.navAnchorLists;
-    const login = undefined;
+        this.props.getProduct();
+        this.props.getProductsDetails();
+        this.props.getProductsDescription();
+        
+        this.state = {
+            navData : globalNav.navAnchorLists,
+            login : undefined,
+            productCollection: null
+        }
+    }
+
     
-     return(
+    render () {
+        const navData = this.state.navData;
+        const login = this.state.login;
+
+        return (
             <nav className="indigo darken-4" role="navigation">
                 <div className="nav-wrapper container">
                 <Link id="logo-container" to="/" className="brand-logo">Logo</Link>
                 <ul className="right hide-on-med-and-down">
                     {navData.map((item, ind) =>  <li key={'key-ind'+ ind}><Link to={item.navAnchorLink} title={item.navAnchorTitle}>{item.navAnchorText}</Link></li> ) }
-                    <li><a href="/docs/productCatelogue.pdf" target="_blank" title="product catelouge">Product Catelouge</a></li>
                     {login && login.token ? (<NavUserComponent props={login} />) : (<NavLoginSingUpComponent />)} 
-                    <li>GSTIN: 20-AAHCB78300R-2ZC</li>
+                    
                 </ul>
                 <ul id="slide-out" className="sidenav">
                     {
@@ -63,6 +72,7 @@ const HeaderComponent = props => {
             </nav>
         )
     }
+}
 
 const mapDispatchToProps = (disptach) => {
     return {
@@ -72,9 +82,10 @@ const mapDispatchToProps = (disptach) => {
     }
 };
 
-const mapStateToProps = (state) => {
-    console.log(state, "state");
-    return {login: state.login}
-};
+const mapStateToProps = (state) => ({
+    products: state.productReducer.products,
+    details: state.productReducer.productDetail,
+    description: state.productReducer.productsDecription
+});
    
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderComponent);    

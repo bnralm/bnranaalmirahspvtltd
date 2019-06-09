@@ -2,7 +2,8 @@ import React from 'react';
 
 const WhyuChooseComponent = (props) => {
     const {whyChooseImage, whyChooseHead, whyChoosePara } = props.whyuchoose;
-    return (
+    if(whyChooseImage) {
+        return (
             <div className="col m4 s12">
                 <div className="card card-rounded">
                     <div className="picture">
@@ -14,6 +15,13 @@ const WhyuChooseComponent = (props) => {
                 </div>
             </div>
         )
+    }
+    else {
+        return (
+            <div className="text-center">Loading...</div>
+        )
+    }
+    
     }
     
 export default WhyuChooseComponent;

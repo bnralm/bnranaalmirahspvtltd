@@ -32,6 +32,7 @@ export function* getProductRequest() {
      }
   }
 
+  
 
  export function* getIntialRequest() {
    yield takeLatest(actionType.PRODUCTS_REQUEST, getProductRequest)
