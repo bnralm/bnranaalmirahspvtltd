@@ -29,29 +29,28 @@ const ContactUsComponent = (props) => {
                     <div className="col m6 s12">
                         {email ? (<div className="contact-row">
                             <i className="material-icons icon purple-text darken-1">email</i> 
-                            {email.map( email => <a href={'mailto:'+ email} className="black-text lighten-1 contact-info">{email}</a>) } 
-                        </div>) : ''}
+                            {email.map( (email, ind) => <a key={'ind'+ind} href={'mailto:'+ email} className="black-text lighten-1 contact-info">{email}</a>) } 
+                        </div>) : null}
                         
                         {mobile ? (<div className="contact-row">
                             <i className="material-icons icon purple-text darken-1">local_phone</i> 
-                            {mobile.map( number => <a href={'tel:' + number } className="black-text lighten-1 contact-info">{number }</a> ) } 
-                        </div>) : ''}
+                            {mobile.map( (number, ind) => <a key={'ind'+ind} href={'tel:' + number } className="black-text lighten-1 contact-info">{number }</a> ) } 
+                        </div>) : null}
 
                         {address ?  (<div className="contact-row">
                             <i className="material-icons icon purple-text darken-1">location_on</i> <span className="black-text lighten-1">{address}</span>
-                        </div>): ''}
+                        </div>): null}
                         
                         {skypechat ?  (<div className="contact-row">
                             <i className="material-icons icon purple-text darken-1">chat</i>  <span className="black-text lighten-1">{skypechat} <small>(skype chat)</small></span>
-                        </div>) : ''}
+                        </div>) : null}
 
                         { socialMedia ? ( <div className="social-media">
                             <h4>Social Media</h4>
                             <ul className="list-unstyle">
-
-                                {socialMedia.map( social => <li><a href={social.link} target="_blank" title={social.title}><i className={'icon icon--'+(social.title).toLowerCase()}></i> {social.label}</a></li> ) }
+                                {socialMedia.map( (social, ind) => <li key={'ind'+ind}><a href={social.link} target="_blank" title={social.title}><i className={'icon icon--'+(social.title).toLowerCase()}></i> {social.label}</a></li> ) }
                             </ul>
-                        </div>) : ''}
+                        </div>) : null}
                     
                     </div>
                     <div className="col m6 s12">

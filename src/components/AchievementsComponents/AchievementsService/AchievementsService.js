@@ -7,7 +7,7 @@ module.exports = {
                 marketAchivementText: 'Happy Clients'
             },
             {
-                marketAchivementNum: 110,
+                marketAchivementNum: 90,
                 marketPercent: '%',
                 marketAchivementText: 'Guaranteed Satisfied Products'
             },

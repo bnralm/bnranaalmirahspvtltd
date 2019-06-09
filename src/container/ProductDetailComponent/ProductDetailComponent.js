@@ -1,9 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import PdpGallaryComponent from './../../components/PdpGallaryComponent';
-import PdpProductBioComponent from './../../components/PdpProductBioComponent';
+import BreadcumComponent from '../../components/BreadcumComponent';
 import PdpDescriptionComponent from './../../components/PdpDescriptionComponent';
-import PageNotFoundComponent from './../PageNotFoundComponent';
 import * as lodash  from 'lodash';
 
 const ProductDetailComponent = ({products, details, description, match}) => {
@@ -21,19 +20,14 @@ const ProductDetailComponent = ({products, details, description, match}) => {
      if(allProducts && allProducts.length > 0){
          currentProduct = lodash.filter(allProducts, { 'productCode': productId })
     }
-
-    
-           return currentProduct ? <section className="section white js-scale-sticky">
-                            <div className="container row">
-                                <PdpGallaryComponent props={currentProduct[0]} />
-                                <PdpProductBioComponent props={currentProduct[0]} />
-                                <PdpDescriptionComponent props={currentProduct[0]} /> 
-                            </div>
-                        </section>  : <PageNotFoundComponent />;
-
-    return jsx;      
-        
-}
+    return currentProduct ? <section className="section white js-scale-sticky">
+            <div className="container row">
+                <PdpGallaryComponent props={currentProduct[0]} />
+                <BreadcumComponent props={currentProduct[0]} />
+                <PdpDescriptionComponent props={currentProduct[0]} /> 
+            </div>
+        </section> : <div className="center" style={{minHeight: '100vh'}} >Loading...</div>;
+    }
 const mapStateToProps = ( (state) => {
     return {
         products: state.productReducer.products,

@@ -53,8 +53,8 @@ class RampupComponent extends React.Component {
                         <div className="center">Products Images and Quick lookup</div>  
                         
                         <Slider {...settings}>
-                            { this.state.rampupImageGallary.map( imagesrc => {
-                                return this.state.rampupImageGallary ?  (<SlideImage imagesrc={imagesrc} />) : '';
+                            { this.state.rampupImageGallary.map( (imagesrc, ind) => {
+                                return this.state.rampupImageGallary ?  (<SlideImage key={'ind'+ind} imagesrc={imagesrc} />) : '';
                             } )}
                         </Slider>   
                 

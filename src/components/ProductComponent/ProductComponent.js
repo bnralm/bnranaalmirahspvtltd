@@ -16,7 +16,7 @@ const {productName, productCode,productDtlImage, productPrice, needForThis, numb
             </span>
             {productPrice ? (<span className="blue-text darken-1">
                 <strong>PRICE: {productPrice} /- </strong>
-            </span>): ''}
+            </span>): null}
         </div>
         <div className="card-reveal">
             <span className="card-title white-text text-darken-4">
@@ -31,24 +31,24 @@ const {productName, productCode,productDtlImage, productPrice, needForThis, numb
                 { numberDoor ? (<tr>
                         <td>Number of Door Cabinets</td>
                         <td>{numberDoor}</td>
-                    </tr>) : ''
+                    </tr>) : null
                 }
 
                 { numberOfShelves ? (<tr>
                     <td>Number of Shelves</td>
                     <td>{numberOfShelves}</td>
-                </tr>) : ''
+                </tr>) : null
                 }
                 { needForThis ? (<tr>
                     <td>Usage/Application</td>
                     <td>{needForThis}</td>
-                </tr>) : ''}
+                </tr>) : null}
                 { dimensions ? (<tr>
                     <td>Product Dimensions
                     <span title="(Height x Width x Breadth)">H x W x B</span>
                     </td>
                     <td>{dimensions} </td>
-                </tr>) : ''}
+                </tr>) : null}
                 </tbody>
             </table>
             <a className="" href={'./pdp/'+productCode}>See more...</a>
@@ -56,7 +56,7 @@ const {productName, productCode,productDtlImage, productPrice, needForThis, numb
         <div className="card-action green darken-1">
             <a href={'/contact-us?productCode='+productCode} className="white-text" data-product={productCode}>
             {
-                (productStockNum > 0) ? <strong>Contact Us</strong> : ''
+                (productStockNum > 0) ? <strong>Contact Us</strong> : null
             }
             </a>
             <a href={'/pdp/'+productCode} className="right white-text">

@@ -10,7 +10,7 @@ const AchievementsComponents = () => {
             <h2 className="header">{achievementsService.title}</h2>
             <div className="row">
             {
-             marketAchivements.map( achievement => <AchievementComponent achievement={achievement} /> )
+             marketAchivements.map( (achievement, ind) => <AchievementComponent  key={'ind'+ind}  achievement={achievement} /> )
             }
             </div>
         </section>

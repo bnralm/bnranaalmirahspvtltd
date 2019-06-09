@@ -4,11 +4,10 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import NavLoginSingUpComponent from './../../components/NavLoginSingUpComponent';
 import NavUserComponent from './../../components/NavUserComponent';
-import { getProduct, getProductsDetails, getProductsDescription, productCollection } from  './../../actions';
+import { getProduct, getProductsDetails, getProductsDescription } from  './../../actions';
 import './styles/styles.scss';
 
 const handleClick = () => {
-
     let elems = document.querySelector('#slide-out');
     let instances = M.Sidenav.init(elems);
 }
@@ -23,14 +22,13 @@ class HeaderComponent  extends React.Component {
         
         this.state = {
             navData : globalNav.navAnchorLists,
-            login : undefined,
         }
     }
 
     
     render () {
         const navData = this.state.navData;
-        const login = this.state.login;
+        const login = this.props.login;
 
         return (
             <nav className="indigo darken-4" role="navigation">
@@ -38,9 +36,9 @@ class HeaderComponent  extends React.Component {
                 <Link id="logo-container" to="/" className="brand-logo">Logo</Link>
                 <ul className="right hide-on-med-and-down">
                     {navData.map((item, ind) =>  <li key={'key-ind'+ ind}><Link to={item.navAnchorLink} title={item.navAnchorTitle}>{item.navAnchorText}</Link></li> ) }
-                    {login && login.token ? (<NavUserComponent props={login} />) : (<NavLoginSingUpComponent />)} 
-                    
+                    {login && login.token ? (<NavUserComponent props={login} />) : (<NavLoginSingUpComponent />)}      
                 </ul>
+               
                 <ul id="slide-out" className="sidenav">
                     {
                         login && login.userFirstName && login.userLastName && login.userEmail && (
@@ -57,7 +55,7 @@ class HeaderComponent  extends React.Component {
 
                     }
                     <li><Link to={'/'} title="homepage">Home Page</Link></li>
-                    { navData &&  navData.map((item) =>  <li><Link to={item.navAnchorLink} title={item.navAnchorTitle}>{item.navAnchorText}</Link></li> ) }
+                    { navData &&  navData.map((item, ind) =>  <li key={'ind'+ind}><Link to={item.navAnchorLink} title={item.navAnchorTitle}>{item.navAnchorText}</Link></li> ) }
                     <li><a href="/docs/productCatelogue.pdf" target="_blank" title="product catelouge">Product Catelouge</a></li>
                     <li>GSTIN: 20AAHCB78300R2ZC</li>
                     <li>
@@ -78,14 +76,14 @@ const mapDispatchToProps = (disptach) => {
         getProduct: () => disptach(getProduct()),
         getProductsDetails: () => disptach(getProductsDetails()),
         getProductsDescription: () => disptach(getProductsDescription()),
-        productCollection: () => disptach(productCollection())
     }
 };
 
 const mapStateToProps = (state) => ({
     products: state.productReducer.products,
     details: state.productReducer.productDetail,
-    description: state.productReducer.productsDecription
+    description: state.productReducer.productsDecription,
+    login: state.login
 });
    
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderComponent);    

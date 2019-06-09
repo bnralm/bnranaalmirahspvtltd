@@ -10,7 +10,7 @@ const WhyuChooseComponents = () => {
             <h2 className="header">{whyuChooseTitle}</h2>
             <div className="row container">
                 {   
-                    whyuChoose.map( whyuchoose => <WhyuChooseComponent whyuchoose={ whyuchoose} /> )
+                    whyuChoose.map( (whyuchoose, ind) => <WhyuChooseComponent key={'ind'+ind} whyuchoose={ whyuchoose} /> )
                 }
             </div>            
         </section>

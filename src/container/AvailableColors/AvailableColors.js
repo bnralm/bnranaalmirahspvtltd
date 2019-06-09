@@ -121,14 +121,14 @@ const availableColors = {
     ]
 };
 
-const AvailableColors = (props) => {
+const AvailableColors = () => {
     return(<section className="section blue lighten-5 js-scale-sticky">
                 <div className="row container">
                 <h2 className="header center">Available Colors</h2>
                 <p>BN &amp; Rana Almirahs offers the customization of product color for customers. You can choose your almirah&rsquo;s color from listed below colors.</p>
                 <ul className="list-unstyle color-wrap"> 
-                {availableColors.colors.map((coloritem) => {
-                  return  (<li className="color-box" style={ {backgroundColor: coloritem.code}}>
+                {availableColors.colors.map((coloritem, ind) => {
+                  return  (<li key={'ind'+ind} className="color-box" style={ {backgroundColor: coloritem.code}}>
                         <span className="color-lable">{coloritem.name}</span>
                     </li>)
                 })}
