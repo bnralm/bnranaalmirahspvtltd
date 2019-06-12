@@ -1,35 +1,25 @@
+import * as actionType from './../constants/constant.action';
+
 const rampupReducerDefaultState = {
-    isRampupDone: false,
-    isRampupSkip: false,
-    isRamupRequested: false,
-    isRamupActivated: false
+    isRamupOpen: false,
+    isRamupClosed: false
 };
 
 const rampupReducer = (state = rampupReducerDefaultState, action) => {
  switch(action.type){
-   case 'IS_RAMUP_DONE':
-     return {
-        ...state,
-       ...action.isRampupDone
-     };
-
-   case 'IS_RAMUP_SKIP':
-     return {
-       ...state,
-       ...action.isRampupSkip
-     };
-
-   case 'IS_RAMUP_REQUESTED':
-     return {
-       ...state,
-       ...action.isRampupRequested
-     };
-
-   case 'IS_RAMUP_ACTIVATED':
-     return {
-       ...state,
-       ...action.isRampupActivated
-     }; 
+  case  actionType.REQUEST_RAMPUP_GALLARY: 
+    return {
+      ...state,
+      isRamupOpen: true,
+      isRamupClosed: false
+    }
+  
+  case actionType.CLOSE_RAMPUP_GALLARY: 
+    return {
+      ...state,
+      isRamupClosed: true,
+      isRamupOpen: false
+    }  
 
    default:
      return state;

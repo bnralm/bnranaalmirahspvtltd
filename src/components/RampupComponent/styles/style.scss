@@ -1,0 +1,18 @@
+@import './../../../scss/settings';
+
+.close-rampup {
+    color: $white;
+    @extend %font-varela;
+    font-size: $md-space;
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    cursor: pointer;
+}
+
+.text-white {
+    color: $white;
+    text-align: center;
+    font-size: $md-space;
+
+}

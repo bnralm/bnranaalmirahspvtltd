@@ -1,12 +1,13 @@
 import React from 'react';
-
 import HeroShotComponent from './../../components/HeroShotComponent/HeroShotComponent';
 import ProductsComponents from './../../components/ProductsComponents/ProductsComponents';
 import WhyuChooseComponents from './../../components/WhyuChooseComponents/WhyuChooseComponents';
 import AchievementsComponents from './../../components/AchievementsComponents/AchievementsComponents';
 import ContactUsComponent from './../ContactUsComponent/ContactUsComponent';
 import RampupComponent from './../../components/RampupComponent/RampupComponent';
-import MapComponent from './../../components/MapComponent/MapComponent'
+import MapComponent from './../../components/MapComponent/MapComponent';
+import { requestRampupGallary } from './../../actions/action.rampup';
+import { connect } from 'react-redux';
 
 // import StickyScaleComponent from './../StickyScaleComponent/StickyScaleComponent';
 
@@ -21,18 +22,36 @@ const HighOrderComponent = () => {
        count = 1;
        return (<StickyScaleComponent />);
    }
-
 }
 
-const HomeComponent = () => (<React.Fragment>
-            <HeroShotComponent />
-            <ProductsComponents />
-            <WhyuChooseComponents />
-            <AchievementsComponents />
-            <MapComponent />
-            <ContactUsComponent />
-            <RampupComponent />
-        </React.Fragment>        
-    )
+const HomeComponent = (props) => {
+    console.log("sss", props)
+    props.requestRampupGallary();
 
-export default HomeComponent;
+    return (<React.Fragment>
+                <HeroShotComponent />
+                <ProductsComponents />
+                <WhyuChooseComponents />
+                <AchievementsComponents />
+                <MapComponent />
+                <ContactUsComponent />
+                <RampupComponent />
+            </React.Fragment> 
+        )
+    } 
+
+
+  
+
+
+
+const mapDispatchToProps = (dispatch) => {
+    let actions = bindActionCreators({
+        requestRampupGallary: () => requestRampupGallary(),
+    })
+    return {actions, dispatch };
+}
+ 
+const mapStateToProps = () => ({});
+
+export default connect(mapDispatchToProps, mapStateToProps)(HomeComponent);    

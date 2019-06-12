@@ -1,10 +1,11 @@
 import React from 'react';
 import {globalNav} from  './HeaderService/HeaderService';
 import {Link} from 'react-router-dom';
-import {connect} from 'react-redux';
 import NavLoginSingUpComponent from './../../components/NavLoginSingUpComponent';
 import NavUserComponent from './../../components/NavUserComponent';
 import { getProduct, getProductsDetails, getProductsDescription } from  './../../actions';
+import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
 import './styles/styles.scss';
 
 const handleClick = () => {
@@ -14,11 +15,11 @@ const handleClick = () => {
 
 class HeaderComponent  extends React.Component {
     constructor(props){
+
         super(props);
 
-        this.props.getProduct();
-        this.props.getProductsDetails();
-        this.props.getProductsDescription();
+
+        
         
         this.state = {
             navData : globalNav.navAnchorLists,
@@ -29,6 +30,10 @@ class HeaderComponent  extends React.Component {
     render () {
         const navData = this.state.navData;
         const login = this.props.login;
+
+         this.props.dispatch(getProduct());
+         this.props.dispatch(getProductsDetails());
+         this.props.dispatch(getProductsDescription());
 
         return (
             <nav className="indigo darken-4" role="navigation">
@@ -71,18 +76,17 @@ class HeaderComponent  extends React.Component {
     }
 }
 
-const mapDispatchToProps = (disptach) => {
-    return {
-        getProduct: () => disptach(getProduct()),
-        getProductsDetails: () => disptach(getProductsDetails()),
-        getProductsDescription: () => disptach(getProductsDescription()),
-    }
+
+const mapDispatchToProps = (dispatch) => {
+    let actions = bindActionCreators({
+        getProduct: () => getProduct(),
+        getProductsDetails: () => getProductsDetails(),
+        getProductsDescription: () => getProductsDescription(),
+    })
+    return {actions, dispatch };
 };
 
 const mapStateToProps = (state) => ({
-    products: state.productReducer.products,
-    details: state.productReducer.productDetail,
-    description: state.productReducer.productsDecription,
     login: state.login
 });
    

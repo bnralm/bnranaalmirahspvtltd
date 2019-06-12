@@ -4,8 +4,11 @@ module.exports = {
         title: 'Contact Us',
         contacts: {
             email: ['ranaji06532@gmail.com', 'ccbnralmirahs@gmail.com'],
-            mobile: ['+91 6207176112', '+91 8210759649'],
-            address: 'Holding No. 675A, Ward No. 16, Argaghat Road, Giridih',
+            mobile: ['+91 7827071010', '+91 9304002551'],
+            address: [
+                        'Rg. Off: Holding No. 675A, Argaghat Road, Giridih, Jharkhand',
+                        'Branch Off: Lal Kuan, Gaziabaad, U.P.'
+                    ],
             skypechat: 'ccbnralmirahs@gmail.com',
         },
         socialMedia: [

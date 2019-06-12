@@ -4,6 +4,7 @@ import Slider from 'react-slick';
 import SampleNextArrow from '../SampleNextArrow/SampleNextArrow';
 import SamplePrevArrow from '../SamplePrevArrow/SamplePrevArrow';
 import { connect } from 'react-redux';
+import './styles/style.scss';
 
 const settings = {
     className: "slider variable-width rampup-slider",
@@ -44,13 +45,25 @@ class RampupComponent extends React.Component {
     }
 
     render() {
+        const customStyles = {
+            content : {
+              top                   : '0%',
+              left                  : '0%',
+              right                 : '0%',
+              bottom                : '0%',
+              background : 'rgba(110,110,110,0.9)',
+            }
+          };
+
         return  (
                 <Modal
                     isOpen={this.state.modalIsOpen}
                     onRequestClose={this.closeModal}
                     contentLabel="Example Modal"
+                    style={customStyles}
                     >
-                        <div className="center">Products Images and Quick lookup</div>  
+                        <div className="close-rampup" onClick={this.closeModal}>&times;</div>
+                        <div className="text-white">Products Images and Quick lookup</div>  
                         
                         <Slider {...settings}>
                             { this.state.rampupImageGallary.map( (imagesrc, ind) => {

@@ -1,7 +1,6 @@
 import { put, takeLatest, call, throttle } from 'redux-saga/effects';
 import * as actionType from './../constants/constant.action';
 import {serviceAPI} from './../services/service.api';
-import {find} from 'lodash/fill';
 
 let products, details, descriptions;
 export function* getProductRequest() {
