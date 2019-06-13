@@ -1,24 +1,21 @@
 import * as actionType from './../constants/constant.action';
 
-const rampupReducerDefaultState = {
-    isRamupOpen: false,
-    isRamupClosed: false
-};
+const rampupReducerDefaultState = {};
 
 const rampupReducer = (state = rampupReducerDefaultState, action) => {
  switch(action.type){
   case  actionType.REQUEST_RAMPUP_GALLARY: 
     return {
       ...state,
-      isRamupOpen: true,
-      isRamupClosed: false
+      isRamupOpen: action.isRamupOpen,
+      isRamupClosed: action.isRamupClosed
     }
   
   case actionType.CLOSE_RAMPUP_GALLARY: 
     return {
       ...state,
-      isRamupClosed: true,
-      isRamupOpen: false
+      isRamupClosed: action.isRamupClosed,
+      isRamupOpen: action.isRamupOpen
     }  
 
    default:

@@ -8,7 +8,6 @@ export default class StickyScaleComponent extends React.Component {
     constructor(props){
         super(props);
         this.getAllElementHeightOffset = this.getAllElementHeightOffset.bind(this);
-        this.componentDidMount = this.componentDidMount.bind(this);
         this.createPaginationList = this.createPaginationList.bind(this);
         this.onScrolling = this.onScrolling.bind(this);
        

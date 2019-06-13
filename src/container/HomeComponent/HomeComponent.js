@@ -4,10 +4,12 @@ import ProductsComponents from './../../components/ProductsComponents/ProductsCo
 import WhyuChooseComponents from './../../components/WhyuChooseComponents/WhyuChooseComponents';
 import AchievementsComponents from './../../components/AchievementsComponents/AchievementsComponents';
 import ContactUsComponent from './../ContactUsComponent/ContactUsComponent';
-import RampupComponent from './../../components/RampupComponent/RampupComponent';
+import RampupComponent from './../../components/RampupComponent';
 import MapComponent from './../../components/MapComponent/MapComponent';
-import { requestRampupGallary } from './../../actions/action.rampup';
+import { closeRampupGallary, requestRampupGallary } from './../../actions/action.rampup';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
 
 // import StickyScaleComponent from './../StickyScaleComponent/StickyScaleComponent';
 
@@ -18,15 +20,24 @@ const {getMoboDevice} = require('./../../commonModule/commonModule');
 const HighOrderComponent = () => {
     let count = 0;
 
-   if(! getMoboDevice() && count < 1 ){
-       count = 1;
-       return (<StickyScaleComponent />);
-   }
+//    if(! getMoboDevice() && count < 1 ){
+//        count = 1;
+//        return (<StickyScaleComponent />);
+//    }
 }
 
-const HomeComponent = (props) => {
-    console.log("sss", props)
-    props.requestRampupGallary();
+class HomeComponent extends React.Component{
+    constructor(props){
+        super(props);
+    }
+
+    componentDidMount(){
+        let that = this;
+        window.setTimeout( () => {
+            that.props.dispatch(requestRampupGallary());
+        }, 5000)
+    }
+  render() {
 
     return (<React.Fragment>
                 <HeroShotComponent />
@@ -35,23 +46,22 @@ const HomeComponent = (props) => {
                 <AchievementsComponents />
                 <MapComponent />
                 <ContactUsComponent />
-                <RampupComponent />
-            </React.Fragment> 
-        )
-    } 
-
-
-  
-
-
-
-const mapDispatchToProps = (dispatch) => {
-    let actions = bindActionCreators({
-        requestRampupGallary: () => requestRampupGallary(),
-    })
-    return {actions, dispatch };
+                {this.props.rampup.isRamupOpen ? <RampupComponent /> : null}
+            </React.Fragment>  )    
+    }
 }
- 
-const mapStateToProps = () => ({});
 
-export default connect(mapDispatchToProps, mapStateToProps)(HomeComponent);    
+
+        
+const mapDispatchToProps = (dispatch) => {
+    let actions = bindActionCreators ({
+        requestRampupGallary: () => requestRampupGallary()
+        
+    })
+    return {...actions, dispatch}
+}    
+
+const mapStateToProps = (state) => ({rampup: state.rampupReducer});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeComponent);    
