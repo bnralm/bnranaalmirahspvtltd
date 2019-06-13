@@ -1,6 +1,9 @@
 import * as actionType from './../constants/constant.action';
 
-const rampupReducerDefaultState = {};
+const rampupReducerDefaultState = {
+  isRamupOpen: false,
+  isRamupClosed: false
+};
 
 const rampupReducer = (state = rampupReducerDefaultState, action) => {
  switch(action.type){

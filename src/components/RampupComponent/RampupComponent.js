@@ -51,14 +51,21 @@ class RampupComponent extends React.Component {
         this.props.dispatch(closeRampupGallary())
       }
 
+    componentDidMount(){
+        if(! this.props.rampup.isRamupClosed){
+          let that = this;
+          window.setTimeout( () => {
+            that.props.dispatch(requestRampupGallary());
+          }, 5000)
+        }
+    }
     render() {
-
         return (<Modal
-                    isOpen={this.state.isRamupOpen}
-                    onRequestClose={ this.closeModal() }
+                    isOpen={this.props.rampup.isRamupOpen}
+                    onRequestClose={() => this.closeModal() }
                     style={customStyles}
                     >
-                        <div className="close-rampup" onClick={this.closeModal()}>&times;</div>
+                        <div className="close-rampup" onClick={() => this.closeModal()}>&times;</div>
                         <div className="text-white">Products Images and Quick lookup</div>  
                         <Slider {...settings}>
                             { this.state.rampupImageGallary.map( (imagesrc, ind) => {
