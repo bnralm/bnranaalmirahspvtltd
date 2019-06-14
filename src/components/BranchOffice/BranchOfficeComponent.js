@@ -28,7 +28,7 @@ const BranchOfficeComponent = () => {
             <h2 className="text-center"> Branch Offices </h2> 
             <div className="row">
             {
-            address.map( ({street, locality, city, state, pinCode, mobile}) => <div className="col s6 m6">
+            address.map( ({street, locality, city, state, pinCode, mobile, coveredArea}) => <div className="col s6 m6">
                 <div class="card">
                     <div class="card-content">
                         <table className="address">
@@ -38,7 +38,7 @@ const BranchOfficeComponent = () => {
                                 <tr><td>City</td><td>{city + ' ' + state }</td></tr>
                                 <tr><td>Pin Code</td><td>{pinCode}</td></tr>
                                 <tr><td>Mobile</td><td>{mobile}</td></tr>
-                                <tr><td colSpan="2">We are covering the delivery girdih deoghar hazaaribaag and koderma only.</td></tr>
+                                <tr><td colSpan="2">{coveredArea}</td></tr>
                             </tbody>  
                         </table>
                     </div>
