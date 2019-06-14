@@ -24,8 +24,8 @@ const settings = {
     centerMode: true,
     swipe: true,
     infinite: false,
-    slidesToShow: 1,
-    slidesToScroll: 1,
+    slidesToShow: 2,
+    slidesToScroll: 2,
     variableWidth: false,
     nextArrow: <SampleNextArrow  />,
     prevArrow: <SamplePrevArrow />
@@ -35,9 +35,26 @@ class RampupComponent extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            rampupImageGallary: ['IMG_20190320_000920053-min.jpg', 'IMG_20190320_001119873-min.jpg', 'IMG_20190320_001125570-min.jpg', 'IMG_20190320_001155025-min.jpg', 'IMG_20190320_001204745-min.jpg', 'IMG_20190320_001212140-min.jpg', 'IMG_20190320_001218265-min.jpg', 'IMG_20190320_001223827-min.jpg', 'IMG_20190320_001246251-min.jpg', 'IMG_20190320_001253721-min.jpg', 'IMG_20190320_002441546-min.jpg', 'IMG_20190320_002445345-min.jpg', 'IMG_20190320_002500765-min.jpg', 'IMG_20190320_002536223-min.jpg', 'IMG_20190320_002555729-min.jpg', 'IMG_20190320_002619935-min.jpg', 'IMG_20190320_002625359-min.jpg', 'IMG_20190320_002645749-min.jpg'],
-            isRamupOpen: false,
-            isRamupClosed: false
+            rampupImageGallary: ['IMG_20190320_002441546.jpg',
+            'IMG_20190320_002445345.jpg',
+            'IMG_20190320_002536223.jpg',
+            'IMG_20190320_002555729.jpg',
+            'IMG_20190320_002619935.jpg',
+            'IMG_20190320_002625359.jpg',
+            'IMG_20190320_002625359_I.jpg',
+            'IMG_20190320_002638017.jpg',
+            'IMG_20190320_002645749.jpg',
+            'IMG_20190320_002659613.jpg',
+            'IMG_20181017_085858850.jpg',
+            'IMG_20181017_090139410.jpg',
+            'IMG_20181017_090156909.jpg',
+            'IMG_20181017_090509732.jpg',
+            'IMG_20181017_090543240.jpg',
+            'IMG_20181017_090547543.jpg',
+            'IMG_20181017_090652986.jpg',
+            'IMG_20181017_090706773.jpg',
+            'IMG_20190320_00261993s.jpg'
+            ]
           }
 
         this.openModal = this.openModal.bind(this);
@@ -66,7 +83,7 @@ class RampupComponent extends React.Component {
                     style={customStyles}
                     >
                         <div className="close-rampup" onClick={() => this.closeModal()}>&times;</div>
-                        <div className="text-white">Products Images and Quick lookup</div>  
+                        <div className="text-white margin-bottom-20">Products Images and Quick lookup</div>  
                         <Slider {...settings}>
                             { this.state.rampupImageGallary.map( (imagesrc, ind) => {
                                 return this.state.rampupImageGallary ?  (<SlideImage key={'ind'+ind} imagesrc={imagesrc} />) : '';

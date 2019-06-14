@@ -6,11 +6,11 @@ module.exports = {
                 "navAnchorLink": "/plp", 
                 "navAnchorTitle": "Product Lists Page"
             },
-            {
-                "navAnchorText": "Product Catelouge", 
-                "navAnchorLink": "/docs/productCatelogue.pdf", 
-                "navAnchorTitle": "product catelouge"
-            },
+            // {
+            //     "navAnchorText": "Product Catelouge", 
+            //     "navAnchorLink": "/docs/productCatelogue.pdf", 
+            //     "navAnchorTitle": "product catelouge"
+            // },
             {
                 "navAnchorText": "GSTIN: 20-AAHCB78300R-2ZC", 
                 "navAnchorLink": "/", 

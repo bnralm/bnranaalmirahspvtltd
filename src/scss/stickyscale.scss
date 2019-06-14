@@ -62,25 +62,4 @@
         }
     }
 }
-.rampup-image {
-    max-height: 500px;
-    text-align: center;
-    img {
-        height: 100%;
-        display: inline-block !important;
-    }   
-}
-.ReactModal__Overlay {
-    z-index: 99;
-}
-.rampup-slider {
-    .slick-arrow.slick-next, .slick-arrow.slick-prev {
-        z-index: 999;
-    }
-    .slick-arrow.slick-next {
-        bottom: 20vh;
-    }
-    .slick-arrow.slick-prev {
-        bottom: 20vh;
-    }
-}
+

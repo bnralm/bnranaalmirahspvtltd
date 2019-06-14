@@ -16,3 +16,29 @@
     font-size: $md-space;
 
 }
+
+.rampup-image {
+    max-height: 80vh;
+    text-align: center;
+    img {
+        width: 100%;
+        display: inline-block !important;
+    }   
+}
+.ReactModal__Overlay {
+    z-index: 99;
+}
+.rampup-slider {
+    .slick-arrow.slick-next, .slick-arrow.slick-prev {
+        z-index: 999;
+    }
+    .slick-arrow.slick-next {
+        bottom: 20vh;
+    }
+    .slick-arrow.slick-prev {
+        bottom: 20vh;
+    }
+}
+.margin-bottom-20 {
+    margin-bottom: 20px;
+}
