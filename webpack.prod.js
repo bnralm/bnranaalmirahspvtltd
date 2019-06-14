@@ -14,6 +14,11 @@ module.exports = {
         path: path.join(__dirname, 'public/scripts'),
         filename: '[name].[chunkhash:6].js' 
     },
+    optimization: {
+        runtimeChunk: {
+            name: entrypoint => `runtime~${entrypoint.name}`
+          }
+    },
     mode: 'production',
     module : {
         rules: [
@@ -42,6 +47,7 @@ module.exports = {
                 }
            ]
         },
+        
 
         //setting the source map file
         devtool: 'source-map',
