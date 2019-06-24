@@ -22,17 +22,22 @@ const HighOrderComponent = () => {
 //    }
 }
 
-const HomeComponent = () => (<React.Fragment>
-                <HeroShotComponent />
+const HomeComponent = () => {
+    document.title = 'BN Rana Almirahs: Home Page'
+
+    return (<React.Fragment>
+                 <HeroShotComponent />
                 <ProductsComponents />
                 <WhyuChooseComponents />
-                <AchievementsComponents />
+                 <AchievementsComponents />
                 <MapComponent />
                 <ContactUsComponent />
-                <RampupComponent />
+                <RampupComponent /> 
             </React.Fragment> 
+
         )    
     
 
+    } 
 
 export default HomeComponent; 

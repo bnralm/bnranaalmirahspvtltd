@@ -1,12 +1,13 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import PdpGallaryComponent from './../../components/PdpGallaryComponent';
-import BreadcumComponent from '../../components/BreadcumComponent';
+import BreadcumComponent from './../../components/BreadcumComponent';
 import PdpDescriptionComponent from './../../components/PdpDescriptionComponent';
 import * as lodash  from 'lodash';
 
 const ProductDetailComponent = ({products, details, description, match}) => {
     let allProducts, {productId} = match.params, currentProduct ;
+    document.title = `BN Rana Almirahs: Product Detail Page ${match.params.productId}`;
     
     if(products && details && description){
         allProducts = products.map( val => {

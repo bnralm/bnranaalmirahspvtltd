@@ -24,9 +24,7 @@ export default class BacktoTopComponent extends React.Component {
         this.setState( () => ({scrollTop: currentPosition}) );
     }
     scrolltoTopHandler(){
-        $('body, html').stop(true, true).animate({
-            scrollTop: 0
-        }, 800);
+        window.scrollTo(0, 0);
     }
     render(){
         const winH = window.screen.availHeight;
