@@ -2,6 +2,8 @@ const path = require('path');
 
 // const CleanWebpackPlugin = require('clean-webpack-plugin')
 
+// const HtmlWebpackPlugin  = require('html-webpack-plugin');
+// const CopyWebpackPlugin = require('copy-webpack-plugin');
 const imageUrlPath = path.join(__dirname, 'public')
 console.log(imageUrlPath, '==>s');
 
@@ -39,7 +41,8 @@ module.exports = {
                             options: {
                                 name: '[path][name].[ext]',
                                 outputPath: imageUrlPath,
-                                publicPath: ""
+                                publicPath: "",
+                                limit: 10000
                             }
                         },
 
@@ -56,8 +59,6 @@ module.exports = {
             fs: "empty"
         },
         performance: {
-            hints: 'error'
+            hints: 'warning'
         }
-        
-         
     }

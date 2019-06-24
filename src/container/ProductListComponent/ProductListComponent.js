@@ -5,6 +5,7 @@ import find from 'lodash/find';
 
 
 const ProductListComponent = ({products, details, description}) => {
+    document.title = 'BN Rana Almirahs: Product List Page'
     let allproduct;
     if(products && details && description){
         allproduct = products.map( val => {

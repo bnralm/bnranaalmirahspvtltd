@@ -1,6 +1,7 @@
 import React from 'react';
 
 const BranchOfficeComponent = () => {
+    document.title = `BN Rana Almirahs: Branch Office`;
     const address = [
         {
             street: 'Argaghat Road',
@@ -24,7 +25,7 @@ const BranchOfficeComponent = () => {
     ] 
 
     return (
-        <div className="container">
+        <div className="container" style={ {minHeight: '100vh'} }>
             <h2 className="text-center"> Branch Offices </h2> 
             <div className="row">
             {

@@ -21,7 +21,7 @@ const customStyles = {
 
 const settings = {
     className: "slider variable-width rampup-slider",
-    centerMode: true,
+    centerMode: false,
     swipe: true,
     infinite: false,
     slidesToShow: 2,

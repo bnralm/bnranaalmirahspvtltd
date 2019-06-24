@@ -122,6 +122,7 @@ const availableColors = {
 };
 
 const AvailableColors = () => {
+    document.title = `BN Rana Almirahs: Color Selection Page`;
     return(<section className="section blue lighten-5 js-scale-sticky">
                 <div className="row container">
                 <h2 className="header center">Available Colors</h2>
