@@ -23,12 +23,17 @@ const settings = {
     className: "slider variable-width rampup-slider",
     centerMode: false,
     swipe: true,
+    infinite: true,
+    adaptiveHeight: true,
     infinite: false,
     slidesToShow: 2,
-    slidesToScroll: 2,
+    slidesToScroll: 1,
+    speed: 500,
     variableWidth: false,
     nextArrow: <SampleNextArrow  />,
-    prevArrow: <SamplePrevArrow />
+    prevArrow: <SamplePrevArrow />,
+    autoplay: true,
+    autoplaySpeed: 2000,
   };
 
 class RampupComponent extends React.Component {

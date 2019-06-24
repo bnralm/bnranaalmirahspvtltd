@@ -24,7 +24,7 @@ const HighOrderComponent = () => {
 
 const HomeComponent = () => {
     document.title = 'BN Rana Almirahs: Home Page'
-
+    window.scrollTo(0, 0);
     return (<React.Fragment>
                  <HeroShotComponent />
                 <ProductsComponents />
