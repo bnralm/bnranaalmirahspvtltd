@@ -25,6 +25,7 @@ const settings = {
     swipe: true,
     infinite: true,
     adaptiveHeight: true,
+    lazyLoad: true,
     infinite: false,
     slidesToShow: 2,
     slidesToScroll: 1,
