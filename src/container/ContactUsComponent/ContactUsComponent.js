@@ -37,9 +37,9 @@ const ContactUsComponent = (props) => {
                             {mobile.map( (number, ind) => <a key={'ind'+ind} href={'tel:' + number } className="black-text lighten-1 contact-info">{number }</a> ) } 
                         </div>) : null}
 
-                        {address ?  (<div className="contact-row">
-                            <i className="material-icons icon purple-text darken-1">location_on</i> <span className="black-text lighten-1">{address}</span>
-                        </div>): null}
+                        {address ?  ( address && address.map( (add, key1) => (<div className="contact-row" key={'sss'+key1}>
+                            <i className="material-icons icon purple-text darken-1">location_on</i> <span className="black-text lighten-1">{add.add}</span>
+                        </div>))): null}
                         
                         {skypechat ?  (<div className="contact-row">
                             <i className="material-icons icon purple-text darken-1">chat</i>  <span className="black-text lighten-1">{skypechat} <small>(skype chat)</small></span>

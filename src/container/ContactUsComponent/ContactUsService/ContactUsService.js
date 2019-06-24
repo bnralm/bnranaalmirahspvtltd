@@ -6,8 +6,8 @@ module.exports = {
             email: ['ranaji06532@gmail.com', 'ccbnralmirahs@gmail.com'],
             mobile: ['+91 7827071010', '+91 9304002551'],
             address: [
-                        'Rg. Off: Holding No. 675A, Argaghat Road, Giridih, Jharkhand',
-                        'Branch Off: Lal Kuan, Gaziabaad, U.P.'
+                        {add: 'Branch Off: Lal Kuan, Gaziabaad, U.P.'},
+                        {add: 'Rg. Off: Holding No. 675A, Argaghat Road, Giridih, Jharkhand'}
                     ],
             skypechat: 'ccbnralmirahs@gmail.com',
         },
