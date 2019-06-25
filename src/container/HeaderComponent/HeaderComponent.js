@@ -1,11 +1,11 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
+import {connect} from 'react-redux';
+import { getProduct, getProductsDetails, getProductsDescription } from  './../../actions';
 import {globalNav} from  './HeaderService/HeaderService';
 import {Link} from 'react-router-dom';
 import NavLoginSingUpComponent from './../../components/NavLoginSingUpComponent';
 import NavUserComponent from './../../components/NavUserComponent';
-import { getProduct, getProductsDetails, getProductsDescription } from  './../../actions';
-import {connect} from 'react-redux';
-import { bindActionCreators } from 'redux';
 import './styles/styles.scss';
 
 const handleClick = () => {
@@ -13,20 +13,16 @@ const handleClick = () => {
     let instances = M.Sidenav.init(elems);
 }
 
+
 class HeaderComponent  extends React.Component {
     constructor(props){
-
         super(props);
 
-
-        
-        
         this.state = {
             navData : globalNav.navAnchorLists,
         }
     }
 
-    
     render () {
         const navData = this.state.navData;
         const login = this.props.login;
@@ -41,9 +37,9 @@ class HeaderComponent  extends React.Component {
                 <Link id="logo-container" to="/" className="brand-logo">Logo</Link>
                 <ul className="right hide-on-med-and-down">
                     {navData.map((item, ind) =>  <li key={'key-ind'+ ind}><Link to={item.navAnchorLink} title={item.navAnchorTitle}>{item.navAnchorText}</Link></li> ) }
-                    {login && login.token ? (<NavUserComponent props={login} />) : (<NavLoginSingUpComponent />)}      
+                    {login && login.token ? (<NavUserComponent props={login} />) : (<NavLoginSingUpComponent />)}
+                    
                 </ul>
-               
                 <ul id="slide-out" className="sidenav">
                     {
                         login && login.userFirstName && login.userLastName && login.userEmail && (
@@ -71,7 +67,9 @@ class HeaderComponent  extends React.Component {
                 </ul>
                 <a href="#" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
                 </div>
+                
             </nav>
+            
         )
     }
 }

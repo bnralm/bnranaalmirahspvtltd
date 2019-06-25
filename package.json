@@ -45,6 +45,7 @@
     "react-axios": "^2.0.1",
     "react-dates": "^18.1.0",
     "react-dom": "^16.4.2",
+    "react-google-login": "^5.0.4",
     "react-materialize": "^2.4.5",
     "react-modal": "^3.8.1",
     "react-redux": "^5.1.1",
