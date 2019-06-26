@@ -1,7 +1,5 @@
 const path = require('path');
-
 require('./src/app.js');
-
-// require('./src/reducers/testRedux');
+// const result = require('dotenv').config();
 
 

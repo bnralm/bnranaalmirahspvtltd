@@ -1,4 +1,7 @@
+import * as actionType from './../constants/constant.action';
+
 const loginReducerDefaultState = {
+      profileObj: null,
       token: "",
       userEmail: "",
       userFirstName: "",
@@ -13,27 +16,35 @@ const loginReducerDefaultState = {
   
 const loginReducer = (state = loginReducerDefaultState, action) => {
     switch(action.type){
-      case 'LOGIN_USER':
+      case actionType.LOGIN_USER:
         return {
          ...state,
          ...action.login
         };
        
-      case 'LOGOUT_USER':
+      case actionType.LOGOUT_USER:
         return {
          ...state,
          ...action.logout
         };
 
-      case 'MODAL_SIGNIN':
+      case actionType.MODAL_SIGNIN:
         return {
          ...state,
          ...action.modalSignIn
         };
-      case 'MODAL_CLOSE':
+      case actionType.MODAL_CLOSE:
         return {
          ...state,
          ...action.modalClose
+        };
+      case actionType.SIGNUP_WITH_GOOGLE:
+        return {
+          ...state,
+          profileObj: {
+           ...state.profileObj, 
+           ...action.profileObj
+          }
         };
 
       default:

@@ -1,31 +1,37 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import GoogleLogin from 'react-google-login';
-import {loginFormOpen} from '../../actions/action.login';
+import { bindActionCreators } from 'redux';
+import {loginFormOpen, signupWithGoogle} from '../../actions';
+import SignUpComponentGoogle from './../SignUpComponentGoogle';
 
-
-const responseGoogle = (response) => {
-    console.log(response);
-  }
-
-const NavLoginSingUpComponent = (props) => {
-    const modalSignIn = () => {
-        props.dispatch(loginFormOpen({modalSignIn: true, modalSignUp: false, isOpen: true}))
+class NavLoginSingUpComponent extends React.Component {
+    constructor(props){
+        super(props)
+        this.modalSignIn = this.modalSignIn.bind(this);
     }
-    return (
-        <React.Fragment>
-        <li><a title="login" onClick={modalSignIn}>Already Registerd</a></li>
 
-        <li><GoogleLogin
-                clientId="333806451020-v770ns1pt4ve28id4fn3kfccuaucb1bf.apps.googleusercontent.com"
-                buttonText="Signup"
-                onSuccess={responseGoogle}
-                onFailure={responseGoogle}
-                cookiePolicy={'single_host_origin'}
-            /> 
-        </li>     
-        </React.Fragment>
-    )
+    modalSignIn = () => {
+        this.props.dispatch(loginFormOpen({modalSignIn: true, modalSignUp: false, isOpen: true}))
+    }
+
+    render(){  
+        return (
+            <React.Fragment>
+            <li><a title="login" onClick={this.modalSignIn}>Login</a></li>
+            <li>
+                <SignUpComponentGoogle />
+            </li>     
+            </React.Fragment>
+        )
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    let actions = bindActionCreators({
+        loginFormOpen: () =>  loginFormOpen()
+    })
+
+    return {actions, dispatch}
 }
 
 const mapStateToProps = (state) => {
@@ -34,4 +40,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(NavLoginSingUpComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(NavLoginSingUpComponent);

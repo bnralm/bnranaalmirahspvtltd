@@ -1,5 +1,6 @@
 const path = require('path');
 const imageUrlPath = path.join(__dirname, 'public')
+require('dotenv').config();
 
 module.exports = {
     entry: {

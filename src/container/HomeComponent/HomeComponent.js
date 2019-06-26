@@ -6,6 +6,7 @@ import AchievementsComponents from './../../components/AchievementsComponents/Ac
 import ContactUsComponent from './../ContactUsComponent/ContactUsComponent';
 import RampupComponent from './../../components/RampupComponent';
 import MapComponent from './../../components/MapComponent/MapComponent';
+import SetLoginPasswordComponent from './../../components/SetLoginPasswordComponent';
 
 // import StickyScaleComponent from './../StickyScaleComponent/StickyScaleComponent';
 
@@ -33,11 +34,9 @@ const HomeComponent = () => {
                 <MapComponent />
                 <ContactUsComponent />
                 <RampupComponent /> 
+                <SetLoginPasswordComponent />
             </React.Fragment> 
-
         )    
-    
-
     } 
 
 export default HomeComponent; 

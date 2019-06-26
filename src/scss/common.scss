@@ -325,3 +325,6 @@ a.closeModal {
         border-radius: 50%;
     } 
 }
+.ReactModal__Body--open {
+    overflow: hidden;
+}

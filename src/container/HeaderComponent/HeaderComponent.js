@@ -84,8 +84,10 @@ const mapDispatchToProps = (dispatch) => {
     return {actions, dispatch };
 };
 
-const mapStateToProps = (state) => ({
-    login: state.login
-});
+const mapStateToProps = (state) => {
+    return {
+        login: state.login
+        }
+}
    
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderComponent);    

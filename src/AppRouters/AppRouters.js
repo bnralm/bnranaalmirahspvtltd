@@ -12,6 +12,8 @@ import FeedbacksComponent from './../container/FeedbacksComponent';
 import AvailableColors from './../container/AvailableColors';
 import LoginSignupCompnent from './../container/LoginSignupCompnent';
 import BranchOfficeComponent from './../components/BranchOffice';
+import SetPasswordComponent from './../container/SetPasswordComponent';
+
 
 const headerTitle = "BN & Rana Almirahs (P) Ltd.";
 
@@ -22,13 +24,16 @@ export class AppRouters extends React.Component {
                 <React.Fragment>
                  <HeaderComponent />
                      <Switch>
-                        <Route exact path="/" component={HomeComponent} setRouteTitle={`${headerTitle} Home Page`} />
-                         <Route exact path="/plp" component={ProductListComponent}  setRouteTitle={`${headerTitle} Product Listing Page`}/>
-                        <Route exact path="/pdp/:productId" component={ProductDetailComponent} setRouteTitle={`${headerTitle} Product Detail Page`}/>
-                        <Route exact path="/contact-us" component={ContactUsComponent}  setRouteTitle={`${headerTitle} Contact Us Page`}/>
-                        <Route exact path="/feedbacks" component={FeedbacksComponent} setRouteTitle={`${headerTitle} Feedbacks Page`}/>
-                        <Route exact path="/colors" component={AvailableColors} setRouteTitle={`${headerTitle} Color Page`}/>
-                        <Route exact path="/bo" component={BranchOfficeComponent} setRouteTitle={`${headerTitle} Branch Office`}/>
+                        <Route exact path="/" component={HomeComponent} />
+                         <Route exact path="/plp" component={ProductListComponent} />
+                        <Route exact path="/pdp/:productId" component={ProductDetailComponent} />
+                        <Route exact path="/contact-us" component={ContactUsComponent}  />
+                        <Route exact path="/feedbacks" component={FeedbacksComponent}  />
+                        <Route exact path="/colors" component={AvailableColors} />
+                        <Route exact path="/bo" component={BranchOfficeComponent} />
+                        <Route exact path="/setPassword/:jwt" component={SetPasswordComponent} />
+                        
+
                         <Route component={PageNotFoundComponent} setRouteTitle={`${headerTitle}: 404`} /> 
                     </Switch> 
                  <BacktoTopComponent />
