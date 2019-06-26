@@ -12,8 +12,6 @@ import FeedbacksComponent from './../container/FeedbacksComponent';
 import AvailableColors from './../container/AvailableColors';
 import LoginSignupCompnent from './../container/LoginSignupCompnent';
 import BranchOfficeComponent from './../components/BranchOffice';
-import SetPasswordComponent from './../container/SetPasswordComponent';
-
 
 const headerTitle = "BN & Rana Almirahs (P) Ltd.";
 
@@ -31,9 +29,6 @@ export class AppRouters extends React.Component {
                         <Route exact path="/feedbacks" component={FeedbacksComponent}  />
                         <Route exact path="/colors" component={AvailableColors} />
                         <Route exact path="/bo" component={BranchOfficeComponent} />
-                        <Route exact path="/setPassword/:jwt" component={SetPasswordComponent} />
-                        
-
                         <Route component={PageNotFoundComponent} setRouteTitle={`${headerTitle}: 404`} /> 
                     </Switch> 
                  <BacktoTopComponent />
