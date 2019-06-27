@@ -15,7 +15,9 @@ import { uriConstants } from '../constants/constant.uri';
 export const serviceAPI = {
   getProducts,
   getProductDetails,
-  getProductsDescription
+  getProductsDescription,
+  postRegister,
+  postLogin
 }
 
 /**
@@ -41,5 +43,22 @@ function getProductsDescription() {
   let url = uriConstants.PRODUCT_DETAIL_DESC_URL;
   return baseService.get(
     url
+    );
+}
+
+
+function postRegister(reqObj) {
+  let url = uriConstants.REGISTER_URL;
+  return baseService.get(
+    url,
+    reqObj
+    );
+}
+
+function postLogin(reqObj) {
+  let url = uriConstants.LOGIN_URL;
+  return baseService.get(
+    url,
+    reqObj
     );
 }

@@ -15,7 +15,9 @@ export const urlConstants = {
 export const API_INTERFACE = {
   PRODUCTS: '/products',
   PRODUCT_DETAILS: '/productdetails',
-  PRODUCT_DETAIL_DESC: '/productdetaildescs'
+  PRODUCT_DETAIL_DESC: '/productdetaildescs',
+  REGISTER: '/register',
+  LOGIN: '/login'
 };
 
 export const uriConstants = {
@@ -24,5 +26,9 @@ export const uriConstants = {
     urlConstants.BASE_URL + API_INTERFACE.PRODUCT_DETAILS,
   PRODUCT_DETAIL_DESC_URL:
     urlConstants.BASE_URL + API_INTERFACE.PRODUCT_DETAIL_DESC,
+  REGISTER_URL: 
+    urlConstants.BASE_URL + API_INTERFACE.REGISTER,
+  LOGIN_URL: 
+    urlConstants.BASE_URL + API_INTERFACE.LOGIN
 };
 
