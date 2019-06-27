@@ -3,7 +3,8 @@ import Modal from 'react-modal';
 import { bindActionCreators } from 'redux';
 import {connect} from 'react-redux';
 import { signupWithGoogle, generateLoginPassword } from './../../actions/action.signupGoogle';
-import './styles/style.scss';
+
+require('./styles/style.scss');
 
 const SetLoginPasswordComponent = (props) => {
     const customStyle = {
@@ -35,16 +36,20 @@ const SetLoginPasswordComponent = (props) => {
                             <div className="avatar"><img src={imageUrl} alt="ranasteel avatar" /></div>    
                             <h4>Welcome Mr./Miss {name}</h4>
                             <p>Please set the password for {email}</p>
-                            <form className="from contactus-form">
+                            <form className="from contactus-form" name="signupForm">
                                 <div className="contactus-form--text">
                                     <span className="required-field purple-text darken-1">*Field is required</span>
                                     <input type="password" required="required"  placeholder="New password" />
                                 </div>
                                 <div className="contactus-form--text">
                                     <span className="required-field purple-text darken-1">*Field is required</span>
-                                    <input type="password" required="required"  placeholder="New password" />
+                                    <input type="password" required="required"  placeholder="Re-enter Password" />
                                 </div>
-                                <button className="button button---primary" type="submit">Re-enter Password</button>
+                                <button 
+                                    className={`button button---primary` }
+                                    type="submit">
+                                        Set Password
+                                </button>
                             </form>
                         </div>
                         </div> : <div className="text-center">Loading...</div>

@@ -2,16 +2,21 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import {connect} from 'react-redux';
 import { GoogleLogin } from 'react-google-login'
-import { signupWithGoogle } from  './../../actions';
+import { signupWithGoogle, closeRampupGallary } from  './../../actions';
 
 import API from './../../config/keys';
 
 
 
 const SignUpComponentGoogle = (props) => {
-  
+ 
+  const isRamupOpenModel = (obj) => {
+    props.dispatch(closeRampupGallary());
+    props.dispatch(signupWithGoogle(obj));
+  } 
+
   const responseGoogleSuccess = (response) => {
-    props.isRamupOpen === true ?   props.dispatch(signupWithGoogle(response.profileObj)) : props.dispatch(signupWithGoogle(response.profileObj))
+    props.isRamupOpen === true ? isRamupOpenModel(response.profileObj) : props.dispatch(signupWithGoogle(response.profileObj))
   }
 
   const responseGoogleFailure = (response) => {
@@ -33,7 +38,8 @@ const SignUpComponentGoogle = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
   let actions = bindActionCreators({
-    signupWithGoogle: () =>  signupWithGoogle()
+    signupWithGoogle: () =>  signupWithGoogle(),
+    closeRampupGallary: () => closeRampupGallary()
   })
 
   return {actions, dispatch}
