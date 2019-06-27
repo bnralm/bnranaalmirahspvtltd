@@ -116,4 +116,6 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => ({rampup: state.rampupReducer});
 
+Modal.setAppElement('body');
+
 export default connect(mapStateToProps, mapDispatchToProps)(RampupComponent);

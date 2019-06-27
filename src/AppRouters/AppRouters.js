@@ -10,8 +10,9 @@ import FooterComponent from './../container/FooterComponent';
 import ProductListComponent from './../container/ProductListComponent';
 import FeedbacksComponent from './../container/FeedbacksComponent';
 import AvailableColors from './../container/AvailableColors';
-import LoginSignupCompnent from './../container/LoginSignupCompnent';
 import BranchOfficeComponent from './../components/BranchOffice';
+import LoginCompnent from './../container/LoginCompnent';
+
 
 const headerTitle = "BN & Rana Almirahs (P) Ltd.";
 
@@ -29,10 +30,10 @@ export class AppRouters extends React.Component {
                         <Route exact path="/feedbacks" component={FeedbacksComponent}  />
                         <Route exact path="/colors" component={AvailableColors} />
                         <Route exact path="/bo" component={BranchOfficeComponent} />
-                        <Route component={PageNotFoundComponent} setRouteTitle={`${headerTitle}: 404`} /> 
+                        <Route exact path="/login" component={LoginCompnent} />
+                        <Route path="*" component={PageNotFoundComponent} /> 
                     </Switch> 
                  <BacktoTopComponent />
-                 <LoginSignupCompnent />
                  <FooterComponent /> 
                 </React.Fragment>
             </Router>

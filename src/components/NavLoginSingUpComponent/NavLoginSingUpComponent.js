@@ -1,23 +1,20 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {loginFormOpen, signupWithGoogle} from '../../actions';
+import {loginFormOpen } from '../../actions';
 import SignUpComponentGoogle from './../SignUpComponentGoogle';
+import {Link } from 'react-router-dom';
 
 class NavLoginSingUpComponent extends React.Component {
     constructor(props){
         super(props)
-        this.modalSignIn = this.modalSignIn.bind(this);
     }
 
-    modalSignIn = () => {
-        this.props.dispatch(loginFormOpen({modalSignIn: true, modalSignUp: false, isOpen: true}))
-    }
-
+    
     render(){  
         return (
             <React.Fragment>
-            <li><a title="login" onClick={this.modalSignIn}>Login</a></li>
+            <li><Link to="/login">Login</Link></li>
             <li>
                 <SignUpComponentGoogle />
             </li>     

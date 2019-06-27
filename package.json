@@ -36,6 +36,7 @@
     "google-maps-react": "^2.0.2",
     "lodash": "^4.17.11",
     "materialize-css": "^1.0.0",
+    "md5": "^2.2.1",
     "moment": "^2.22.2",
     "node-sass": "^4.9.3",
     "normalize.css": "^8.0.0",
