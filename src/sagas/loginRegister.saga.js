@@ -4,12 +4,13 @@ import {serviceAPI} from './../services/service.api';
 
 
 export function* postRegisterWalker(reqObj) {
+   console.log(reqObj);
     try {
        let register = yield call(serviceAPI.postRegister(reqObj) )
-       yield put({type: actionType.SIGNUP_WITH_GOOGLE_SUCCESS, register: register.data})
+       yield put({type: actionType.SIGNUP_WITH_GOOGLE_SUCCESS, signupSuccess: register.data})
 
      } catch (error) {
-        yield put({type: actionType.SIGNUP_WITH_GOOGLE_FAILURE, registerFail: error})
+        yield put({type: actionType.SIGNUP_WITH_GOOGLE_FAILURE, signupFail: error})
      }
   }
 
@@ -23,7 +24,7 @@ export function* postRegisterWalker(reqObj) {
   }
 
  export function* postRegisterWatcher() {
-   yield takeLatest(actionType.SIGNUP_WITH_GOOGLE, postRegisterWalker)
+   yield takeLatest(actionType.SIGNUP_WITH_GOOGLE_REGISTER, postRegisterWalker )
  }
 
 

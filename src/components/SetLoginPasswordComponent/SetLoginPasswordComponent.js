@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from 'react-modal';
 import { bindActionCreators } from 'redux';
 import {connect} from 'react-redux';
-import { signupWithGoogle, generateLoginPassword, closeModal, loginFormOpen } from './../../actions';
+import { signupWithGoogleRegister, generateLoginPassword, closeModal, loginFormOpen } from './../../actions';
 import md5 from 'md5';
 
 require('./styles/style.scss');
@@ -55,14 +55,8 @@ class SetLoginPasswordComponent extends React.Component {
         
         let {familyName : lastName, givenName : firstName, email: userEmail } = this.props.profileObj;
         let {newPassword, reenterPassword} = this.state.formValues;
-
-        let Obj = {
-            ...this.props.profileObj,
-            firstName,
-            lastName, 
-            userEmail,
-            userPassword: this.state.pwd
-        }
+        let Obj;
+       
 
         if(newPassword.length < 4){
             this.setState({pwdError: 'Password is less than 4 character, cann\'t accepted'}) 
@@ -74,13 +68,19 @@ class SetLoginPasswordComponent extends React.Component {
         }
         else{
             let hashedPassword = md5(newPassword);
+
+            Obj = {
+                ...this.props.profileObj,
+                firstName,
+                lastName, 
+                userEmail,
+                userPassword: hashedPassword
+            }
+
             this.setState({pwdError: undefined, pwd: hashedPassword}) 
         }
 
-        console.log(Obj);
-
-
-        // this.props.dispatch(loginFormOpen({modalSignIn: true, modalSignUp: false, isOpen: true}))
+        this.props.dispatch(signupWithGoogleRegister(Obj));
     }
   
     render() {
@@ -145,7 +145,7 @@ class SetLoginPasswordComponent extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
     let actions = bindActionCreators({
-        signupWithGoogle: () => signupWithGoogle(),
+        signupWithGoogleRegister: () => signupWithGoogleRegister(),
         generateLoginPassword: () =>  generateLoginPassword(),
         closeModal: () => closeModal(),
         loginFormOpen: () => loginFormOpen()
@@ -154,11 +154,11 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return {
         openModal: state.signupReducer.openModal,
         profileObj: state.signupReducer.profileObj,
         closeModal: state.signupReducer.closeModal
+        
     }
 }
 

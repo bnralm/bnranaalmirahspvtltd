@@ -9,7 +9,9 @@ const signupReducerDefaultState = {
       name :undefined
     },
     openModal:false,
-    closeModal: true
+    closeModal: true,
+    success: null,
+    failure: null
 };
 
   
@@ -25,10 +27,27 @@ const signupReducer = (state = signupReducerDefaultState, action) => {
           openModal: true,
           closeModal: false
         };
+      
+      case actionType.SIGNUP_WITH_GOOGLE_REGISTER: 
+        return {
+          ...state,
+         }
+
+      case actionType.SIGNUP_WITH_GOOGLE_SUCCESS:
+        return {
+          ...state,
+          success: action.signupSuccess,
+        };
+      
+      case actionType.SIGNUP_WITH_GOOGLE_FAILURE:
+          return {
+            ...state,
+            failure: action.signupFail,
+          };  
 
         case actionType.GENERATE_PASSWORD: {
             return {
-                ...state
+              ...state
             }
         };
 
