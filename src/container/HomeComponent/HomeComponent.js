@@ -6,7 +6,6 @@ import AchievementsComponents from './../../components/AchievementsComponents/Ac
 import ContactUsComponent from './../ContactUsComponent/ContactUsComponent';
 import RampupComponent from './../../components/RampupComponent';
 import MapComponent from './../../components/MapComponent/MapComponent';
-import SetLoginPasswordComponent from './../../components/SetLoginPasswordComponent';
 
 // import StickyScaleComponent from './../StickyScaleComponent/StickyScaleComponent';
 
@@ -27,14 +26,13 @@ const HomeComponent = () => {
     document.title = 'BN Rana Almirahs: Home Page'
     window.scrollTo(0, 0);
     return (<React.Fragment>
-                 <HeroShotComponent />
+                <HeroShotComponent />
                 <ProductsComponents />
                 <WhyuChooseComponents />
-                 <AchievementsComponents />
+                <AchievementsComponents />
                 <MapComponent />
                 <ContactUsComponent />
                 <RampupComponent /> 
-                <SetLoginPasswordComponent />
             </React.Fragment> 
         )    
     } 

@@ -48,7 +48,6 @@ function getProductsDescription() {
 
 
 function postRegister(reqObj) {
-  reqObj = JSON.parse(reqObj);
   let url = uriConstants.REGISTER_URL;
   return baseService.post(
     url,
@@ -57,7 +56,6 @@ function postRegister(reqObj) {
 }
 
 function postLogin(reqObj) {
-  reqObj = JSON.parse(reqObj);
   let url = uriConstants.LOGIN_URL;
   return baseService.post(
     url,

@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import { bindActionCreators } from 'redux';
 import {connect} from 'react-redux';
 import { signupWithGoogleRegister, generateLoginPassword, closeModal, loginFormOpen } from './../../actions';
+import {Link } from 'react-router-dom';
 import md5 from 'md5';
 
 require('./styles/style.scss');
@@ -25,7 +26,6 @@ class SetLoginPasswordComponent extends React.Component {
                 newPassword: undefined,
                 reenterPassword: undefined,
             },
-            pwd: undefined,
             pwdError: undefined
         }
 
@@ -74,10 +74,10 @@ class SetLoginPasswordComponent extends React.Component {
                 firstName,
                 lastName, 
                 userEmail,
-                userPassword: hashedPassword
+                hashedPassword
             }
 
-            this.setState({pwdError: undefined, pwd: hashedPassword}) 
+            this.setState({pwdError: undefined}) 
         }
 
         this.props.dispatch(signupWithGoogleRegister(Obj));
@@ -94,46 +94,45 @@ class SetLoginPasswordComponent extends React.Component {
                 style={ customStyle }
                 ariaHideApp={false}
                 >
-                    <div className="close-signup" onClick={closeModal}>&times;</div>
+                         <div className="close-signup" onClick={closeModal}>&times;</div>
                            { this.props.profileObj ? <div className="setPasswordForm">
                             <div className="text-center">
                                 <div className="avatar"><img src={imageUrl} alt="ranasteel avatar" /></div>    
                                 <h4>Welcome Mr./Miss {name}</h4>
                                 
-                                { this.state.pwd ? (
-                                <div className="login-link">
-                                    <p>Your password has been set.</p>
+                                { this.props.success ? (<div className="login-link">
+                                    <p>Congratulation ! Your account has been created.</p>
                                     <div className="padding-top-20">
-                                        <button className="button button--primary" 
-                                            onClick={this.loginPopup}>
-                                                Click to login
-                                        </button>
+                                        <Link to="/login">
+                                            Click to login
+                                        </Link>
                                     </div>
                                 </div> )
                                 : (
-                                    <React.Fragment>
-                                <p>Please set the password for {email}</p>
-                                <form className="from contactus-form" name="signupForm" onSubmit={ this.setPasswordLogin }>
-                                    <div className="contactus-form--text">
-                                        <span className="required-field purple-text darken-1">*Field is required</span>
-                                        <input type="password" required="required" name="newPassword" 
-                                            onChange={ () => this.onChangeInputHandler(event) } placeholder="New password" />
-                                    </div>
-                                    <div className="contactus-form--text">
-                                        <span className="required-field purple-text darken-1">*Field is required</span>
-                                        <input type="password" required="required" name="reenterPassword" 
-                                         onChange={  () => this.onChangeInputHandler(event) } placeholder="Re-enter Password" />
-                                    </div>
-                                    {this.state.pwdError && <p>{this.state.pwdError}</p>}
-                                    <button 
-                                        className={`button button---primary` }
-                                        type="submit"
-                                        >
-                                            Set Password
-                                    </button>
-                                </form>
-                                </React.Fragment>
-                                ) }
+                                <div>
+                                    <p>Please set the password for {email}</p>
+                                    <form className="from contactus-form" name="signupForm" onSubmit={ this.setPasswordLogin }>
+                                        <div className="contactus-form--text">
+                                            <span className="required-field purple-text darken-1">*Field is required</span>
+                                            <input type="password" required="required" name="newPassword" 
+                                                onChange={ () => this.onChangeInputHandler(event) } placeholder="New password" />
+                                        </div>
+                                        <div className="contactus-form--text">
+                                            <span className="required-field purple-text darken-1">*Field is required</span>
+                                            <input type="password" required="required" name="reenterPassword" 
+                                            onChange={  () => this.onChangeInputHandler(event) } placeholder="Re-enter Password" />
+                                        </div>
+                                        {this.state.pwdError && <p>{this.state.pwdError}</p>}
+                                        {this.props.failure && <p>{this.props.failure}</p>}
+                                        <button 
+                                            className={`button button---primary` }
+                                            type="submit"
+                                            >
+                                                Set Password
+                                        </button>
+                                    </form>
+                                </div>)
+                             }
                             </div>
                             </div> : <div className="text-center">Loading...</div>
                         } 
@@ -154,11 +153,13 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => {
+    console.log("setLogin", state)
     return {
         openModal: state.signupReducer.openModal,
         profileObj: state.signupReducer.profileObj,
-        closeModal: state.signupReducer.closeModal
-        
+        closeModal: state.signupReducer.closeModal,
+        success: state.signupReducer.success,
+        failure: state.signupReducer.failure
     }
 }
 

@@ -11,7 +11,6 @@ export const signupWithGoogleRegister = (reqObj) => ({
   });
 
 export const signupWithGoogleSuccess = (signupSuccess) => {
-  console.log(signupSuccess)
   return {
     type: actionType.SIGNUP_WITH_GOOGLE_SUCCESS,
     signupSuccess: register

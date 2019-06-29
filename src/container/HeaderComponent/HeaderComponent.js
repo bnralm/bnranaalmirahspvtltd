@@ -6,6 +6,8 @@ import {globalNav} from  './HeaderService/HeaderService';
 import {Link} from 'react-router-dom';
 import NavLoginSingUpComponent from './../../components/NavLoginSingUpComponent';
 import NavUserComponent from './../../components/NavUserComponent';
+import SetLoginPasswordComponent from './../../components/SetLoginPasswordComponent';
+
 import './styles/styles.scss';
 
 const handleClick = () => {
@@ -32,6 +34,7 @@ class HeaderComponent  extends React.Component {
          this.props.dispatch(getProductsDescription());
 
         return (
+            <React.Fragment>
             <nav className="indigo darken-4" role="navigation">
                 <div className="nav-wrapper container">
                 <Link id="logo-container" to="/" className="brand-logo">Logo</Link>
@@ -69,6 +72,8 @@ class HeaderComponent  extends React.Component {
                 </div>
                 
             </nav>
+                <SetLoginPasswordComponent />
+            </React.Fragment>
             
         )
     }
