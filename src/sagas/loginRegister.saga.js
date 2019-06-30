@@ -14,13 +14,14 @@ export function* postRegisterWalker({reqObj}) {
      }
   }
 
-  export function* postLoginWalker({reqObj}) {
+  export function* postLoginWalker({loginInfo}) {
     try {
-        let loginInfo = yield call(serviceAPI.postLogin, reqObj)
-        yield put({type: actionType.LOGIN_USER_SUCCESS, loginInfo: loginInfo.data})
+        let loginInfoData = yield call(serviceAPI.postLogin, loginInfo)
+        yield put({type: actionType.LOGIN_USER_SUCCESS, success: loginInfoData})
      } catch (error) {
-        yield put({type: actionType.LOGIN_USER_FAILURE, detailsFail: error})
-     }
+        console.log("error", error);
+        yield put({type: actionType.LOGIN_USER_FAILURE, failure: error})
+     }      
   }
 
 export function* checkUserEmailWalker({profileObj}) {
@@ -31,16 +32,7 @@ export function* checkUserEmailWalker({profileObj}) {
        yield put({type: actionType.CHECK_USER_EMAIL_ADDRESS_FAIL, failure: error})
     }
  }
-
-
- export function* userLoginWalker({profileObj}) {
-   try {
-       let userEmailInfo = yield call(serviceAPI.postLogin, profileObj)
-       yield put({type: actionType.CHECK_USER_EMAIL_ADDRESS_SUCCESS, success: userEmailInfo})
-    } catch (error) {
-       yield put({type: actionType.CHECK_USER_EMAIL_ADDRESS_FAIL, failure: error})
-    }
- }
+ 
 
  
  export function* postRegisterWatcher() {
@@ -52,5 +44,5 @@ export function* checkUserEmailWalker({profileObj}) {
  export function* loginInfoWatcher() {
     yield takeLatest(actionType.LOGIN_USER, postLoginWalker)
   }
- 
+  
  

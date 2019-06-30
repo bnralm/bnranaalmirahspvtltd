@@ -1,16 +1,9 @@
 import * as actionType from './../constants/constant.action';
 
 const loginReducerDefaultState = {
-      profileObj: null,
-      token: "",
-      userEmail: "",
-      userFirstName: "",
-      userId: "",
-      userLastName: "",
-      userRole: "",
-      isOpen: false,
-      modalSignIn: false,
-      modalSignUp: false
+      loginInfo: null,
+      success: null,
+      failure: null
   };
 
   
@@ -19,34 +12,28 @@ const loginReducer = (state = loginReducerDefaultState, action) => {
       case actionType.LOGIN_USER:
         return {
          ...state,
-         ...action.login
+         loginInfo: action.loginInfo
         };
+
+        case actionType.LOGIN_USER_SUCCESS:
+          return {
+          ...state,
+          success: action.success
+          };
+
+        case actionType.LOGIN_USER_FAILURE:
+          return {
+            ...state,
+            failure: action.failure
+          };
        
       case actionType.LOGOUT_USER:
         return {
-         ...state,
-         ...action.logout
-        };
-
-      case actionType.MODAL_SIGNIN:
-        return {
-         ...state,
-         ...action.modalSignIn
-        };
-      case actionType.MODAL_CLOSE:
-        return {
-         ...state,
-         ...action.modalClose
-        };
-      case actionType.SIGNUP_WITH_GOOGLE:
-        return {
           ...state,
-          profileObj: {
-           ...state.profileObj, 
-           ...action.profileObj
-          }
+          state
         };
 
+      
       default:
         return state;
      }

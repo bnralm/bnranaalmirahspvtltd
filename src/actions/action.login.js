@@ -2,7 +2,7 @@ import * as actionType from './../constants/constant.action';
 
 export const loginUser = (reqObj) => ({
     type: actionType.LOGIN_USER,
-    loginObj: reqObj
+    loginInfo: reqObj
   });
 
  
@@ -21,6 +21,3 @@ export const logoutUser = (logout) => ({
     type: actionType.LOGOUT_USER,
     logout
   });  
-  
-  
-

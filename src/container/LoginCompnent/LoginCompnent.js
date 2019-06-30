@@ -1,6 +1,7 @@
 import React from 'react';
 import md5 from 'md5';
 import {connect} from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { closeModalPopup, loginUser } from './../../actions';
 
@@ -44,13 +45,20 @@ class LoginCompnent extends React.Component {
 
         let {email : userEmail, password : userPassword} = this.state.loginInfo;
 
-        let obj = {
+        let reqObj = {
             userEmail,
             userPassword: md5(userPassword)
         };
         
-        this.props.dispatch()
+        this.props.dispatch(loginUser(reqObj))
     
+    }
+    componentWillReceiveProps(prevProps){
+        let status = this.props.loginSuccess && this.props.loginSuccess.response && this.props.loginSuccess.response.status;
+        
+        if(status == 200){
+            this.props.history.push('/');
+        }
     }
 
     render(){
@@ -59,6 +67,11 @@ class LoginCompnent extends React.Component {
                 <div className="contactus-form login-wrapper">
                     <form name="loginform" onSubmit={this.loginHandler}>
                         <h4 className="text-center">Login</h4>
+                        
+                        {this.props.loginSuccess && this.props.loginSuccess.response.status === 403 && (
+                            <p className="red-text">Email and password are incorrect ! Try again</p>
+                        ) }
+
                         <div className="contactus-form--text">
                             <span className="required-field purple-text darken-1">*Field is required</span>
                             <input
@@ -80,6 +93,7 @@ class LoginCompnent extends React.Component {
                                 name="password"
                                 required  />
                         </div>
+                        
                         <div className="contactus-form--btn">
                             <button type="submit" className="button button--primary">SEND</button>
                         </div>
@@ -93,7 +107,7 @@ class LoginCompnent extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        login: state.login,
+        loginSuccess: state.loginReducer.success,
         closeModal: state.signupReducer.closeModal
     }
 }
@@ -106,4 +120,4 @@ const mapDispatchToProps = (dispatch) => {
     return {actions, dispatch };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginCompnent);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LoginCompnent));
