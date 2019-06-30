@@ -37,6 +37,7 @@ const signupReducer = (state = signupReducerDefaultState, action) => {
         return {
           ...state,
           success: action.signupSuccess,
+
         };
       
       case actionType.SIGNUP_WITH_GOOGLE_FAILURE:
@@ -51,7 +52,7 @@ const signupReducer = (state = signupReducerDefaultState, action) => {
             }
         };
 
-       case actionType.CLOSE_MODAL: {
+       case actionType.MODAL_CLOSE: {
           return {
               ...state,
               closeModal: true,

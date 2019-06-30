@@ -2,11 +2,11 @@ import React from 'react';
 import Modal from 'react-modal';
 import { bindActionCreators } from 'redux';
 import {connect} from 'react-redux';
-import { signupWithGoogleRegister, generateLoginPassword, closeModal, loginFormOpen } from './../../actions';
-import {Link } from 'react-router-dom';
+import { signupWithGoogleRegister, generateLoginPassword, closeModalPopup, loginFormOpen } from './../../actions';
+import {withRouter, Link } from 'react-router-dom';
 import md5 from 'md5';
 
-require('./styles/style.scss');
+import './styles/style.scss';
 
 const customStyle = {
     content: {
@@ -31,6 +31,9 @@ class SetLoginPasswordComponent extends React.Component {
 
         this.closeModal = this.closeModal.bind(this);
         this.setPasswordLogin = this.setPasswordLogin.bind(this);
+        this.onLoginHandler = this.onLoginHandler.bind(this);
+        console.log( this.props);
+
     }
 
     onChangeInputHandler = (event) => {
@@ -47,13 +50,17 @@ class SetLoginPasswordComponent extends React.Component {
     }
     
     closeModal = () => {
-        this.props.dispatch(closeModal())
+        this.props.dispatch(closeModalPopup())
     }
-    
+    onLoginHandler = () => {
+        this.props.dispatch(closeModalPopup())
+        this.props.history.push('/login');
+    }
+
     setPasswordLogin = (event) => {
         event.preventDefault();
         
-        let {familyName : lastName, givenName : firstName, email: userEmail } = this.props.profileObj;
+        let {familyName : userLastName, givenName : userFirstName, email: userEmail } = this.props.profileObj;
         let {newPassword, reenterPassword} = this.state.formValues;
         let Obj;
        
@@ -71,10 +78,10 @@ class SetLoginPasswordComponent extends React.Component {
 
             Obj = {
                 ...this.props.profileObj,
-                firstName,
-                lastName, 
+                userFirstName,
+                userLastName, 
                 userEmail,
-                hashedPassword
+                userPassword: hashedPassword
             }
 
             this.setState({pwdError: undefined}) 
@@ -90,11 +97,11 @@ class SetLoginPasswordComponent extends React.Component {
         return (
             <Modal
                 isOpen={this.props.openModal}
-                onRequestClose={ this.closeModal }
+                onRequestClose={ () => this.closeModal() }
                 style={ customStyle }
                 ariaHideApp={false}
                 >
-                         <div className="close-signup" onClick={closeModal}>&times;</div>
+                         <div className="close-signup" onClick={() => this.closeModal() }>&times;</div>
                            { this.props.profileObj ? <div className="setPasswordForm">
                             <div className="text-center">
                                 <div className="avatar"><img src={imageUrl} alt="ranasteel avatar" /></div>    
@@ -109,8 +116,20 @@ class SetLoginPasswordComponent extends React.Component {
                                     </div>
                                 </div> )
                                 : (
-                                <div>
-                                    <p>Please set the password for {email}</p>
+                                <React.Fragment>   
+                                     { this.props && this.props.checkUserEmailSuccess && this.props.checkUserEmailSuccess.status == 200 ? (
+                                         <div className="text-center">
+                                             <p className="red-text">Your email <strong className="text-red">{email}</strong> address is already registerd with us.</p>
+                                             <p>Please call on <a href="tel:93004002551">93004002551</a> for login assistance</p>
+                                             <div className="padding-top-20">
+                                                <button className="button button--primary" onClick={ this.onLoginHandler}>
+                                                    Click to login
+                                                </button>
+                                            </div>
+                                        </div>
+                                     ) : (
+                                      <React.Fragment>
+                                          <p>Please set the password for {email}</p>
                                     <form className="from contactus-form" name="signupForm" onSubmit={ this.setPasswordLogin }>
                                         <div className="contactus-form--text">
                                             <span className="required-field purple-text darken-1">*Field is required</span>
@@ -125,13 +144,16 @@ class SetLoginPasswordComponent extends React.Component {
                                         {this.state.pwdError && <p>{this.state.pwdError}</p>}
                                         {this.props.failure && <p>{this.props.failure}</p>}
                                         <button 
-                                            className={`button button---primary` }
+                                            className={`button button--primary` }
                                             type="submit"
                                             >
                                                 Set Password
                                         </button>
                                     </form>
-                                </div>)
+                                      </React.Fragment>  
+                                    )}
+                                    
+                                    </React.Fragment>  )
                              }
                             </div>
                             </div> : <div className="text-center">Loading...</div>
@@ -146,7 +168,7 @@ const mapDispatchToProps = (dispatch) => {
     let actions = bindActionCreators({
         signupWithGoogleRegister: () => signupWithGoogleRegister(),
         generateLoginPassword: () =>  generateLoginPassword(),
-        closeModal: () => closeModal(),
+        closeModalPopup: () => closeModalPopup(),
         loginFormOpen: () => loginFormOpen()
     })
     return {actions, dispatch}
@@ -159,12 +181,14 @@ const mapStateToProps = (state) => {
         profileObj: state.signupReducer.profileObj,
         closeModal: state.signupReducer.closeModal,
         success: state.signupReducer.success,
-        failure: state.signupReducer.failure
+        failure: state.signupReducer.failure,
+        checkUserEmailFailure: state.checkUserEmail.failure,
+        checkUserEmailSuccess: state.checkUserEmail.success
     }
 }
 
 Modal.setAppElement('body');
 
-export default connect(mapStateToProps, mapDispatchToProps)(SetLoginPasswordComponent);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SetLoginPasswordComponent));
 
 

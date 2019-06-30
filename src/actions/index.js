@@ -13,4 +13,5 @@ export * from './action.product';
 export * from './action.registration';
 export * from './action.rampup';
 export * from './action.signupGoogle';
+export * from './action.checkuser';
 

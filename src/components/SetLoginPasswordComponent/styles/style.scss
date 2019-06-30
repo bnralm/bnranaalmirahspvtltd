@@ -1,5 +1,14 @@
 @import './../../../scss/settings';
 
+.close-signup {
+    font-size: 40px;
+    position: absolute;
+    right: 10px;
+    color: $white;
+    top: 0;
+    cursor: pointer;
+}
+
 .setPasswordForm {
     max-width: 320px;
     background: $white;
@@ -18,15 +27,8 @@
         border-radius: 30px;
         padding: 0 1.5rem;
     }
-    .close-signup {
-        font-size: 40px;
-        position: absolute;
-        right: 10px;
-        color: $white;
-        top: 0;
-        cursor: pointer;
-    }
-    .button---primary {
+    
+    .button--primary {
         margin-top: 20px;
         margin-bottom: 10px;
     }

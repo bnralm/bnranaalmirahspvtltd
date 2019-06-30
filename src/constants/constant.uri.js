@@ -17,7 +17,8 @@ export const API_INTERFACE = {
   PRODUCT_DETAILS: '/productdetails',
   PRODUCT_DETAIL_DESC: '/productdetaildescs',
   REGISTER: '/register',
-  LOGIN: '/login'
+  LOGIN: '/login',
+  CHECK_USER_EMAIL: '/checkUserEmail'
 };
 
 export const uriConstants = {
@@ -29,6 +30,8 @@ export const uriConstants = {
   REGISTER_URL: 
     urlConstants.BASE_URL + API_INTERFACE.REGISTER,
   LOGIN_URL: 
-    urlConstants.BASE_URL + API_INTERFACE.LOGIN
+    urlConstants.BASE_URL + API_INTERFACE.LOGIN,
+  CHECK_USER_EMAIL_URL:   
+    urlConstants.BASE_URL + API_INTERFACE.CHECK_USER_EMAIL,
 };
 

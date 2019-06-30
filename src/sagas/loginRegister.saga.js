@@ -23,11 +23,32 @@ export function* postRegisterWalker({reqObj}) {
      }
   }
 
- export function* postRegisterWatcher() {
-   yield takeLatest(actionType.SIGNUP_WITH_GOOGLE_REGISTER, postRegisterWalker )
+export function* checkUserEmailWalker({profileObj}) {
+   try {
+       let userEmailInfo = yield call(serviceAPI.checkUserEmail, profileObj)
+       yield put({type: actionType.CHECK_USER_EMAIL_ADDRESS_SUCCESS, success: userEmailInfo})
+    } catch (error) {
+       yield put({type: actionType.CHECK_USER_EMAIL_ADDRESS_FAIL, failure: error})
+    }
  }
 
 
+ export function* userLoginWalker({profileObj}) {
+   try {
+       let userEmailInfo = yield call(serviceAPI.postLogin, profileObj)
+       yield put({type: actionType.CHECK_USER_EMAIL_ADDRESS_SUCCESS, success: userEmailInfo})
+    } catch (error) {
+       yield put({type: actionType.CHECK_USER_EMAIL_ADDRESS_FAIL, failure: error})
+    }
+ }
+
+ 
+ export function* postRegisterWatcher() {
+   yield takeLatest(actionType.SIGNUP_WITH_GOOGLE_REGISTER, postRegisterWalker )
+ }
+ export function* checkUserEmailWatcher() {
+   yield takeLatest(actionType.CHECK_USER_EMAIL_ADDRESS, checkUserEmailWalker)
+ } 
  export function* loginInfoWatcher() {
     yield takeLatest(actionType.LOGIN_USER, postLoginWalker)
   }

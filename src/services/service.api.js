@@ -17,7 +17,8 @@ export const serviceAPI = {
   getProductDetails,
   getProductsDescription,
   postRegister,
-  postLogin
+  postLogin,
+  checkUserEmail
 }
 
 /**
@@ -57,6 +58,17 @@ function postRegister(reqObj) {
 
 function postLogin(reqObj) {
   let url = uriConstants.LOGIN_URL;
+  return baseService.post(
+    url,
+    reqObj
+    );
+}
+
+
+
+
+function checkUserEmail(reqObj) {
+  let url = uriConstants.CHECK_USER_EMAIL_URL;
   return baseService.post(
     url,
     reqObj

@@ -1,23 +1,26 @@
 import * as actionType from './../constants/constant.action';
 
-export const loginUser = (login) => ({
+export const loginUser = (reqObj) => ({
     type: actionType.LOGIN_USER,
-    login
+    loginObj: reqObj
   });
+
+ 
+export const loginUserSuccess = (success) => ({
+    type: actionType.LOGIN_USER_SUCCESS,
+    success
+  });
+
+  export const loginUserFail = (failure) => ({
+    type: actionType.LOGIN_USER_FAILURE,
+    failure
+  });
+
 
 export const logoutUser = (logout) => ({
     type: actionType.LOGOUT_USER,
     logout
   });  
   
-export const loginFormOpen = (modalSignIn) => ({
-    type: actionType.MODAL_SIGNIN,
-    modalSignIn
-  });
-
-export const loginFormClose = (modalClose) => ({
-    type: actionType.MODAL_CLOSE,
-    modalClose
-  });
-
+  
 

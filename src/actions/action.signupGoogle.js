@@ -26,4 +26,7 @@ export const generateLoginPassword = () => ({
     type: actionType.GENERATE_PASSWORD,
 });
 
+export const closeModalPopup = () => ({
+  type: actionType.MODAL_CLOSE,
+});
 

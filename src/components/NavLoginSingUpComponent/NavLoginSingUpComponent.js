@@ -17,7 +17,7 @@ class NavLoginSingUpComponent extends React.Component {
             <li><Link to="/login">Login</Link></li>
             <li>
                 <SignUpComponentGoogle />
-            </li>     
+            </li>
             </React.Fragment>
         )
     }

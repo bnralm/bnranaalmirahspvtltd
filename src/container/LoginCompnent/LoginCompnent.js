@@ -1,10 +1,10 @@
 import React from 'react';
+import md5 from 'md5';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { closeModalPopup, loginUser } from './../../actions';
+
 import './styles/style.scss';
-
-// import {userSignup, getFormLogin, loginUser, loginFormOpen, loginFormClose} from './../../actions';
-
 
 class LoginCompnent extends React.Component {
     constructor(props){
@@ -17,14 +17,40 @@ class LoginCompnent extends React.Component {
             },
             loginError: undefined
         }
-
         this.loginHandler = this.loginHandler.bind(this);
+        this.onChangeInputHandler = this.onChangeInputHandler.bind(this);
     }
 
+    componentDidMount(){
+        if(this.props.closeModal === true){
+            this.props.dispatch(closeModalPopup());
+        }
+    }
+
+    onChangeInputHandler = (event) => {
+        event.preventDefault();
+
+        let loginInfo = this.state.loginInfo;
+        let name = event.target.name;
+        let value = event.target.value;
+
+        loginInfo[name] = value;
+
+        this.setState({loginInfo})
+        
+    }
     loginHandler(event){
         event.preventDefault();
 
-        console.log("working");
+        let {email : userEmail, password : userPassword} = this.state.loginInfo;
+
+        let obj = {
+            userEmail,
+            userPassword: md5(userPassword)
+        };
+        
+        this.props.dispatch()
+    
     }
 
     render(){
@@ -35,11 +61,24 @@ class LoginCompnent extends React.Component {
                         <h4 className="text-center">Login</h4>
                         <div className="contactus-form--text">
                             <span className="required-field purple-text darken-1">*Field is required</span>
-                            <input type="email" value={this.state.loginInfo.email} placeholder="Registered email" required  />
+                            <input
+                                type="email" 
+                                placeholder="Registered email"
+                                name="email"
+                                onChange={this.onChangeInputHandler}
+                                required  />
                         </div>
                         <div className="contactus-form--text">
-                            <span className="required-field purple-text darken-1">*Field is required</span>
-                            <input type="password" value={this.state.loginInfo.password} placeholder="password" required />
+                            <span 
+                                className="required-field purple-text darken-1">
+                                    *Field is required
+                            </span>
+                            <input 
+                                type="password"
+                                placeholder="password"
+                                onChange={this.onChangeInputHandler} 
+                                name="password"
+                                required  />
                         </div>
                         <div className="contactus-form--btn">
                             <button type="submit" className="button button--primary">SEND</button>
@@ -54,15 +93,15 @@ class LoginCompnent extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        registration: state.register,
         login: state.login,
-        formLogin: state.formLogin
+        closeModal: state.signupReducer.closeModal
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     let actions = bindActionCreators({
-        // getProduct: () => getProduct(),
+        closeModalPopup: () => closeModalPopup(),
+        loginUser: () => loginUser()
     })
     return {actions, dispatch };
 }

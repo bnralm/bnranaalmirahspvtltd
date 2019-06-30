@@ -4,6 +4,7 @@ import loginReducer from './reducer.login';
 import productReducer from './reducer.products';
 import rampupReducer from './reducer.rampup';
 import signupReducer from './reducer.signupgoogle';
+import checkUserEmail from './reducer.checkuser';
 
  
 const appReducer = combineReducers({ 
@@ -11,7 +12,8 @@ const appReducer = combineReducers({
     loginReducer, 
     productReducer, 
     rampupReducer,
-    signupReducer
+    signupReducer,
+    checkUserEmail
 }) 
  
 export default appReducer 
