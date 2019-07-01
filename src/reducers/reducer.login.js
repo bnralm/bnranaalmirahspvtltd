@@ -29,6 +29,12 @@ const loginReducer = (state = loginReducerDefaultState, action) => {
        
       case actionType.LOGOUT_USER:
         return {
+         ...state,
+         ...action.logout
+        };
+
+      case actionType.SIGNUP_WITH_GOOGLE:
+        return {
           ...state,
           state
         };

@@ -6,8 +6,8 @@ import {serviceAPI} from './../services/service.api';
 export function* postRegisterWalker({reqObj}) {
 
     try {
-       let register = yield call(serviceAPI.postRegister, reqObj)
-       yield put({type: actionType.SIGNUP_WITH_GOOGLE_SUCCESS, signupSuccess: register.data})
+       let register = yield call(serviceAPI.postRegister(reqObj) )
+       yield put({type: actionType.SIGNUP_WITH_GOOGLE_SUCCESS, registerSuccess: register.data})
 
      } catch (error) {
         yield put({type: actionType.SIGNUP_WITH_GOOGLE_FAILURE, signupFail: error})
@@ -16,12 +16,11 @@ export function* postRegisterWalker({reqObj}) {
 
   export function* postLoginWalker({loginInfo}) {
     try {
-        let loginInfoData = yield call(serviceAPI.postLogin, loginInfo)
-        yield put({type: actionType.LOGIN_USER_SUCCESS, success: loginInfoData})
+        let loginInfo = yield call(serviceAPI.postLogin(reqObj))
+        yield put({type: actionType.LOGIN_USER_SUCCESS, loginInfoSuccess: loginInfo.data})
      } catch (error) {
-        console.log("error", error);
-        yield put({type: actionType.LOGIN_USER_FAILURE, failure: error})
-     }      
+        yield put({type: actionType.LOGIN_USER_FAILURE, loginInfoFail: error})
+     }
   }
 
 export function* checkUserEmailWalker({profileObj}) {
