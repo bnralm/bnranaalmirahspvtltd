@@ -6,13 +6,13 @@ const {getMoboDevice} = require('./../../commonModule/commonModule');
 const NavUserComponent = (props) => {
     
     const signOut = () => {
-        props.dispatch(logoutUser({token:'', userFirstName:'', userLastName:'', userEmail:''}))
+        props.dispatch(logoutUser());
     }
 
     return (
         <span>
            {
-               ! getMoboDevice() ? (<li>{props.props.userLastName}</li>) : ''
+            ! getMoboDevice() ? (<li>{props.props.imageUrl}</li>) : ''
             }
             <li><a onClick={signOut}>Sign Out</a></li>
         </span>

@@ -7,6 +7,7 @@ export function* postRegisterWalker({reqObj}) {
 
     try {
        let register = yield call(serviceAPI.postRegister(reqObj) )
+       
        yield put({type: actionType.SIGNUP_WITH_GOOGLE_SUCCESS, registerSuccess: register.data})
 
      } catch (error) {
@@ -14,12 +15,12 @@ export function* postRegisterWalker({reqObj}) {
      }
   }
 
-  export function* postLoginWalker({loginInfo}) {
+  export function* postLoginWalker({reqObj}) {
     try {
-        let loginInfo = yield call(serviceAPI.postLogin(reqObj))
-        yield put({type: actionType.LOGIN_USER_SUCCESS, loginInfoSuccess: loginInfo.data})
+        let loginInfo = yield call(serviceAPI.postLogin, reqObj);
+        yield put({type: actionType.LOGIN_USER_SUCCESS, success: loginInfo.data})
      } catch (error) {
-        yield put({type: actionType.LOGIN_USER_FAILURE, loginInfoFail: error})
+        yield put({type: actionType.LOGIN_USER_FAILURE, failure: error})
      }
   }
 

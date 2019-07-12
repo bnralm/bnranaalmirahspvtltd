@@ -53,11 +53,9 @@ class LoginCompnent extends React.Component {
         this.props.dispatch(loginUser(reqObj))
     
     }
-    componentWillReceiveProps(prevProps){
-        let status = this.props.loginSuccess && this.props.loginSuccess.response && this.props.loginSuccess.response.status;
-        
-        if(status == 200){
-            this.props.history.push('/');
+    componentWillReceiveProps(nextProps){
+        if(nextProps.loginSuccess !== this.props.loginSuccess){
+            nextProps.loginSuccess !== null && this.props.history.push('/');
         }
     }
 
@@ -68,7 +66,7 @@ class LoginCompnent extends React.Component {
                     <form name="loginform" onSubmit={this.loginHandler}>
                         <h4 className="text-center">Login</h4>
                         
-                        {this.props.loginSuccess && this.props.loginSuccess.response.status === 403 && (
+                        {this.props.loginFailure &&  (
                             <p className="red-text">Email and password are incorrect ! Try again</p>
                         ) }
 
@@ -108,6 +106,7 @@ class LoginCompnent extends React.Component {
 const mapStateToProps = (state) => {
     return {
         loginSuccess: state.loginReducer.success,
+        loginFailure: state.loginReducer.failure,
         closeModal: state.signupReducer.closeModal
     }
 }

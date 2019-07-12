@@ -12,13 +12,14 @@ const loginReducer = (state = loginReducerDefaultState, action) => {
       case actionType.LOGIN_USER:
         return {
          ...state,
-         loginInfo: action.loginInfo
+         loginInfo: action.reqObj
         };
 
         case actionType.LOGIN_USER_SUCCESS:
           return {
           ...state,
-          success: action.success
+          success: action.success,
+          loginInfo: null
           };
 
         case actionType.LOGIN_USER_FAILURE:
@@ -30,7 +31,7 @@ const loginReducer = (state = loginReducerDefaultState, action) => {
       case actionType.LOGOUT_USER:
         return {
          ...state,
-         ...action.logout
+         success: null
         };
 
       case actionType.SIGNUP_WITH_GOOGLE:

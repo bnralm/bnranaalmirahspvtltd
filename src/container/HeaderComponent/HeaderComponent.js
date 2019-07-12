@@ -27,7 +27,7 @@ class HeaderComponent  extends React.Component {
 
     render () {
         const navData = this.state.navData;
-        const login = this.props.login;
+        const login = this.props.loginSuccess;
 
          this.props.dispatch(getProduct());
          this.props.dispatch(getProductsDetails());
@@ -40,7 +40,7 @@ class HeaderComponent  extends React.Component {
                 <Link id="logo-container" to="/" className="brand-logo">Logo</Link>
                 <ul className="right hide-on-med-and-down">
                     {navData.map((item, ind) =>  <li key={'key-ind'+ ind}><Link to={item.navAnchorLink} title={item.navAnchorTitle}>{item.navAnchorText}</Link></li> ) }
-                    {login && login.token ? (<NavUserComponent props={login} />) : (<NavLoginSingUpComponent />)}
+                    {login ? (<NavUserComponent props={login} />) : (<NavLoginSingUpComponent />)}
                     
                 </ul>
                 <ul id="slide-out" className="sidenav">
@@ -91,7 +91,8 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
     return {
-        login: state.login
+        loginSuccess: state.loginReducer.success,
+        loginFailure: state.loginReducer.failure,
         }
 }
    
