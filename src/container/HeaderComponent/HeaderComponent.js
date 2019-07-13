@@ -23,6 +23,17 @@ class HeaderComponent  extends React.Component {
         this.state = {
             navData : globalNav.navAnchorLists,
         }
+        
+        if(localStorage.getItem('loginInformation') && !this.props.loginSuccess){
+             let loginData = localStorage.getItem('loginInformation'),
+             data = JSON.parse(loginData)
+            this.props.dispatch(loginUserSuccess(data))
+         }
+
+         if(this.props.loginSuccess && ! localStorage.getItem('loginInformation')){
+            let json = JSON.stringify(this.props.loginSuccess)
+                localStorage.setItem("loginInformation", json);
+        }
     }
 
     render () {
@@ -33,16 +44,7 @@ class HeaderComponent  extends React.Component {
          this.props.dispatch(getProductsDetails());
          this.props.dispatch(getProductsDescription());
 
-         if(localStorage.getItem('loginInformation') && !this.props.loginSuccess){
-             let loginData = localStorage.getItem('loginInformation'),
-             data = JSON.parse(loginData)
-            this.props.dispatch(loginUserSuccess(data))
-         }
-
-         if(this.props.loginSuccess && ! localStorage.getItem('loginInformation')){
-            let json = JSON.stringify(this.props.loginSuccess)
-                localStorage.setItem("loginInformation", json);
-            }
+         
 
 
         return (

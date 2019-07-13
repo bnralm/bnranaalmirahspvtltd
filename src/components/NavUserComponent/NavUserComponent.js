@@ -17,7 +17,7 @@ class NavUserComponent extends React.Component {
 
     signOut(){
         this.props.dispatch(logoutUser());
-        localStorage.clear();
+        localStorage.removeItem('loginInformation');
     }
     onClickHandler(){
         this.setState( prevProps => {
@@ -33,7 +33,7 @@ class NavUserComponent extends React.Component {
                {
                 ! getMoboDevice() ? (<li className={this.state.showSubmenu === false ? null : 'active'}>
                         <a className="show-dropdown" onClick={
-                           () => this.onClickHandler.bind(this)
+                            this.onClickHandler
                         }>
                             <img src={this.props.props.imageUrl} className="avtar-image" />
                         </a>
