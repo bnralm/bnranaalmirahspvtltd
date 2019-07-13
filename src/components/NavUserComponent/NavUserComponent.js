@@ -2,27 +2,53 @@ import React from 'react';
 import {logoutUser} from '../../actions/action.login';
 import {connect} from 'react-redux';
 const {getMoboDevice} = require('./../../commonModule/commonModule');
+import './styles/style.scss';
 
-const NavUserComponent = (props) => {
-    
-    const signOut = () => {
-        props.dispatch(logoutUser());
+class NavUserComponent extends React.Component {
+    constructor(props){
+        super(props);
+
+        this.state = {
+            showSubmenu: false
+        }
+        this.signOut = this.signOut.bind(this);
+        this.onClickHandler = this.onClickHandler.bind(this);
     }
 
-    return (
-        <span>
-           {
-            ! getMoboDevice() ? (<li>{props.props.imageUrl}</li>) : ''
-            }
-            <li><a onClick={signOut}>Sign Out</a></li>
-        </span>
-        )
-}
+    signOut(){
+        this.props.dispatch(logoutUser());
+        localStorage.clear();
+    }
+    onClickHandler(){
+        this.setState( prevProps => {
+           return {
+                showSubmenu: !prevProps.showSubmenu
+           } 
+        })
+    }
 
-const mapStateToProps = (state) => {
-    return {
-        login: state.login
+    render(){
+        return (
+            <React.Fragment>
+               {
+                ! getMoboDevice() ? (<li className={this.state.showSubmenu === false ? null : 'active'}>
+                        <a className="show-dropdown" onClick={
+                           () => this.onClickHandler.bind(this)
+                        }>
+                            <img src={this.props.props.imageUrl} className="avtar-image" />
+                        </a>
+                        <div className="sub-menu">
+                            <ul>
+                                <li><a onClick={this.signOut}>Sign Out</a></li>
+                            </ul>
+                        </div>
+                    </li>) : ''
+                }
+            </React.Fragment>
+            )
     }
 }
+
+const mapStateToProps = state => ({})
 
 export default connect(mapStateToProps)(NavUserComponent);

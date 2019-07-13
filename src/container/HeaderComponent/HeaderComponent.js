@@ -1,7 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import {connect} from 'react-redux';
-import { getProduct, getProductsDetails, getProductsDescription } from  './../../actions';
+import { getProduct, getProductsDetails, getProductsDescription, loginUserSuccess } from  './../../actions';
 import {globalNav} from  './HeaderService/HeaderService';
 import {Link} from 'react-router-dom';
 import NavLoginSingUpComponent from './../../components/NavLoginSingUpComponent';
@@ -33,7 +33,20 @@ class HeaderComponent  extends React.Component {
          this.props.dispatch(getProductsDetails());
          this.props.dispatch(getProductsDescription());
 
+         if(localStorage.getItem('loginInformation') && !this.props.loginSuccess){
+             let loginData = localStorage.getItem('loginInformation'),
+             data = JSON.parse(loginData)
+            this.props.dispatch(loginUserSuccess(data))
+         }
+
+         if(this.props.loginSuccess && ! localStorage.getItem('loginInformation')){
+            let json = JSON.stringify(this.props.loginSuccess)
+                localStorage.setItem("loginInformation", json);
+            }
+
+
         return (
+            
             <React.Fragment>
             <nav className="indigo darken-4" role="navigation">
                 <div className="nav-wrapper container">
@@ -85,6 +98,7 @@ const mapDispatchToProps = (dispatch) => {
         getProduct: () => getProduct(),
         getProductsDetails: () => getProductsDetails(),
         getProductsDescription: () => getProductsDescription(),
+        loginUserSuccess: () => loginUserSuccess()
     })
     return {actions, dispatch };
 };
@@ -94,6 +108,6 @@ const mapStateToProps = (state) => {
         loginSuccess: state.loginReducer.success,
         loginFailure: state.loginReducer.failure,
         }
-}
+    }
    
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderComponent);    

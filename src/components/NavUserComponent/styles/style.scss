@@ -1,0 +1,33 @@
+img.avtar-image {
+    width: 37px;
+    height: 37px;
+    display: inline-block;
+    border-radius: 50%;
+    position: relative;
+    right: 0;
+    top: 13px;
+    cursor: pointer;
+    padding: 0;
+}
+:not(.active) {
+    .sub-menu {
+        display: none;
+    }
+}
+.active {
+    .sub-menu {
+        position: absolute;
+        top: 63px;
+        width: 100px;
+        background: white;
+        right: 0px;
+        z-index: 199;
+        display: block;
+        color: #333;
+             a {
+                color: #333;
+                display: inline-block;
+                line-height: 50px;
+             }
+    }
+}
