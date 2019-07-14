@@ -36,8 +36,7 @@ const signupReducer = (state = signupReducerDefaultState, action) => {
       case actionType.SIGNUP_WITH_GOOGLE_SUCCESS:
         return {
           ...state,
-          success: action.signupSuccess,
-
+          success: action.registerSuccess,
         };
       
       case actionType.SIGNUP_WITH_GOOGLE_FAILURE:

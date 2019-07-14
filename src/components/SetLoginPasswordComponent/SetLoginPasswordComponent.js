@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from 'react-modal';
 import { bindActionCreators } from 'redux';
 import {connect} from 'react-redux';
-import { signupWithGoogleRegister, generateLoginPassword, closeModalPopup, loginFormOpen } from './../../actions';
+import { signupWithGoogleRegister, generateLoginPassword, closeModalPopup, loginFormOpen, loginUserSuccess } from './../../actions';
 import {withRouter, Link } from 'react-router-dom';
 import md5 from 'md5';
 
@@ -101,7 +101,7 @@ class SetLoginPasswordComponent extends React.Component {
                 style={ customStyle }
                 ariaHideApp={false}
                 >
-                         <div className="close-signup" onClick={() => this.closeModal() }>&times;</div>
+                         <div className="close-signup" onClick={this.closeModal}>&times;</div>
                            { this.props.profileObj ? <div className="setPasswordForm">
                             <div className="text-center">
                                 <div className="avatar"><img src={imageUrl} alt="ranasteel avatar" /></div>    
@@ -110,9 +110,12 @@ class SetLoginPasswordComponent extends React.Component {
                                 { this.props.success ? (<div className="login-link">
                                     <p>Congratulation ! Your account has been created.</p>
                                     <div className="padding-top-20">
-                                        <Link to="/login">
-                                            Click to login
-                                        </Link>
+                                        <button className="button button--primary" onClick={ () => {
+                                            this.props.dispatch(loginUserSuccess(this.props.success))
+                                            this.closeModal()
+                                        } }>
+                                            Let's start
+                                        </button>
                                     </div>
                                 </div> )
                                 : (
@@ -141,7 +144,11 @@ class SetLoginPasswordComponent extends React.Component {
                                             <input type="password" required="required" name="reenterPassword" 
                                             onChange={  () => this.onChangeInputHandler(event) } placeholder="Re-enter Password" />
                                         </div>
-                                        {this.state.pwdError && <p>{this.state.pwdError}</p>}
+                                        {this.state.pwdError && <p 
+                                        className='red-text'
+                                        >
+                                            {this.state.pwdError}
+                                        </p>}
                                         {this.props.failure && <p>{this.props.failure}</p>}
                                         <button 
                                             className={`button button--primary` }
@@ -169,7 +176,8 @@ const mapDispatchToProps = (dispatch) => {
         signupWithGoogleRegister: () => signupWithGoogleRegister(),
         generateLoginPassword: () =>  generateLoginPassword(),
         closeModalPopup: () => closeModalPopup(),
-        loginFormOpen: () => loginFormOpen()
+        loginFormOpen: () => loginFormOpen(),
+        loginUserSuccess: () => loginUserSuccess()
     })
     return {actions, dispatch}
 }

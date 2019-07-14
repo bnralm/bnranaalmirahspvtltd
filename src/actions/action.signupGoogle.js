@@ -10,16 +10,16 @@ export const signupWithGoogleRegister = (reqObj) => ({
     reqObj
   });
 
-export const signupWithGoogleSuccess = (signupSuccess) => {
+export const signupWithGoogleSuccess = (registerSuccess) => {
   return {
     type: actionType.SIGNUP_WITH_GOOGLE_SUCCESS,
-    signupSuccess: register
+    registerSuccess
   }
 };
 
 export const signupWithGoogleFail = (signupFail) => ({
   type: actionType.SIGNUP_WITH_GOOGLE_FAILURE,
-  signupFail
+  failure: signupFail
 });
 
 export const generateLoginPassword = () => ({

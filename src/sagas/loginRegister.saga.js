@@ -6,7 +6,7 @@ import {serviceAPI} from './../services/service.api';
 export function* postRegisterWalker({reqObj}) {
 
     try {
-       let register = yield call(serviceAPI.postRegister(reqObj) )
+       let register = yield call(serviceAPI.postRegister, reqObj)
        
        yield put({type: actionType.SIGNUP_WITH_GOOGLE_SUCCESS, registerSuccess: register.data})
 
