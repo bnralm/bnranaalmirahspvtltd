@@ -40,12 +40,9 @@ class HeaderComponent  extends React.Component {
         const navData = this.state.navData;
         const login = this.props.loginSuccess;
 
-         this.props.dispatch(getProduct());
-         this.props.dispatch(getProductsDetails());
-         this.props.dispatch(getProductsDescription());
-
-         
-
+        !this.props.products && this.props.dispatch(getProduct());
+        !this.props.productDetail && this.props.dispatch(getProductsDetails());
+        !this.props.productsDecription && this.props.dispatch(getProductsDescription());
 
         return (
             
@@ -109,6 +106,9 @@ const mapStateToProps = (state) => {
     return {
         loginSuccess: state.loginReducer.success,
         loginFailure: state.loginReducer.failure,
+        productDetail: state.productReducer.productDetail,
+        products: state.productReducer.products,
+        productsDecription: state.productReducer.productsDecription
         }
     }
    
